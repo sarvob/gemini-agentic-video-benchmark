@@ -20,23 +20,15 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out public evidence
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
 
       - name: Use Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
 
-      - name: Install pinned dependencies
-        run: npm ci
-
-      - name: Verify deterministic dataset manifests
-        run: |
-          npm run build:huggingface
-          git diff --exit-code -- huggingface/data
-
-      - name: Verify committed benchmark evidence
-        run: npm run verify
+      - name: Run the clean-clone reproduction
+        run: ./scripts/verify-clean-clone.sh

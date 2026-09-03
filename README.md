@@ -24,11 +24,10 @@ This small exploratory sample does not establish statistical significance, a gen
 The verifier reads committed JSON only. It makes no network requests, uploads no media, needs no API key, and incurs no model charges.
 
 ```bash
-npm ci
-npm run verify
+./scripts/verify-clean-clone.sh
 ```
 
-A successful run scores all six frozen perfect candidates, recomputes the five-pair aggregate, and ends with:
+A successful run installs the pinned dependencies, checks that the dataset manifests reproduce without a diff, scores all six frozen perfect candidates, recomputes the five-pair aggregate, and ends with:
 
 ```text
 Public benchmark verification passed. No API calls were made.
