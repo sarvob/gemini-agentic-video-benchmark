@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-presentation-01",
+  "state": "generated",
+  "issueUrl": "https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1",
+  "generatedAt": "2026-09-03T10:42:26Z",
+  "generator": "tools/generate-gemini-video-presentation-01.py",
+  "localOutputPath": "tmp/gemini-benchmark/synthetic-presentation-01.mp4",
+  "durationSec": 600,
+  "sizeBytes": 1186556,
+  "sourceSha256": "748649e5b7ca64f3c44f5256b283d613469f9c643ef5a5c97d82647c90603e54",
+  "repeatHashChecks": 3,
+  "environment": {
+    "operatingSystem": "macOS 15.7.4",
+    "python": "3.14.6",
+    "pillow": "12.2.0",
+    "ffmpeg": "8.1.2",
+    "systemVoice": "Samantha"
+  },
+  "rights": "synthetic",
+  "licenseEvidence": "Generated locally from repository code using drawn slides, system-generated speech, and generated tones; no real person or third-party media.",
+  "review": {
+    "annotated": false,
+    "review1Passed": false,
+    "review2Passed": false,
+    "unaffiliatedReviewerPassed": false,
+    "frozen": false
+  },
+  "countsTowardHumanValidatedKpi": false,
+  "notes": [
+    "The generated MP4 is intentionally ignored and is not distributed in the repository.",
+    "A copy-only normalization mux makes the final MP4 hash stable across repeated local runs.",
+    "No model call, API credential, paid runner, or hosted service was used."
+  ]
+}

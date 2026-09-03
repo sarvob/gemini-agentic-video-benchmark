@@ -39,6 +39,7 @@ Public benchmark verification passed. No API calls were made.
 
 - `benchmark/ground-truth/` — frozen fixture annotations
 - `benchmark/annotation-review-guide-v0.1.md` — staged two-reviewer workflow for new synthetic fixtures
+- `benchmark/proposals/` — machine-readable state for cases that are not yet frozen or counted as validated
 - `benchmark/evidence-rules-*.json` — fixture-specific evidence checks
 - `benchmark/prompt-v0.4.md` and `benchmark/protocol-v0.4.md` — active frozen protocol
 - `benchmark/results/` — committed result artifacts and comparisons
