@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "0.4",
+  "fixtureId": "synthetic-presentation-01",
+  "annotationState": "draft-awaiting-two-reviews",
+  "annotatedAt": "2026-09-03T11:37:00Z",
+  "rules": [
+    { "questionId": "t1", "allConcepts": ["90", "120"] },
+    { "questionId": "t2", "allConcepts": ["35", "42", "q2"] },
+    { "questionId": "t3", "allConcepts": ["speed", "improved", "review", "did not"] },
+    { "questionId": "a1", "allConcepts": ["one", "tone"] },
+    { "questionId": "a2", "allConcepts": ["two", "tone"] },
+    { "questionId": "a3", "allConcepts": ["no", "narration"] },
+    { "questionId": "v1", "allConcepts": ["q2", "42"] },
+    { "questionId": "v2", "allConcepts": ["label", "corrected"] },
+    { "questionId": "v3", "allConcepts": ["summary"] },
+    { "questionId": "x1", "allConcepts": ["finding", "verified"] },
+    { "questionId": "x2", "allConcepts": ["method"] },
+    { "questionId": "x3", "allConcepts": ["no", "narration"] }
+  ]
+}

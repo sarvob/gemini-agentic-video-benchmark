@@ -30,6 +30,22 @@ for (const [fixtureId, candidateFile] of fixtures) {
   console.log(`PASS reference scorer: ${fixtureId}`);
 }
 
+const proposalScore = run('tools/score-gemini-video-benchmark.ts', [
+  resolve(root, 'proposals', 'synthetic-presentation-01-ground-truth.json'),
+  resolve(root, 'proposals', 'synthetic-presentation-01-perfect-candidate.json'),
+]);
+const proposalMetrics = JSON.parse(proposalScore).metrics;
+const proposalChecks = [
+  proposalMetrics.momentRetrieval.f1,
+  proposalMetrics.shortEventRecall,
+  proposalMetrics.multimodalEvidenceAccuracy.overall,
+  proposalMetrics.editDecision.macroF1ObservedClasses,
+];
+if (proposalChecks.some((value) => value !== 1) || !proposalMetrics.briefConstraints.allPass) {
+  throw new Error('synthetic-presentation-01 annotated proposal did not receive perfect deterministic scores.');
+}
+console.log('PASS annotated proposal scorer: synthetic-presentation-01 (not in frozen aggregate)');
+
 const pairedFixtures = ['synthetic-screen-01', 'synthetic-screen-02', 'synthetic-solo-01', 'synthetic-podcast-01', 'synthetic-podcast-02'];
 const aggregateArgs = pairedFixtures.flatMap((fixtureId) => [
   resolve(root, 'results', `${fixtureId}-agentic-v0.4.json`),

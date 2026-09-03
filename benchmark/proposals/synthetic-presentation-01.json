@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "fixtureId": "synthetic-presentation-01",
-  "state": "generated",
+  "state": "annotated",
   "issueUrl": "https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1",
   "generatedAt": "2026-09-03T10:42:26Z",
   "generator": "tools/generate-gemini-video-presentation-01.py",
@@ -20,16 +20,24 @@
   "rights": "synthetic",
   "licenseEvidence": "Generated locally from repository code using drawn slides, system-generated speech, and generated tones; no real person or third-party media.",
   "review": {
-    "annotated": false,
+    "annotated": true,
     "review1Passed": false,
     "review2Passed": false,
     "unaffiliatedReviewerPassed": false,
     "frozen": false
+  },
+  "annotation": {
+    "groundTruth": "benchmark/proposals/synthetic-presentation-01-ground-truth.json",
+    "evidenceRules": "benchmark/evidence-rules-synthetic-presentation-01.json",
+    "perfectCandidate": "benchmark/proposals/synthetic-presentation-01-perfect-candidate.json",
+    "deterministicScorerPass": true,
+    "includedInFrozenFixtureManifest": false
   },
   "countsTowardHumanValidatedKpi": false,
   "notes": [
     "The generated MP4 is intentionally ignored and is not distributed in the repository.",
     "A copy-only normalization mux makes the final MP4 hash stable across repeated local runs.",
     "No model call, API credential, paid runner, or hosted service was used."
+    ,"A perfect reference-candidate score checks annotation/scorer consistency only; it is not a human review."
   ]
 }

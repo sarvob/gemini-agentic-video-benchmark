@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-presentation-01",
+  "annotationState": "draft-awaiting-two-reviews",
+  "annotatedAt": "2026-09-03T11:37:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "748649e5b7ca64f3c44f5256b283d613469f9c643ef5a5c97d82647c90603e54",
+    "generator": "tools/generate-gemini-video-presentation-01.py",
+    "narrationEndSec": 99.907574
+  },
+  "brief": {
+    "objective": "Create a concise presentation edit retaining the question, comparison, method, corrected result, caveat, decision, and next step.",
+    "targetDurationSec": { "min": 90, "max": 120 },
+    "requiredOrder": [
+      "research-question",
+      "q2-result",
+      "baseline",
+      "method",
+      "result-chart",
+      "label-corrected",
+      "tradeoff",
+      "decision",
+      "finding-verified",
+      "summary",
+      "q-and-a"
+    ],
+    "mustKeepEventIds": [
+      "visual-q2-result",
+      "visual-label-corrected",
+      "crossmodal-finding-verified"
+    ],
+    "mustCutRanges": [
+      { "startSec": 402, "endSec": 510, "reason": "The long static appendix hold adds no new evidence." }
+    ]
+  },
+  "events": [
+    { "id": "visual-q2-result", "modality": "visual", "startSec": 52, "endSec": 54, "label": "Q2 RESULT and 42% appear for two seconds." },
+    { "id": "audio-correction-tone", "modality": "audio", "startSec": 176, "endSec": 176.3, "label": "One 740 Hz correction tone plays during METHOD." },
+    { "id": "visual-label-corrected", "modality": "visual", "startSec": 248, "endSec": 250, "label": "LABEL CORRECTED appears for two seconds." },
+    { "id": "crossmodal-finding-verified", "modality": "cross-modal", "startSec": 400, "endSec": 402, "label": "FINDING VERIFIED appears while two different tones play." }
+  ],
+  "goldMoments": [
+    { "id": "research-question", "startSec": 0, "endSec": 12, "reason": "States the editing question and preservation goal." },
+    { "id": "baseline", "startSec": 54, "endSec": 66, "reason": "Establishes the 35% comparison before interpretation." },
+    { "id": "method", "startSec": 120, "endSec": 136, "reason": "Keeps the sample definition and measurement window." },
+    { "id": "result-chart", "startSec": 178, "endSec": 192, "reason": "Shows the 42% observed result against the 35% baseline." },
+    { "id": "tradeoff", "startSec": 250, "endSec": 266, "reason": "Preserves the caveat that review time did not improve." },
+    { "id": "summary", "startSec": 510, "endSec": 524, "reason": "Restates the finding with its limitation." }
+  ],
+  "goldMomentsV02": [
+    { "id": "research-question", "startSec": 0, "endSec": 12, "reason": "States the editing question and preservation goal." },
+    { "id": "baseline", "startSec": 54, "endSec": 66, "reason": "Establishes the 35% comparison before interpretation." },
+    { "id": "method", "startSec": 120, "endSec": 136, "reason": "Keeps the sample definition and measurement window." },
+    { "id": "result-chart", "startSec": 178, "endSec": 192, "reason": "Shows the 42% observed result against the 35% baseline." },
+    { "id": "tradeoff", "startSec": 250, "endSec": 266, "reason": "Preserves the caveat that review time did not improve." },
+    { "id": "summary", "startSec": 510, "endSec": 524, "reason": "Restates the finding with its limitation." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 52, "decision": "compress", "keepStartSec": 0, "keepEndSec": 12 },
+    { "segmentId": "segment-02", "sourceStartSec": 52, "sourceEndSec": 54, "decision": "visual-support", "keepStartSec": 52, "keepEndSec": 54 },
+    { "segmentId": "segment-03", "sourceStartSec": 54, "sourceEndSec": 120, "decision": "compress", "keepStartSec": 54, "keepEndSec": 66 },
+    { "segmentId": "segment-04", "sourceStartSec": 120, "sourceEndSec": 178, "decision": "compress", "keepStartSec": 120, "keepEndSec": 136 },
+    { "segmentId": "segment-05", "sourceStartSec": 178, "sourceEndSec": 248, "decision": "compress", "keepStartSec": 178, "keepEndSec": 192 },
+    { "segmentId": "segment-06", "sourceStartSec": 248, "sourceEndSec": 250, "decision": "visual-support", "keepStartSec": 248, "keepEndSec": 250 },
+    { "segmentId": "segment-07", "sourceStartSec": 250, "sourceEndSec": 330, "decision": "compress", "keepStartSec": 250, "keepEndSec": 266 },
+    { "segmentId": "segment-08", "sourceStartSec": 330, "sourceEndSec": 400, "decision": "compress", "keepStartSec": 330, "keepEndSec": 344 },
+    { "segmentId": "segment-09", "sourceStartSec": 400, "sourceEndSec": 402, "decision": "visual-support", "keepStartSec": 400, "keepEndSec": 402 },
+    { "segmentId": "segment-10", "sourceStartSec": 402, "sourceEndSec": 510, "decision": "cut" },
+    { "segmentId": "segment-11", "sourceStartSec": 510, "sourceEndSec": 560, "decision": "compress", "keepStartSec": 510, "keepEndSec": 524 },
+    { "segmentId": "segment-12", "sourceStartSec": 560, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 560, "keepEndSec": 570 }
+  ],
+  "goldFirstCutDurationSec": 114,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What duration is requested for the first cut?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 30 },
+    { "id": "t2", "modality": "transcript", "question": "What baseline and observed result are stated?", "answer": "The baseline is 35% and the observed Q2 result is 42%.", "startSec": 20, "endSec": 55 },
+    { "id": "t3", "modality": "transcript", "question": "What caveat prevents an overall productivity claim?", "answer": "Completion speed improved, but review time did not.", "startSec": 58, "endSec": 90 },
+    { "id": "a1", "modality": "audio", "question": "How many tones play near 02:56?", "answer": "One tone.", "startSec": 176, "endSec": 176.3 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play between 06:40 and 06:42?", "answer": "Two tones.", "startSec": 400, "endSec": 402 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken narration present after 01:40, excluding tones?", "answer": "No; the synthesized narration has ended.", "startSec": 100, "endSec": 120 },
+    { "id": "v1", "modality": "visual", "question": "What result appears between 00:52 and 00:54?", "answer": "Q2 RESULT and 42%.", "startSec": 52, "endSec": 54 },
+    { "id": "v2", "modality": "visual", "question": "What correction card appears near 04:08?", "answer": "LABEL CORRECTED.", "startSec": 248, "endSec": 250 },
+    { "id": "v3", "modality": "visual", "question": "Which stage begins at 08:30?", "answer": "SUMMARY.", "startSec": 510, "endSec": 560 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies two different tones?", "answer": "FINDING VERIFIED.", "startSec": 400, "endSec": 402 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active during the single 740 Hz tone?", "answer": "METHOD.", "startSec": 176, "endSec": 176.3 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the LABEL CORRECTED card accompanied by spoken narration?", "answer": "No; the synthesized narration has ended.", "startSec": 248, "endSec": 250 }
+  ]
+}

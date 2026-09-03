@@ -1,0 +1,49 @@
+{
+  "summary": "A concise presentation edit preserving the question, comparison, method, corrected result, caveat, decision, and next step.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 30 },
+    { "question_id": "t2", "answer": "The baseline is 35% and the observed Q2 result is 42%.", "start_sec": 20, "end_sec": 55 },
+    { "question_id": "t3", "answer": "Completion speed improved, but review time did not.", "start_sec": 58, "end_sec": 90 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 176, "end_sec": 176.3 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 400, "end_sec": 402 },
+    { "question_id": "a3", "answer": "No synthesized narration remains.", "start_sec": 100, "end_sec": 120 },
+    { "question_id": "v1", "answer": "Q2 RESULT and 42%.", "start_sec": 52, "end_sec": 54 },
+    { "question_id": "v2", "answer": "LABEL CORRECTED.", "start_sec": 248, "end_sec": 250 },
+    { "question_id": "v3", "answer": "SUMMARY.", "start_sec": 510, "end_sec": 560 },
+    { "question_id": "x1", "answer": "FINDING VERIFIED.", "start_sec": 400, "end_sec": 402 },
+    { "question_id": "x2", "answer": "METHOD.", "start_sec": 176, "end_sec": 176.3 },
+    { "question_id": "x3", "answer": "No synthesized narration accompanies it.", "start_sec": 248, "end_sec": 250 }
+  ],
+  "moments": [
+    { "id": "research-question", "label": "Research question", "start_sec": 0, "end_sec": 12 },
+    { "id": "baseline", "label": "Baseline", "start_sec": 54, "end_sec": 66 },
+    { "id": "method", "label": "Method", "start_sec": 120, "end_sec": 136 },
+    { "id": "result-chart", "label": "Result chart", "start_sec": 178, "end_sec": 192 },
+    { "id": "tradeoff", "label": "Tradeoff", "start_sec": 250, "end_sec": 266 },
+    { "id": "summary", "label": "Summary", "start_sec": 510, "end_sec": 524 }
+  ],
+  "events": [
+    { "id": "visual-q2-result", "label": "Q2 result", "modality": "visual", "start_sec": 52, "end_sec": 54 },
+    { "id": "audio-correction-tone", "label": "Single correction tone", "modality": "audio", "start_sec": 176, "end_sec": 176.3 },
+    { "id": "visual-label-corrected", "label": "Label corrected", "modality": "visual", "start_sec": 248, "end_sec": 250 },
+    { "id": "crossmodal-finding-verified", "label": "Finding verified", "modality": "cross-modal", "start_sec": 400, "end_sec": 402 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 12 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 52, "keep_end_sec": 54 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 54, "keep_end_sec": 66 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 120, "keep_end_sec": 136 },
+    { "segment_id": "segment-05", "decision": "compress", "keep_start_sec": 178, "keep_end_sec": 192 },
+    { "segment_id": "segment-06", "decision": "visual-support", "keep_start_sec": 248, "keep_end_sec": 250 },
+    { "segment_id": "segment-07", "decision": "compress", "keep_start_sec": 250, "keep_end_sec": 266 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 330, "keep_end_sec": 344 },
+    { "segment_id": "segment-09", "decision": "visual-support", "keep_start_sec": 400, "keep_end_sec": 402 },
+    { "segment_id": "segment-10", "decision": "cut" },
+    { "segment_id": "segment-11", "decision": "compress", "keep_start_sec": 510, "keep_end_sec": 524 },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 560, "keep_end_sec": 570 }
+  ],
+  "constraints": {
+    "required_order": ["research-question", "q2-result", "baseline", "method", "result-chart", "label-corrected", "tradeoff", "decision", "finding-verified", "summary", "q-and-a"],
+    "must_keep_event_ids": ["visual-q2-result", "visual-label-corrected", "crossmodal-finding-verified"]
+  }
+}
