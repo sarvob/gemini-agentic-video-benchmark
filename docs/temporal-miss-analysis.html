@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Agentic Video Still Missed in Five Frozen Tests</title>
+  <meta name="description" content="A limitation-first PaperEdits analysis of short-event recall, broad-moment retrieval, timestamp error, and duration misses in five Gemini agentic-versus-static video pairs.">
+  <link rel="canonical" href="https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Agentic Video Still Missed in Five Frozen Tests">
+  <meta property="og:description" content="Agentic inspection found more brief events overall, but temporal retrieval and localization remained mixed in a small frozen benchmark.">
+  <meta property="og:url" content="https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Agentic Video Still Missed in Five Frozen Tests",
+    "description": "A limitation-first analysis of short-event recall, broad-moment retrieval, timestamp error, and duration misses in five Gemini agentic-versus-static video pairs.",
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03",
+    "mainEntityOfPage": "https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html",
+    "author": {"@type": "Organization", "name": "PaperEdits", "url": "https://paperedits.com/"},
+    "publisher": {"@type": "Organization", "name": "PaperEdits", "url": "https://paperedits.com/"},
+    "isPartOf": {"@type": "Dataset", "name": "PaperEdits Gemini Agentic Video Understanding Benchmark", "url": "https://sarvob.github.io/gemini-agentic-video-benchmark/"},
+    "citation": [
+      "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/final-results.json",
+      "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/results/five-pair-final-aggregate-v0.4.md",
+      "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/uncertainty-v0.4.md"
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme:dark; --bg:#061620; --panel:#0d2a3a; --ink:#ecfeff; --muted:#b8d7df; --cyan:#22d3ee; --gold:#fbbf24; --line:#295266; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(160deg,#061620 0%,#0a2130 60%,#071923 100%); color:var(--ink); font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(1040px,calc(100% - 36px)); margin:0 auto; padding:56px 0 72px; }
+    .eyebrow { color:var(--cyan); font-size:.8rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { margin:.45rem 0 1rem; max-width:900px; font-size:clamp(2.2rem,6vw,4.25rem); line-height:1.03; letter-spacing:-.04em; }
+    h2 { margin:2.2rem 0 .55rem; font-size:1.45rem; }
+    p, li, td { color:var(--muted); }
+    a { color:var(--cyan); text-underline-offset:3px; }
+    .lede { max-width:800px; font-size:1.15rem; }
+    .back { display:inline-block; margin-bottom:28px; }
+    .notice { margin:28px 0; border-left:4px solid var(--gold); background:#2c270f; padding:15px 18px; border-radius:8px; color:#fff8d6; }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:28px 0; }
+    .card { background:rgba(13,42,58,.86); border:1px solid var(--line); border-radius:14px; padding:18px; }
+    .metric { font-size:1.55rem; font-weight:800; }
+    .label { color:var(--muted); font-size:.9rem; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
+    table { width:100%; border-collapse:collapse; min-width:850px; background:rgba(13,42,58,.72); }
+    th, td { padding:11px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--ink); background:#0b3446; font-size:.88rem; }
+    tr:last-child td { border-bottom:0; }
+    code { color:#dffcff; background:#082431; padding:.15rem .35rem; border-radius:4px; }
+    footer { border-top:1px solid var(--line); margin-top:40px; padding-top:22px; color:var(--muted); }
+    @media (max-width:800px) { .grid { grid-template-columns:1fr 1fr; } main { padding-top:36px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./">← Benchmark reproducibility hub</a>
+    <div class="eyebrow">PaperEdits · temporal miss analysis · protocol v0.4</div>
+    <h1>What agentic video still missed in five frozen tests</h1>
+    <p class="lede">Gemini 3.7 Flash with agentic video processing recovered more two-second-or-shorter events overall than the same model in static mode. That advantage did not make temporal understanding uniformly better: one fixture defeated both modes, broad highlight retrieval remained sparse, and agentic boundary errors were larger in the aggregate.</p>
+
+    <div class="notice"><strong>Scope guard.</strong> These are five valid pairs of synthetic ten-minute videos. No metric has a two-sided exact sign-flip p-value below 0.05. This analysis does not establish general model superiority, production sports performance, or a Gemini-versus-PaperEdits comparison.</div>
+
+    <section class="grid" aria-label="Temporal findings">
+      <article class="card"><div class="metric">18 / 20</div><div class="label">brief events found by agentic</div></article>
+      <article class="card"><div class="metric">15 / 20</div><div class="label">brief events found by static</div></article>
+      <article class="card"><div class="metric">0.2667</div><div class="label">agentic broad-moment F1</div></article>
+      <article class="card"><div class="metric">4.0 s</div><div class="label">agentic mean fixture p90 boundary error</div></article>
+    </section>
+
+    <h2>The fixture-level pattern</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fixture</th><th>Brief events, A / S</th><th>Broad moments, A / S</th><th>Boundary median / p90, A</th><th>Boundary median / p90, S</th><th>Readout</th></tr></thead>
+        <tbody>
+          <tr><td>screen-01</td><td>4/4 · 3/4</td><td>1/6 · 1/6</td><td>2 s / 5 s</td><td>5 s / 5 s</td><td>Agentic gained one brief event; broad retrieval stayed equally sparse.</td></tr>
+          <tr><td>screen-02</td><td>4/4 · 3/4</td><td>1/6 · 2/6</td><td>0 s / 4 s</td><td>0 s / 2 s</td><td>Agentic gained one brief event but lost one broad-moment match.</td></tr>
+          <tr><td>solo-01</td><td>4/4 · 4/4</td><td>1/6 · 1/6</td><td>0 s / 2 s</td><td>0 s / 2 s</td><td>No temporal advantage appeared on this fixture.</td></tr>
+          <tr><td>podcast-01</td><td>2/4 · 2/4</td><td>3/6 · 4/6</td><td>3 s / 4 s</td><td>0 s / 3 s</td><td>Both modes missed half the brief events; static localized more tightly.</td></tr>
+          <tr><td>podcast-02</td><td>4/4 · 3/4</td><td>2/6 · 1/6</td><td>1 s / 5 s</td><td>0 s / 2 s</td><td>Agentic gained brief and broad matches, but both edits exceeded the 120-second brief limit.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Three different kinds of temporal failure</h2>
+    <ul>
+      <li><strong>Event omission:</strong> agentic missed two of four brief events on podcast-01. Static missed the same count there and one event on each of three other fixtures.</li>
+      <li><strong>Broad-moment under-retrieval:</strong> agentic macro moment F1 was 0.2667 versus 0.3000 for static. Agentic led on one fixture, static led on two, and two tied.</li>
+      <li><strong>Boundary and duration error:</strong> agentic's average fixture median and p90 errors were 1.2 and 4.0 seconds versus 1.0 and 2.8 seconds for static. On podcast-02, both modes violated the 120-second output limit.</li>
+    </ul>
+
+    <h2>What the public evidence cannot tell us</h2>
+    <p>The committed score records expose counts and aggregate localization errors, but not a public event-by-event match ledger for every run. They therefore support statements such as “two of four brief events were found,” but not a defensible claim about which named event was missed. The evidence also does not isolate whether a miss came from navigation, perception, prompting, schema choices, or selection logic.</p>
+
+    <h2>How to use this result</h2>
+    <p>For production evaluations, separate brief-event recall, broad-moment retrieval, boundary accuracy, and final edit-duration compliance. Freeze tolerance windows and event-level ground truth before running. Publish the matched ledger when privacy and rights permit, and treat an agentic gain on one temporal layer as a hypothesis—not proof that the whole workflow improved.</p>
+
+    <h2>Reproduce the aggregate for $0</h2>
+    <p>Run <code>./scripts/verify-clean-clone.sh</code> from a clean checkout. Review the <a href="https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/final-results.json">canonical aggregate</a>, <a href="https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/results/five-pair-final-aggregate-v0.4.md">five-pair report</a>, <a href="https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/uncertainty-v0.4.md">paired uncertainty analysis</a>, and <a href="https://github.com/sarvob/gemini-agentic-video-benchmark/tree/main/benchmark/ground-truth">frozen ground truth</a>. No model or paid API call is required.</p>
+
+    <footer>PaperEdits maintains this benchmark and conducted the evaluation independently. It is not sponsored or endorsed by Google. Direct cash cost to publish and verify this analysis: $0.</footer>
+  </main>
+</body>
+</html>

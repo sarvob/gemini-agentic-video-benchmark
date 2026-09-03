@@ -18,6 +18,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Read the canonical machine-readable aggregate](benchmark/final-results.json)
 - [Inspect the deterministic paired uncertainty analysis](benchmark/uncertainty-v0.4.md)
 - [Read the output-contract failure analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/output-contract-failure.html)
+- [Read the temporal miss analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html)
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)

@@ -149,6 +149,31 @@ if (!sitemap.includes('output-contract-failure.html')) {
   throw new Error('Sitemap is missing the output-contract failure page.');
 }
 console.log('PASS public output-contract failure analysis');
+
+const temporalHtml = readFileSync(resolve('docs', 'temporal-miss-analysis.html'), 'utf8');
+const temporalStructuredDataMatch = temporalHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+if (!temporalStructuredDataMatch) throw new Error('Temporal miss page is missing Article JSON-LD.');
+const temporalArticle = JSON.parse(temporalStructuredDataMatch[1]);
+if (
+  temporalArticle['@type'] !== 'Article' ||
+  temporalArticle.author?.['@type'] !== 'Organization' ||
+  temporalArticle.author?.name !== 'PaperEdits'
+) {
+  throw new Error('Temporal miss page has invalid article or organization authorship metadata.');
+}
+for (const requiredText of [
+  '18 / 20',
+  'Both modes missed half the brief events',
+  'not a public event-by-event match ledger',
+  'No metric has a two-sided exact sign-flip p-value below 0.05',
+  'not sponsored or endorsed by Google',
+]) {
+  if (!temporalHtml.includes(requiredText)) throw new Error(`Temporal miss page is missing: ${requiredText}`);
+}
+if (!sitemap.includes('temporal-miss-analysis.html')) {
+  throw new Error('Sitemap is missing the temporal miss analysis page.');
+}
+console.log('PASS public temporal miss analysis');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {
