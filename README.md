@@ -14,6 +14,8 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
+- [Contribute a reproduction or audit](CONTRIBUTING.md)
+- [Review the release history](CHANGELOG.md)
 
 ## Verify the committed evidence for $0
 
