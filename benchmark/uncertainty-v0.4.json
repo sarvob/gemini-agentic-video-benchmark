@@ -1,0 +1,137 @@
+{
+  "protocolVersion": "0.4",
+  "analysisStatus": "exploratory",
+  "pairedFixtureCount": 5,
+  "fixtureOrder": [
+    "synthetic-screen-01",
+    "synthetic-screen-02",
+    "synthetic-solo-01",
+    "synthetic-podcast-01",
+    "synthetic-podcast-02"
+  ],
+  "bootstrapResamplesPerMetric": 3125,
+  "signFlipAssignmentsPerMetric": 32,
+  "interpretation": "Intervals and p-values quantify instability in this five-pair synthetic sample; they do not establish general model superiority or practical significance.",
+  "analyses": {
+    "momentF1": {
+      "favorableDirection": "higher",
+      "observedMeanDifference": -0.03333333333333332,
+      "directionCounts": { "positive": 1, "zero": 2, "negative": 2 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [-0.1333333333333333, 0.06666666666666668]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 1
+      }
+    },
+    "shortEventRecall": {
+      "favorableDirection": "higher",
+      "observedMeanDifference": 0.15,
+      "directionCounts": { "positive": 3, "zero": 2, "negative": 0 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [0.05, 0.25]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.25
+      }
+    },
+    "evidenceAccuracy": {
+      "favorableDirection": "higher",
+      "observedMeanDifference": -0.06666666666666665,
+      "directionCounts": { "positive": 0, "zero": 1, "negative": 4 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [-0.08333333333333334, -0.033333333333333326]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.125
+      }
+    },
+    "editDecisionMacroF1": {
+      "favorableDirection": "higher",
+      "observedMeanDifference": 0.1325925925925926,
+      "directionCounts": { "positive": 3, "zero": 0, "negative": 2 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [-0.057777777777777775, 0.32296296296296295]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.3125
+      }
+    },
+    "boundaryMedianSec": {
+      "favorableDirection": "lower",
+      "observedMeanDifference": 0.2,
+      "directionCounts": { "positive": 2, "zero": 2, "negative": 1 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [-1.6, 1.8]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 1
+      }
+    },
+    "boundaryP90Sec": {
+      "favorableDirection": "lower",
+      "observedMeanDifference": 1.2,
+      "directionCounts": { "positive": 3, "zero": 2, "negative": 0 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [0.2, 2.2]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.25
+      }
+    },
+    "latencyMs": {
+      "favorableDirection": "lower",
+      "observedMeanDifference": 21851.2,
+      "directionCounts": { "positive": 5, "zero": 0, "negative": 0 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [14715.4, 28740.8]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.0625
+      }
+    },
+    "paidEquivalentUsd": {
+      "favorableDirection": "lower",
+      "observedMeanDifference": 0.015221000000000002,
+      "directionCounts": { "positive": 5, "zero": 0, "negative": 0 },
+      "bootstrap": {
+        "method": "exact enumeration of all ordered n-out-of-n paired resamples with replacement",
+        "resampleCount": 3125,
+        "percentileInterval95": [0.0076642, 0.0225826]
+      },
+      "signFlipTest": {
+        "method": "exact two-sided paired sign-flip test of the mean difference",
+        "assignmentCount": 32,
+        "pValue": 0.0625
+      }
+    }
+  }
+}

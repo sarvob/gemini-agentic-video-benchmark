@@ -87,12 +87,13 @@ No score is imputed for these missing measurements. This package must not be pre
 - Deterministic scorers: `../tools/score-gemini-video-benchmark.ts`, `../tools/compare-gemini-video-results.ts`, and `../tools/aggregate-gemini-video-results.ts`
 - Valid result artifacts and pair reports: `results/`
 - Final automated aggregate: `results/five-pair-final-aggregate-v0.4.md`
+- Paired uncertainty diagnostics: `uncertainty-v0.4.md` and `uncertainty-v0.4.json`
 - Append-only cost accounting: `spend-ledger.jsonl`
 - Invalid solo-02 record: `results/synthetic-solo-02-agentic-v0.4.json`
 
 ## Publication guard
 
-This package is useful as an exploratory lab note, not as the canonical benchmark described in the parent protocol. Do not publish a winner headline, statistical claim, Gemini-versus-PaperEdits claim, or “professional editor” replacement claim. A canonical report still requires at least twelve completed videos, the PaperEdits arm, rendered outputs, blinded human review, and cut-seam QA.
+This package is useful as an exploratory lab note, not as the canonical benchmark described in the parent protocol. The exhaustive paired diagnostics do not produce a two-sided sign-flip p-value below 0.05 for any metric and do not relax the publication guard. Do not publish a winner headline, statistical claim, Gemini-versus-PaperEdits claim, or “professional editor” replacement claim. A canonical report still requires at least twelve completed videos, the PaperEdits arm, rendered outputs, blinded human review, and cut-seam QA.
 
 ## Cleared progress reply for X
 

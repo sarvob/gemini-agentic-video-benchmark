@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "analyze:uncertainty": "tsx tools/analyze-gemini-video-uncertainty.ts",
     "build:huggingface": "tsx tools/build-huggingface-manifests.ts",
     "score": "tsx tools/score-gemini-video-benchmark.ts",
     "verify": "tsx tools/verify-public-gemini-benchmark.ts"

@@ -53,3 +53,5 @@ The efficiency tradeoff was consistent in the final paired aggregate. Agentic us
 - These results compare Gemini 3.7 Flash agentic processing with the same model in static mode, not Gemini with PaperEdits.
 
 The aggregate is reproducible from the ten committed valid v0.4 result JSON files with `tools/aggregate-gemini-video-results.ts`. Solo-02 attrition is recorded in `synthetic-solo-02-agentic-v0.4.json`.
+
+Paired bootstrap intervals and exact sign-flip diagnostics are reported in `../uncertainty-v0.4.md`. They quantify the instability of this five-pair sample and do not support a significance or winner claim.

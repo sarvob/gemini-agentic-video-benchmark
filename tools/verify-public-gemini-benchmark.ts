@@ -91,6 +91,16 @@ for (const key of Object.keys(expected) as Array<keyof typeof expected>) {
 
 console.log('PASS final five-pair aggregate and canonical JSON');
 
+const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
+const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
+if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
+  throw new Error('benchmark/uncertainty-v0.4.json does not match the deterministic paired analysis.');
+}
+if (Object.values(uncertainty.analyses).some((analysis: any) => analysis.signFlipTest.pValue < 0.05)) {
+  throw new Error('Publication guard failed: an uncertainty result requires manual claim review.');
+}
+console.log('PASS deterministic paired uncertainty analysis');
+
 const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
 const structuredDataMatch = hubHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
 if (!structuredDataMatch) {
