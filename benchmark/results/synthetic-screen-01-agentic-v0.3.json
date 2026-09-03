@@ -1,0 +1,34 @@
+{
+  "status": "invalid-schema",
+  "fixtureId": "synthetic-screen-01",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.3",
+  "providerStatus": "completed",
+  "agenticVerified": true,
+  "latencyMs": 56647,
+  "candidateSha256": "4e9596d895cee0e19d1df1d1cf884dd62e4095360f064dde2e002446bb4c6a27",
+  "usage": {
+    "inputTokens": 2338,
+    "outputTokens": 2192,
+    "thoughtTokens": 4793,
+    "toolUseTokens": 56471,
+    "paidEquivalentUsd": 0.057661
+  },
+  "validation": {
+    "valid": false,
+    "errors": [
+      "constraints.target_duration_sec must equal the sum of kept ranges."
+    ],
+    "declaredTargetDurationSec": 107,
+    "computedSelectedDurationSec": 117,
+    "differenceSec": -10
+  },
+  "qualityMetrics": null,
+  "decision": "Count this as the single invalid v0.3 agentic attempt. Do not repair or rerun it under v0.3. Do not run the matching static arm because the smoke gate requires a valid agentic result first.",
+  "limitations": [
+    "The provider completed the interaction and agentic processing was verified, but the candidate violated a frozen arithmetic invariant.",
+    "No retrieval, event, evidence, decision, or brief metric is reported for an invalid candidate.",
+    "The normalized candidate remains in ignored local benchmark storage; this committed artifact records its SHA-256, validation failure, usage, and derived duration values."
+  ]
+}

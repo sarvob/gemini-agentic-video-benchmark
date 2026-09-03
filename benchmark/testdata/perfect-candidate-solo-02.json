@@ -1,0 +1,49 @@
+{
+  "summary": "A concise creator lesson retaining the specific hook, source demo, retake, evidence check, and export.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 25 },
+    { "question_id": "t2", "answer": "A specific result.", "start_sec": 10, "end_sec": 45 },
+    { "question_id": "t3", "answer": "Transcript, visual, and audio evidence.", "start_sec": 55, "end_sec": 100 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 209, "end_sec": 209.3 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 380, "end_sec": 382 },
+    { "question_id": "a3", "answer": "No narration remains after the endpoint.", "start_sec": 105, "end_sec": 125 },
+    { "question_id": "v1", "answer": "CURSOR HIGHLIGHT.", "start_sec": 48, "end_sec": 50 },
+    { "question_id": "v2", "answer": "NOTIFICATION POP.", "start_sec": 170, "end_sec": 171 },
+    { "question_id": "v3", "answer": "EDITABLE EXPORT.", "start_sec": 548, "end_sec": 600 },
+    { "question_id": "x1", "answer": "PUBLISH READY.", "start_sec": 380, "end_sec": 382 },
+    { "question_id": "x2", "answer": "HOOK RETAKE.", "start_sec": 209, "end_sec": 209.3 },
+    { "question_id": "x3", "answer": "No narration accompanies the notification pop.", "start_sec": 170, "end_sec": 171 }
+  ],
+  "moments": [
+    { "id": "edit-goal", "label": "Edit goal", "start_sec": 0, "end_sec": 13 },
+    { "id": "specific-hook", "label": "Specific hook", "start_sec": 50, "end_sec": 63 },
+    { "id": "source-demo", "label": "Source demo", "start_sec": 112, "end_sec": 127 },
+    { "id": "clean-retake", "label": "Clean retake", "start_sec": 171, "end_sec": 186 },
+    { "id": "diagram-reveal", "label": "Diagram reveal", "start_sec": 240, "end_sec": 255 },
+    { "id": "evidence-check", "label": "Evidence check", "start_sec": 315, "end_sec": 329 }
+  ],
+  "events": [
+    { "id": "visual-cursor-highlight", "label": "Cursor highlight", "modality": "visual", "start_sec": 48, "end_sec": 50 },
+    { "id": "visual-notification-pop", "label": "Notification pop", "modality": "visual", "start_sec": 170, "end_sec": 171 },
+    { "id": "audio-review-tone", "label": "Single review tone", "modality": "audio", "start_sec": 209, "end_sec": 209.3 },
+    { "id": "crossmodal-publish-ready", "label": "Publish ready", "modality": "cross-modal", "start_sec": 380, "end_sec": 382 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 13 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 48, "keep_end_sec": 50 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 50, "keep_end_sec": 63 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 112, "keep_end_sec": 127 },
+    { "segment_id": "segment-05", "decision": "visual-support", "keep_start_sec": 170, "keep_end_sec": 171 },
+    { "segment_id": "segment-06", "decision": "compress", "keep_start_sec": 171, "keep_end_sec": 186 },
+    { "segment_id": "segment-07", "decision": "compress", "keep_start_sec": 240, "keep_end_sec": 255 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 315, "keep_end_sec": 329 },
+    { "segment_id": "segment-09", "decision": "visual-support", "keep_start_sec": 380, "keep_end_sec": 382 },
+    { "segment_id": "segment-10", "decision": "cut" },
+    { "segment_id": "segment-11", "decision": "compress", "keep_start_sec": 490, "keep_end_sec": 504 },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 548, "keep_end_sec": 560 }
+  ],
+  "constraints": {
+    "required_order": ["edit-brief", "hook-take-one", "source-demo", "hook-retake", "diagram-reveal", "evidence-check", "publish-ready", "final-lesson", "editable-export"],
+    "must_keep_event_ids": ["visual-cursor-highlight", "visual-notification-pop", "crossmodal-publish-ready"]
+  }
+}

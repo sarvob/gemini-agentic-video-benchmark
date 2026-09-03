@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-podcast-01",
+  "frozenAt": "2026-09-02T11:50:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "df50552b2122585d326b8347a8977a0994d7110a4df241094bc39996d25f6c07",
+    "generator": "tools/generate-gemini-video-podcast-01.py",
+    "narrationEndSec": 166.818549
+  },
+  "brief": {
+    "objective": "Create a concise two-host podcast edit retaining the setup, core insight, worked example, sync confirmation, and takeaway.",
+    "targetDurationSec": { "min": 90, "max": 120 },
+    "requiredOrder": [
+      "cold-open",
+      "setup",
+      "false-start",
+      "core-insight",
+      "worked-example",
+      "host-summary",
+      "sync-confirmed",
+      "takeaway",
+      "outro"
+    ],
+    "mustKeepEventIds": [
+      "visual-reaction-cut",
+      "visual-camera-glitch",
+      "crossmodal-sync-confirmed"
+    ],
+    "mustCutRanges": [
+      { "startSec": 377, "endSec": 475, "reason": "Long dead-air hold adds no useful dialogue or visual information." }
+    ]
+  },
+  "events": [
+    { "id": "visual-reaction-cut", "modality": "visual", "startSec": 50, "endSec": 52, "label": "A REACTION CUT card appears for two seconds." },
+    { "id": "visual-camera-glitch", "modality": "visual", "startSec": 235, "endSec": 236, "label": "A CAMERA GLITCH defect marker appears for one second." },
+    { "id": "audio-pre-sync-tone", "modality": "audio", "startSec": 374, "endSec": 374.3, "label": "One 660 Hz tone plays just before the sync confirmation." },
+    { "id": "crossmodal-sync-confirmed", "modality": "cross-modal", "startSec": 375, "endSec": 375.25, "label": "SYNC CONFIRMED is visible while one 990 Hz tone plays." }
+  ],
+  "goldMoments": [
+    { "id": "editing-goal", "startSec": 0, "endSec": 14, "reason": "States the podcast editing goal and target duration." },
+    { "id": "clear-restart", "startSec": 115, "endSec": 130, "reason": "Separates the repeated opening from the clear answer." },
+    { "id": "core-insight", "startSec": 175, "endSec": 191, "reason": "States that editing must preserve media quality, not only meaning." },
+    { "id": "worked-example", "startSec": 236, "endSec": 251, "reason": "Preserves the useful question, answer, and reaction order." },
+    { "id": "host-summary", "startSec": 310, "endSec": 322, "reason": "Keeps the causal link while removing the recap." },
+    { "id": "takeaway", "startSec": 475, "endSec": 489, "reason": "Returns to the decision and measurable result." }
+  ],
+  "goldMomentsV02": [
+    { "id": "editing-goal", "startSec": 0, "endSec": 14, "reason": "States the podcast editing goal and target duration." },
+    { "id": "clear-restart", "startSec": 115, "endSec": 130, "reason": "Separates the repeated opening from the clear answer." },
+    { "id": "core-insight", "startSec": 175, "endSec": 191, "reason": "States that editing must preserve media quality, not only meaning." },
+    { "id": "worked-example", "startSec": 236, "endSec": 251, "reason": "Preserves the useful question, answer, and reaction order." },
+    { "id": "host-summary", "startSec": 310, "endSec": 322, "reason": "Keeps the causal link while removing the recap." },
+    { "id": "takeaway", "startSec": 475, "endSec": 489, "reason": "Returns to the decision and measurable result." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 50, "decision": "compress", "keepStartSec": 0, "keepEndSec": 12 },
+    { "segmentId": "segment-02", "sourceStartSec": 50, "sourceEndSec": 52, "decision": "visual-support", "keepStartSec": 50, "keepEndSec": 52 },
+    { "segmentId": "segment-03", "sourceStartSec": 52, "sourceEndSec": 115, "decision": "compress", "keepStartSec": 52, "keepEndSec": 64 },
+    { "segmentId": "segment-04", "sourceStartSec": 115, "sourceEndSec": 175, "decision": "compress", "keepStartSec": 115, "keepEndSec": 130 },
+    { "segmentId": "segment-05", "sourceStartSec": 175, "sourceEndSec": 235, "decision": "compress", "keepStartSec": 175, "keepEndSec": 191 },
+    { "segmentId": "segment-06", "sourceStartSec": 235, "sourceEndSec": 236, "decision": "visual-support", "keepStartSec": 235, "keepEndSec": 236 },
+    { "segmentId": "segment-07", "sourceStartSec": 236, "sourceEndSec": 310, "decision": "compress", "keepStartSec": 236, "keepEndSec": 251 },
+    { "segmentId": "segment-08", "sourceStartSec": 310, "sourceEndSec": 375, "decision": "compress", "keepStartSec": 310, "keepEndSec": 322 },
+    { "segmentId": "segment-09", "sourceStartSec": 375, "sourceEndSec": 377, "decision": "visual-support", "keepStartSec": 375, "keepEndSec": 377 },
+    { "segmentId": "segment-10", "sourceStartSec": 377, "sourceEndSec": 475, "decision": "cut" },
+    { "segmentId": "segment-11", "sourceStartSec": 475, "sourceEndSec": 540, "decision": "compress", "keepStartSec": 475, "keepEndSec": 489 },
+    { "segmentId": "segment-12", "sourceStartSec": 540, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 540, "keepEndSec": 552 }
+  ],
+  "goldFirstCutDurationSec": 113,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What duration is requested for the podcast edit?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 25 },
+    { "id": "t2", "modality": "transcript", "question": "What should be removed along with repetition and dead air?", "answer": "The visual glitch.", "startSec": 0, "endSec": 35 },
+    { "id": "t3", "modality": "transcript", "question": "Which evidence types decide whether a take is usable?", "answer": "Visual and audio evidence.", "startSec": 112, "endSec": 145 },
+    { "id": "a1", "modality": "audio", "question": "How many tones play just before 06:15?", "answer": "One tone.", "startSec": 374, "endSec": 374.3 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play at 06:15?", "answer": "One tone.", "startSec": 375, "endSec": 375.25 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken dialogue present after 02:47, excluding tones?", "answer": "No; the synthesized dialogue has ended.", "startSec": 167, "endSec": 190 },
+    { "id": "v1", "modality": "visual", "question": "What two-second card appears near 00:50?", "answer": "REACTION CUT.", "startSec": 50, "endSec": 52 },
+    { "id": "v2", "modality": "visual", "question": "What one-second defect marker appears near 03:55?", "answer": "CAMERA GLITCH.", "startSec": 235, "endSec": 236 },
+    { "id": "v3", "modality": "visual", "question": "Which stage begins at 07:55?", "answer": "TAKEAWAY.", "startSec": 475, "endSec": 540 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies the 990 Hz tone?", "answer": "SYNC CONFIRMED.", "startSec": 375, "endSec": 375.25 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active during the 660 Hz tone?", "answer": "HOST SUMMARY.", "startSec": 374, "endSec": 374.3 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the CAMERA GLITCH marker accompanied by spoken dialogue?", "answer": "No; the synthesized dialogue has ended.", "startSec": 235, "endSec": 236 }
+  ]
+}

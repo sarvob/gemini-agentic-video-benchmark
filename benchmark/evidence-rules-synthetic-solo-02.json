@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "0.4",
+  "fixtureId": "synthetic-solo-02",
+  "frozenAt": "2026-09-02T12:56:00Z",
+  "rules": [
+    { "questionId": "t1", "allConcepts": ["90", "120"] },
+    { "questionId": "t2", "allConcepts": ["specific", "result"] },
+    { "questionId": "t3", "allConcepts": ["transcript", "visual", "audio"] },
+    { "questionId": "a1", "allConcepts": ["one", "tone"] },
+    { "questionId": "a2", "allConcepts": ["two", "tone"] },
+    { "questionId": "a3", "allConcepts": ["no", "narration"] },
+    { "questionId": "v1", "allConcepts": ["cursor", "highlight"] },
+    { "questionId": "v2", "allConcepts": ["notification", "pop"] },
+    { "questionId": "v3", "allConcepts": ["editable", "export"] },
+    { "questionId": "x1", "allConcepts": ["publish", "ready"] },
+    { "questionId": "x2", "allConcepts": ["hook", "retake"] },
+    { "questionId": "x3", "allConcepts": ["no", "narration"] }
+  ]
+}

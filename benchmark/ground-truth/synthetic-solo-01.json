@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-solo-01",
+  "frozenAt": "2026-09-02T10:44:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "9fb125805d498979ca56347bf860607358540020a423f5714f59334dd1a39ee7",
+    "generator": "tools/generate-gemini-video-solo-01.py",
+    "narrationEndSec": 107.732698
+  },
+  "brief": {
+    "objective": "Create a concise solo tutorial retaining the clear claim, retake, recovery context, and final export.",
+    "targetDurationSec": { "min": 90, "max": 120 },
+    "requiredOrder": [
+      "intro-brief",
+      "claim-take-one",
+      "transcript-review",
+      "hook-retake",
+      "worked-example",
+      "recover-take",
+      "caption-safe-zone",
+      "audio-verified",
+      "outro-export"
+    ],
+    "mustKeepEventIds": [
+      "visual-title-flash",
+      "visual-frame-drop",
+      "crossmodal-audio-verified"
+    ],
+    "mustCutRanges": [
+      { "startSec": 432, "endSec": 520, "reason": "Long silent hold adds no new information." }
+    ]
+  },
+  "events": [
+    { "id": "visual-title-flash", "modality": "visual", "startSec": 55, "endSec": 56, "label": "A TITLE FLASH confirmation appears for one second." },
+    { "id": "audio-review-tone", "modality": "audio", "startSec": 151, "endSec": 151.35, "label": "One 740 Hz tone plays during transcript review." },
+    { "id": "visual-frame-drop", "modality": "visual", "startSec": 300, "endSec": 301, "label": "A FRAME DROP defect marker appears for one second." },
+    { "id": "crossmodal-audio-verified", "modality": "cross-modal", "startSec": 430, "endSec": 432, "label": "AUDIO VERIFIED appears while a 740 Hz tone and then an 1110 Hz tone play." }
+  ],
+  "goldMoments": [
+    { "id": "target-duration", "startSec": 0, "endSec": 14, "reason": "States the tutorial objective and duration constraint." },
+    { "id": "clear-claim", "startSec": 56, "endSec": 68, "reason": "Introduces keeping the clear claim after a false start." },
+    { "id": "transcript-review", "startSec": 120, "endSec": 135, "reason": "Explains removing filler while preserving the reason." },
+    { "id": "hook-retake", "startSec": 180, "endSec": 195, "reason": "Introduces the concrete outcome as the opening." },
+    { "id": "worked-example", "startSec": 240, "endSec": 255, "reason": "States the problem-decision-outcome structure." },
+    { "id": "caption-safe-zone", "startSec": 360, "endSec": 374, "reason": "Explains caption timing and control avoidance." }
+  ],
+  "goldMomentsV02": [
+    { "id": "target-duration", "startSec": 0, "endSec": 14, "reason": "States the tutorial objective and duration constraint." },
+    { "id": "clear-claim", "startSec": 56, "endSec": 68, "reason": "Introduces keeping the clear claim after a false start." },
+    { "id": "transcript-review", "startSec": 120, "endSec": 135, "reason": "Explains removing filler while preserving the reason." },
+    { "id": "hook-retake", "startSec": 180, "endSec": 195, "reason": "Introduces the concrete outcome as the opening." },
+    { "id": "worked-example", "startSec": 240, "endSec": 255, "reason": "States the problem-decision-outcome structure." },
+    { "id": "caption-safe-zone", "startSec": 360, "endSec": 374, "reason": "Explains caption timing and control avoidance." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 55, "decision": "compress", "keepStartSec": 0, "keepEndSec": 14 },
+    { "segmentId": "segment-02", "sourceStartSec": 55, "sourceEndSec": 56, "decision": "visual-support", "keepStartSec": 55, "keepEndSec": 56 },
+    { "segmentId": "segment-03", "sourceStartSec": 56, "sourceEndSec": 120, "decision": "compress", "keepStartSec": 56, "keepEndSec": 68 },
+    { "segmentId": "segment-04", "sourceStartSec": 120, "sourceEndSec": 180, "decision": "compress", "keepStartSec": 120, "keepEndSec": 135 },
+    { "segmentId": "segment-05", "sourceStartSec": 180, "sourceEndSec": 240, "decision": "compress", "keepStartSec": 180, "keepEndSec": 195 },
+    { "segmentId": "segment-06", "sourceStartSec": 240, "sourceEndSec": 300, "decision": "compress", "keepStartSec": 240, "keepEndSec": 255 },
+    { "segmentId": "segment-07", "sourceStartSec": 300, "sourceEndSec": 301, "decision": "visual-support", "keepStartSec": 300, "keepEndSec": 301 },
+    { "segmentId": "segment-08", "sourceStartSec": 301, "sourceEndSec": 360, "decision": "compress", "keepStartSec": 301, "keepEndSec": 309 },
+    { "segmentId": "segment-09", "sourceStartSec": 360, "sourceEndSec": 430, "decision": "compress", "keepStartSec": 360, "keepEndSec": 374 },
+    { "segmentId": "segment-10", "sourceStartSec": 430, "sourceEndSec": 432, "decision": "visual-support", "keepStartSec": 430, "keepEndSec": 432 },
+    { "segmentId": "segment-11", "sourceStartSec": 432, "sourceEndSec": 520, "decision": "cut" },
+    { "segmentId": "segment-12", "sourceStartSec": 520, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 520, "keepEndSec": 532 }
+  ],
+  "goldFirstCutDurationSec": 109,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What tutorial duration does the narrator request?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 25 },
+    { "id": "t2", "modality": "transcript", "question": "Where does everything remain?", "answer": "On the local machine.", "startSec": 0, "endSec": 30 },
+    { "id": "t3", "modality": "transcript", "question": "What three-part structure should the worked example follow?", "answer": "Problem, decision, and outcome.", "startSec": 35, "endSec": 75 },
+    { "id": "a1", "modality": "audio", "question": "How many tones play near 02:31?", "answer": "One tone.", "startSec": 151, "endSec": 151.35 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play between 07:10 and 07:12?", "answer": "Two tones.", "startSec": 430, "endSec": 432 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken narration present after 01:48, excluding tones?", "answer": "No; narration has ended.", "startSec": 108, "endSec": 125 },
+    { "id": "v1", "modality": "visual", "question": "What one-second visual confirmation appears near 00:55?", "answer": "TITLE FLASH.", "startSec": 55, "endSec": 56 },
+    { "id": "v2", "modality": "visual", "question": "What one-second defect marker appears near 05:00?", "answer": "FRAME DROP.", "startSec": 300, "endSec": 301 },
+    { "id": "v3", "modality": "visual", "question": "Which workflow stage begins at 08:40?", "answer": "OUTRO EXPORT.", "startSec": 520, "endSec": 600 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies two different tones?", "answer": "AUDIO VERIFIED.", "startSec": 430, "endSec": 432 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active during the single 740 Hz tone?", "answer": "TRANSCRIPT REVIEW.", "startSec": 120, "endSec": 180 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the FRAME DROP marker accompanied by spoken narration?", "answer": "No; narration has already ended.", "startSec": 300, "endSec": 301 }
+  ]
+}

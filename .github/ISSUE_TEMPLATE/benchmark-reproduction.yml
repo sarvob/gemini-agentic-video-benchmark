@@ -1,0 +1,69 @@
+name: Benchmark reproduction
+description: Report a $0 artifact reproduction, discrepancy, annotation audit, or independent extension.
+title: "[Benchmark reproduction]: "
+labels:
+  - benchmark
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for checking the Gemini agentic-video benchmark. This issue is public. Do not include API keys, email addresses, private URLs, real-person media, or other personal information.
+        This repository is maintained by PaperEdits. Please disclose any relationship to PaperEdits in your report.
+  - type: dropdown
+    id: reproduction_type
+    attributes:
+      label: Reproduction type
+      options:
+        - Artifact reproduction (no model call)
+        - Annotation audit
+        - New independent model run
+        - Benchmark extension
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Tested commit
+      description: Paste the full Git commit hash.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system and Node/npm versions. Do not include usernames or home-directory paths.
+      placeholder: macOS 15; Node 22.x; npm 10.x
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands and output
+      description: Paste the commands you ran and the non-sensitive output.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result or discrepancy
+      description: Describe what matched, what differed, and the smallest reproducible example.
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relationship to PaperEdits
+      description: State "none" if you are independent; otherwise briefly disclose the relationship.
+      placeholder: none
+    validations:
+      required: true
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Public-data check
+      options:
+        - label: I removed secrets, personal information, private URLs, and non-public media from this report.
+          required: true
+        - label: I stated whether I used a clean clone or modified the benchmark.
+          required: true

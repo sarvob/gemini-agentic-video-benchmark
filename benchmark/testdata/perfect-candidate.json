@@ -1,0 +1,49 @@
+{
+  "summary": "A concise local editing workflow tutorial.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 35 },
+    { "question_id": "t2", "answer": "On the local machine.", "start_sec": 25, "end_sec": 55 },
+    { "question_id": "t3", "answer": "Problem, decision, and outcome.", "start_sec": 65, "end_sec": 105 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 133, "end_sec": 133.35 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 421, "end_sec": 423 },
+    { "question_id": "a3", "answer": "No; narration ends at approximately 02:41.", "start_sec": 161, "end_sec": 180 },
+    { "question_id": "v1", "answer": "EXPORT COMPLETE.", "start_sec": 47, "end_sec": 48 },
+    { "question_id": "v2", "answer": "CURSOR MISCLICK.", "start_sec": 287, "end_sec": 288 },
+    { "question_id": "v3", "answer": "FINAL EXPORT.", "start_sec": 510, "end_sec": 600 },
+    { "question_id": "x1", "answer": "BUILD PASSED.", "start_sec": 421, "end_sec": 423 },
+    { "question_id": "x2", "answer": "TRANSCRIPT CLEANUP.", "start_sec": 120, "end_sec": 180 },
+    { "question_id": "x3", "answer": "No; the narration has already ended.", "start_sec": 287, "end_sec": 288 }
+  ],
+  "moments": [
+    { "id": "goal-and-constraint", "label": "Goal", "start_sec": 0, "end_sec": 12 },
+    { "id": "import-media", "label": "Import media", "start_sec": 60, "end_sec": 72 },
+    { "id": "transcript-cleanup", "label": "Transcript cleanup", "start_sec": 120, "end_sec": 135 },
+    { "id": "select-hook", "label": "Hook", "start_sec": 180, "end_sec": 195 },
+    { "id": "story-structure", "label": "Story", "start_sec": 240, "end_sec": 252 },
+    { "id": "caption-stage", "label": "Captions", "start_sec": 360, "end_sec": 372 }
+  ],
+  "events": [
+    { "id": "visual-export-complete", "label": "Export complete", "modality": "visual", "start_sec": 47, "end_sec": 48 },
+    { "id": "audio-transcript-beep", "label": "Single tone", "modality": "audio", "start_sec": 133, "end_sec": 133.35 },
+    { "id": "visual-cursor-misclick", "label": "Misclick", "modality": "visual", "start_sec": 287, "end_sec": 288 },
+    { "id": "crossmodal-build-passed", "label": "Build passed", "modality": "cross-modal", "start_sec": 421, "end_sec": 423 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 12 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 47, "keep_end_sec": 48 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 60, "keep_end_sec": 72 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 120, "keep_end_sec": 135 },
+    { "segment_id": "segment-05", "decision": "compress", "keep_start_sec": 180, "keep_end_sec": 195 },
+    { "segment_id": "segment-06", "decision": "compress", "keep_start_sec": 240, "keep_end_sec": 252 },
+    { "segment_id": "segment-07", "decision": "visual-support", "keep_start_sec": 287, "keep_end_sec": 288 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 288, "keep_end_sec": 295 },
+    { "segment_id": "segment-09", "decision": "compress", "keep_start_sec": 360, "keep_end_sec": 372 },
+    { "segment_id": "segment-10", "decision": "visual-support", "keep_start_sec": 421, "keep_end_sec": 423 },
+    { "segment_id": "segment-11", "decision": "cut" },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 510, "keep_end_sec": 522 }
+  ],
+  "constraints": {
+    "required_order": ["project-setup", "import-media", "transcript-cleanup", "select-hook", "build-story", "restore-and-continue", "captions", "build-passed", "final-export"],
+    "must_keep_event_ids": ["visual-export-complete", "visual-cursor-misclick", "crossmodal-build-passed"]
+  }
+}

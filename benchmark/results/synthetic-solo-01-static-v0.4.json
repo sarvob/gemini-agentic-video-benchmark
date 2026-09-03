@@ -1,0 +1,57 @@
+{
+  "status": "valid",
+  "fixtureId": "synthetic-solo-01",
+  "mode": "static",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "providerStatus": "completed",
+  "latencyMs": 23481,
+  "candidateSha256": "c39f55560e5883014214e0e030708f335ac941e76558a7e57c774f3190a09893",
+  "usage": {
+    "inputTokens": 55570,
+    "outputTokens": 1995,
+    "thoughtTokens": 0,
+    "toolUseTokens": 0,
+    "paidEquivalentUsd": 0.049159
+  },
+  "metrics": {
+    "momentRetrieval": { "precision": 0.16666666666666666, "recall": 0.16666666666666666, "f1": 0.16666666666666666, "matches": 1 },
+    "shortEventRecall": 1,
+    "timestampLocalizationErrorSec": { "median": 0, "p90": 2 },
+    "multimodalEvidenceAccuracy": {
+      "scoringMethod": "frozen-concept-conjunction-plus-time-overlap",
+      "overall": 1,
+      "byModality": {
+        "transcript": 1,
+        "audio": 1,
+        "visual": 1,
+        "cross-modal": 1
+      }
+    },
+    "editDecision": {
+      "byClass": {
+        "keep": { "support": 0, "precision": 0, "recall": 0, "f1": 0 },
+        "cut": { "support": 1, "precision": 1, "recall": 1, "f1": 1 },
+        "compress": { "support": 8, "precision": 1, "recall": 0.125, "f1": 0.2222222222222222 },
+        "visual-support": { "support": 3, "precision": 0, "recall": 0, "f1": 0 }
+      },
+      "macroF1ObservedClasses": 0.40740740740740744
+    },
+    "briefConstraints": {
+      "durationPass": true,
+      "selectedDurationSec": 116,
+      "mustKeepPass": true,
+      "mustCutPass": true,
+      "allPass": true
+    }
+  },
+  "notAutomated": [
+    "story retention and coherence",
+    "cut-seam defect rate"
+  ],
+  "limitations": [
+    "This is the first synthetic solo fixture and third valid static result; no aggregate conclusion is valid until paired aggregation.",
+    "Evidence accuracy uses frozen concept conjunctions plus temporal overlap, not human semantic judging.",
+    "Paired deltas must be computed from the committed solo-01 artifacts before any comparative claim."
+  ]
+}

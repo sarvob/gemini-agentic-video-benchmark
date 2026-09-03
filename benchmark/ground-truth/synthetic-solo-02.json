@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-solo-02",
+  "frozenAt": "2026-09-02T12:56:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "0b0b90c7d88bb84126d0ccfaa02c8cd5554bf2510c68e57273f6d43a92bea3d4",
+    "generator": "tools/generate-gemini-video-solo-02.py",
+    "narrationEndSec": 104.470295
+  },
+  "brief": {
+    "objective": "Create a concise solo creator lesson retaining the specific hook, source demo, clean retake, evidence check, and editable export.",
+    "targetDurationSec": { "min": 90, "max": 120 },
+    "requiredOrder": [
+      "edit-brief",
+      "hook-take-one",
+      "source-demo",
+      "hook-retake",
+      "diagram-reveal",
+      "evidence-check",
+      "publish-ready",
+      "final-lesson",
+      "editable-export"
+    ],
+    "mustKeepEventIds": [
+      "visual-cursor-highlight",
+      "visual-notification-pop",
+      "crossmodal-publish-ready"
+    ],
+    "mustCutRanges": [
+      { "startSec": 382, "endSec": 490, "reason": "Long static pause adds no new information." }
+    ]
+  },
+  "events": [
+    { "id": "visual-cursor-highlight", "modality": "visual", "startSec": 48, "endSec": 50, "label": "A CURSOR HIGHLIGHT card appears for two seconds." },
+    { "id": "visual-notification-pop", "modality": "visual", "startSec": 170, "endSec": 171, "label": "A NOTIFICATION POP interruption appears for one second." },
+    { "id": "audio-review-tone", "modality": "audio", "startSec": 209, "endSec": 209.3, "label": "One 720 Hz tone plays during the hook retake." },
+    { "id": "crossmodal-publish-ready", "modality": "cross-modal", "startSec": 380, "endSec": 382, "label": "PUBLISH READY appears while a 720 Hz tone and then a 1080 Hz tone play." }
+  ],
+  "goldMoments": [
+    { "id": "edit-goal", "startSec": 0, "endSec": 13, "reason": "States the lesson objective and duration constraint." },
+    { "id": "specific-hook", "startSec": 50, "endSec": 63, "reason": "Replaces a vague opening with a specific result." },
+    { "id": "source-demo", "startSec": 112, "endSec": 127, "reason": "Shows the input before explaining the edit decision." },
+    { "id": "clean-retake", "startSec": 171, "endSec": 186, "reason": "Starts with the outcome without repeating the setup." },
+    { "id": "diagram-reveal", "startSec": 240, "endSec": 255, "reason": "Connects transcript, visual, and audio evidence to the edit." },
+    { "id": "evidence-check", "startSec": 315, "endSec": 329, "reason": "Verifies speech, picture, and sound separately." }
+  ],
+  "goldMomentsV02": [
+    { "id": "edit-goal", "startSec": 0, "endSec": 13, "reason": "States the lesson objective and duration constraint." },
+    { "id": "specific-hook", "startSec": 50, "endSec": 63, "reason": "Replaces a vague opening with a specific result." },
+    { "id": "source-demo", "startSec": 112, "endSec": 127, "reason": "Shows the input before explaining the edit decision." },
+    { "id": "clean-retake", "startSec": 171, "endSec": 186, "reason": "Starts with the outcome without repeating the setup." },
+    { "id": "diagram-reveal", "startSec": 240, "endSec": 255, "reason": "Connects transcript, visual, and audio evidence to the edit." },
+    { "id": "evidence-check", "startSec": 315, "endSec": 329, "reason": "Verifies speech, picture, and sound separately." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 48, "decision": "compress", "keepStartSec": 0, "keepEndSec": 13 },
+    { "segmentId": "segment-02", "sourceStartSec": 48, "sourceEndSec": 50, "decision": "visual-support", "keepStartSec": 48, "keepEndSec": 50 },
+    { "segmentId": "segment-03", "sourceStartSec": 50, "sourceEndSec": 112, "decision": "compress", "keepStartSec": 50, "keepEndSec": 63 },
+    { "segmentId": "segment-04", "sourceStartSec": 112, "sourceEndSec": 170, "decision": "compress", "keepStartSec": 112, "keepEndSec": 127 },
+    { "segmentId": "segment-05", "sourceStartSec": 170, "sourceEndSec": 171, "decision": "visual-support", "keepStartSec": 170, "keepEndSec": 171 },
+    { "segmentId": "segment-06", "sourceStartSec": 171, "sourceEndSec": 240, "decision": "compress", "keepStartSec": 171, "keepEndSec": 186 },
+    { "segmentId": "segment-07", "sourceStartSec": 240, "sourceEndSec": 315, "decision": "compress", "keepStartSec": 240, "keepEndSec": 255 },
+    { "segmentId": "segment-08", "sourceStartSec": 315, "sourceEndSec": 380, "decision": "compress", "keepStartSec": 315, "keepEndSec": 329 },
+    { "segmentId": "segment-09", "sourceStartSec": 380, "sourceEndSec": 382, "decision": "visual-support", "keepStartSec": 380, "keepEndSec": 382 },
+    { "segmentId": "segment-10", "sourceStartSec": 382, "sourceEndSec": 490, "decision": "cut" },
+    { "segmentId": "segment-11", "sourceStartSec": 490, "sourceEndSec": 548, "decision": "compress", "keepStartSec": 490, "keepEndSec": 504 },
+    { "segmentId": "segment-12", "sourceStartSec": 548, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 548, "keepEndSec": 560 }
+  ],
+  "goldFirstCutDurationSec": 116,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What duration is requested for the creator lesson?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 25 },
+    { "id": "t2", "modality": "transcript", "question": "What should replace the vague opening?", "answer": "A specific result.", "startSec": 10, "endSec": 45 },
+    { "id": "t3", "modality": "transcript", "question": "Which three evidence types feed the edit choice?", "answer": "Transcript, visual, and audio evidence.", "startSec": 55, "endSec": 100 },
+    { "id": "a1", "modality": "audio", "question": "How many tones play near 03:29?", "answer": "One tone.", "startSec": 209, "endSec": 209.3 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play between 06:20 and 06:22?", "answer": "Two tones.", "startSec": 380, "endSec": 382 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken narration present after 01:45, excluding tones?", "answer": "No; narration has ended.", "startSec": 105, "endSec": 125 },
+    { "id": "v1", "modality": "visual", "question": "What brief cue appears near 00:48?", "answer": "CURSOR HIGHLIGHT.", "startSec": 48, "endSec": 50 },
+    { "id": "v2", "modality": "visual", "question": "What interruption appears near 02:50?", "answer": "NOTIFICATION POP.", "startSec": 170, "endSec": 171 },
+    { "id": "v3", "modality": "visual", "question": "Which stage begins at 09:08?", "answer": "EDITABLE EXPORT.", "startSec": 548, "endSec": 600 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies two different tones?", "answer": "PUBLISH READY.", "startSec": 380, "endSec": 382 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active during the single 720 Hz tone?", "answer": "HOOK RETAKE.", "startSec": 209, "endSec": 209.3 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the NOTIFICATION POP accompanied by spoken narration?", "answer": "No; narration has already ended.", "startSec": 170, "endSec": 171 }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-podcast-02",
+  "frozenAt": "2026-09-02T13:34:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "756e0bf218d050faa4c278f5d68ea40ab373b77c6222b2ded00327c52e7c7ca2",
+    "generator": "tools/generate-gemini-video-podcast-02.py",
+    "narrationEndSec": 149.444082
+  },
+  "brief": {
+    "objective": "Create a concise two-host disagreement edit retaining both positions, their reasons, the concrete example, resolution, and final tradeoff.",
+    "targetDurationSec": { "min": 90, "max": 120 },
+    "requiredOrder": [
+      "cold-open",
+      "context",
+      "guest-retake",
+      "disagreement",
+      "concrete-example",
+      "resolution",
+      "mix-locked",
+      "takeaway",
+      "outro"
+    ],
+    "mustKeepEventIds": [
+      "visual-reaction-beat",
+      "visual-camera-switch",
+      "crossmodal-mix-locked"
+    ],
+    "mustCutRanges": [
+      { "startSec": 378, "endSec": 486, "reason": "Long room-tone hold adds no useful dialogue or visual information." }
+    ]
+  },
+  "events": [
+    { "id": "visual-reaction-beat", "modality": "visual", "startSec": 46, "endSec": 48, "label": "A REACTION BEAT card appears for two seconds." },
+    { "id": "visual-camera-switch", "modality": "visual", "startSec": 238, "endSec": 239, "label": "A CAMERA SWITCH marker appears for one second." },
+    { "id": "audio-review-tone", "modality": "audio", "startSec": 205, "endSec": 205.3, "label": "One 680 Hz tone plays during the disagreement." },
+    { "id": "crossmodal-mix-locked", "modality": "cross-modal", "startSec": 376, "endSec": 378, "label": "MIX LOCKED appears while a 680 Hz tone and then a 1020 Hz tone play." }
+  ],
+  "goldMoments": [
+    { "id": "editing-goal", "startSec": 0, "endSec": 13, "reason": "States the disagreement-edit objective and duration constraint." },
+    { "id": "context", "startSec": 48, "endSec": 61, "reason": "Frames speed and control without repeating the setup." },
+    { "id": "direct-answer", "startSec": 110, "endSec": 125, "reason": "Keeps the guest's direct answer after the false start." },
+    { "id": "disagreement", "startSec": 168, "endSec": 184, "reason": "Preserves both positions and the reason for each." },
+    { "id": "concrete-example", "startSec": 239, "endSec": 254, "reason": "Connects the edit choice to an observable media result." },
+    { "id": "resolution", "startSec": 310, "endSec": 324, "reason": "Synthesizes the reasons without flattening the disagreement." }
+  ],
+  "goldMomentsV02": [
+    { "id": "editing-goal", "startSec": 0, "endSec": 13, "reason": "States the disagreement-edit objective and duration constraint." },
+    { "id": "context", "startSec": 48, "endSec": 61, "reason": "Frames speed and control without repeating the setup." },
+    { "id": "direct-answer", "startSec": 110, "endSec": 125, "reason": "Keeps the guest's direct answer after the false start." },
+    { "id": "disagreement", "startSec": 168, "endSec": 184, "reason": "Preserves both positions and the reason for each." },
+    { "id": "concrete-example", "startSec": 239, "endSec": 254, "reason": "Connects the edit choice to an observable media result." },
+    { "id": "resolution", "startSec": 310, "endSec": 324, "reason": "Synthesizes the reasons without flattening the disagreement." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 46, "decision": "compress", "keepStartSec": 0, "keepEndSec": 13 },
+    { "segmentId": "segment-02", "sourceStartSec": 46, "sourceEndSec": 48, "decision": "visual-support", "keepStartSec": 46, "keepEndSec": 48 },
+    { "segmentId": "segment-03", "sourceStartSec": 48, "sourceEndSec": 110, "decision": "compress", "keepStartSec": 48, "keepEndSec": 61 },
+    { "segmentId": "segment-04", "sourceStartSec": 110, "sourceEndSec": 168, "decision": "compress", "keepStartSec": 110, "keepEndSec": 125 },
+    { "segmentId": "segment-05", "sourceStartSec": 168, "sourceEndSec": 238, "decision": "compress", "keepStartSec": 168, "keepEndSec": 184 },
+    { "segmentId": "segment-06", "sourceStartSec": 238, "sourceEndSec": 239, "decision": "visual-support", "keepStartSec": 238, "keepEndSec": 239 },
+    { "segmentId": "segment-07", "sourceStartSec": 239, "sourceEndSec": 310, "decision": "compress", "keepStartSec": 239, "keepEndSec": 254 },
+    { "segmentId": "segment-08", "sourceStartSec": 310, "sourceEndSec": 376, "decision": "compress", "keepStartSec": 310, "keepEndSec": 324 },
+    { "segmentId": "segment-09", "sourceStartSec": 376, "sourceEndSec": 378, "decision": "visual-support", "keepStartSec": 376, "keepEndSec": 378 },
+    { "segmentId": "segment-10", "sourceStartSec": 378, "sourceEndSec": 486, "decision": "cut" },
+    { "segmentId": "segment-11", "sourceStartSec": 486, "sourceEndSec": 548, "decision": "compress", "keepStartSec": 486, "keepEndSec": 500 },
+    { "segmentId": "segment-12", "sourceStartSec": 548, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 548, "keepEndSec": 560 }
+  ],
+  "goldFirstCutDurationSec": 117,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What duration is requested for the disagreement edit?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 25 },
+    { "id": "t2", "modality": "transcript", "question": "What do the two hosts value?", "answer": "One values speed and the other values control.", "startSec": 20, "endSec": 65 },
+    { "id": "t3", "modality": "transcript", "question": "What should be checked before making the cut?", "answer": "The sentence, picture, and sound.", "startSec": 106, "endSec": 145 },
+    { "id": "a1", "modality": "audio", "question": "How many tones play near 03:25?", "answer": "One tone.", "startSec": 205, "endSec": 205.3 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play between 06:16 and 06:18?", "answer": "Two tones.", "startSec": 376, "endSec": 378 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken dialogue present after 02:30, excluding tones?", "answer": "No; the synthesized dialogue has ended.", "startSec": 150, "endSec": 170 },
+    { "id": "v1", "modality": "visual", "question": "What two-second cue appears near 00:46?", "answer": "REACTION BEAT.", "startSec": 46, "endSec": 48 },
+    { "id": "v2", "modality": "visual", "question": "What one-second marker appears near 03:58?", "answer": "CAMERA SWITCH.", "startSec": 238, "endSec": 239 },
+    { "id": "v3", "modality": "visual", "question": "Which stage begins at 09:08?", "answer": "OUTRO.", "startSec": 548, "endSec": 600 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies two different tones?", "answer": "MIX LOCKED.", "startSec": 376, "endSec": 378 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active during the single 680 Hz tone?", "answer": "DISAGREEMENT.", "startSec": 205, "endSec": 205.3 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the CAMERA SWITCH marker accompanied by spoken dialogue?", "answer": "No; the synthesized dialogue has ended.", "startSec": 238, "endSec": 239 }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "summary": "A concise disagreement edit preserving both positions, reasons, example, resolution, and final tradeoff.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 25 },
+    { "question_id": "t2", "answer": "One values speed and the other values control.", "start_sec": 20, "end_sec": 65 },
+    { "question_id": "t3", "answer": "The sentence, picture, and sound.", "start_sec": 106, "end_sec": 145 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 205, "end_sec": 205.3 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 376, "end_sec": 378 },
+    { "question_id": "a3", "answer": "No dialogue remains after the endpoint.", "start_sec": 150, "end_sec": 170 },
+    { "question_id": "v1", "answer": "REACTION BEAT.", "start_sec": 46, "end_sec": 48 },
+    { "question_id": "v2", "answer": "CAMERA SWITCH.", "start_sec": 238, "end_sec": 239 },
+    { "question_id": "v3", "answer": "OUTRO.", "start_sec": 548, "end_sec": 600 },
+    { "question_id": "x1", "answer": "MIX LOCKED.", "start_sec": 376, "end_sec": 378 },
+    { "question_id": "x2", "answer": "DISAGREEMENT.", "start_sec": 205, "end_sec": 205.3 },
+    { "question_id": "x3", "answer": "No dialogue accompanies the camera switch.", "start_sec": 238, "end_sec": 239 }
+  ],
+  "moments": [
+    { "id": "editing-goal", "label": "Editing goal", "start_sec": 0, "end_sec": 13 },
+    { "id": "context", "label": "Context", "start_sec": 48, "end_sec": 61 },
+    { "id": "direct-answer", "label": "Direct answer", "start_sec": 110, "end_sec": 125 },
+    { "id": "disagreement", "label": "Disagreement", "start_sec": 168, "end_sec": 184 },
+    { "id": "concrete-example", "label": "Concrete example", "start_sec": 239, "end_sec": 254 },
+    { "id": "resolution", "label": "Resolution", "start_sec": 310, "end_sec": 324 }
+  ],
+  "events": [
+    { "id": "visual-reaction-beat", "label": "Reaction beat", "modality": "visual", "start_sec": 46, "end_sec": 48 },
+    { "id": "visual-camera-switch", "label": "Camera switch", "modality": "visual", "start_sec": 238, "end_sec": 239 },
+    { "id": "audio-review-tone", "label": "Single review tone", "modality": "audio", "start_sec": 205, "end_sec": 205.3 },
+    { "id": "crossmodal-mix-locked", "label": "Mix locked", "modality": "cross-modal", "start_sec": 376, "end_sec": 378 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 13 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 46, "keep_end_sec": 48 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 48, "keep_end_sec": 61 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 110, "keep_end_sec": 125 },
+    { "segment_id": "segment-05", "decision": "compress", "keep_start_sec": 168, "keep_end_sec": 184 },
+    { "segment_id": "segment-06", "decision": "visual-support", "keep_start_sec": 238, "keep_end_sec": 239 },
+    { "segment_id": "segment-07", "decision": "compress", "keep_start_sec": 239, "keep_end_sec": 254 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 310, "keep_end_sec": 324 },
+    { "segment_id": "segment-09", "decision": "visual-support", "keep_start_sec": 376, "keep_end_sec": 378 },
+    { "segment_id": "segment-10", "decision": "cut" },
+    { "segment_id": "segment-11", "decision": "compress", "keep_start_sec": 486, "keep_end_sec": 500 },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 548, "keep_end_sec": 560 }
+  ],
+  "constraints": {
+    "required_order": ["cold-open", "context", "guest-retake", "disagreement", "concrete-example", "resolution", "mix-locked", "takeaway", "outro"],
+    "must_keep_event_ids": ["visual-reaction-beat", "visual-camera-switch", "crossmodal-mix-locked"]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "status": "valid",
+  "fixtureId": "synthetic-screen-01",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "providerStatus": "completed",
+  "agenticVerified": true,
+  "latencyMs": 45016,
+  "candidateSha256": "2dda5486122a8fd5e41ace3adb72c54c6357efaa9698195da9b3f6fe7b415a50",
+  "usage": {
+    "inputTokens": 3289,
+    "outputTokens": 2424,
+    "thoughtTokens": 6987,
+    "toolUseTokens": 46221,
+    "paidEquivalentUsd": 0.070088
+  },
+  "metrics": {
+    "momentRetrieval": {
+      "precision": 0.16666666666666666,
+      "recall": 0.16666666666666666,
+      "f1": 0.16666666666666666,
+      "matches": 1
+    },
+    "shortEventRecall": 1,
+    "timestampLocalizationErrorSec": {
+      "median": 2,
+      "p90": 5
+    },
+    "multimodalEvidenceAccuracy": {
+      "scoringMethod": "frozen-concept-conjunction-plus-time-overlap",
+      "overall": 0.8333333333333334,
+      "byModality": {
+        "transcript": 0.6666666666666666,
+        "audio": 0.6666666666666666,
+        "visual": 1,
+        "cross-modal": 1
+      }
+    },
+    "editDecision": {
+      "byClass": {
+        "keep": { "support": 0, "precision": 0, "recall": 0, "f1": 0 },
+        "cut": { "support": 1, "precision": 1, "recall": 1, "f1": 1 },
+        "compress": { "support": 8, "precision": 1, "recall": 0.125, "f1": 0.2222222222222222 },
+        "visual-support": { "support": 3, "precision": 1, "recall": 0.6666666666666666, "f1": 0.8 }
+      },
+      "macroF1ObservedClasses": 0.674074074074074
+    },
+    "briefConstraints": {
+      "durationPass": true,
+      "selectedDurationSec": 109,
+      "mustKeepPass": true,
+      "mustCutPass": true,
+      "allPass": true
+    }
+  },
+  "notAutomated": [
+    "story retention and coherence",
+    "cut-seam defect rate"
+  ],
+  "limitations": [
+    "This is one synthetic 10-minute fixture, not a benchmark conclusion.",
+    "Evidence accuracy uses frozen concept conjunctions plus temporal overlap, not human semantic judging.",
+    "No agentic-versus-static claim is valid until the matching v0.4 static arm is completed and scored."
+  ]
+}

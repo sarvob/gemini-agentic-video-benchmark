@@ -1,0 +1,33 @@
+{
+  "status": "invalid-unparseable-output",
+  "fixtureId": "synthetic-solo-02",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "providerStatus": "completed",
+  "agenticVerified": true,
+  "latencyMs": 102614,
+  "rawOutputSha256": "bc40ae815a0f1d233566d58073b6c4a53175d1bb4f6f4ef18b60ee615f5b5466",
+  "usage": {
+    "inputTokens": 2816,
+    "outputTokens": 4978,
+    "thoughtTokens": 3637,
+    "toolUseTokens": 119661,
+    "paidEquivalentUsd": 0.075469
+  },
+  "validation": {
+    "valid": false,
+    "errors": [
+      "The model output began with unstructured reasoning before a fenced JSON object and could not be parsed by the frozen normalizer."
+    ],
+    "recoverCommandExitCode": 1,
+    "recoverErrorPrefix": "Unexpected token 'h', \"thought\\nAt \"... is not valid JSON"
+  },
+  "qualityMetrics": null,
+  "decision": "Count this as the single invalid solo-02 v0.4 agentic attempt. Do not extract, repair, or rerun it under v0.4. Do not run the matching static arm because the gate requires a structurally valid agentic result first.",
+  "limitations": [
+    "The provider completed the interaction and agentic processing was verified, but the returned text violated the frozen JSON-only output contract.",
+    "No normalized candidate was produced, so retrieval, event, evidence, decision, or brief metrics are reported.",
+    "The raw response remains in ignored local benchmark storage; this committed artifact records its exact text hash, parse failure, latency, and usage."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "summary": "A concise second local editing workflow tutorial with recovery and export.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 25 },
+    { "question_id": "t2", "answer": "On the local machine.", "start_sec": 0, "end_sec": 30 },
+    { "question_id": "t3", "answer": "Problem, decision, and outcome.", "start_sec": 35, "end_sec": 70 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 149, "end_sec": 149.35 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 419, "end_sec": 421 },
+    { "question_id": "a3", "answer": "No narration is present after two minutes.", "start_sec": 118, "end_sec": 140 },
+    { "question_id": "v1", "answer": "EXPORT COMPLETE.", "start_sec": 50, "end_sec": 51 },
+    { "question_id": "v2", "answer": "CURSOR MISCLICK.", "start_sec": 295, "end_sec": 296 },
+    { "question_id": "v3", "answer": "FINAL EXPORT.", "start_sec": 515, "end_sec": 600 },
+    { "question_id": "x1", "answer": "BUILD PASSED.", "start_sec": 419, "end_sec": 421 },
+    { "question_id": "x2", "answer": "TRANSCRIPT CLEANUP.", "start_sec": 115, "end_sec": 175 },
+    { "question_id": "x3", "answer": "No narration accompanies the warning.", "start_sec": 295, "end_sec": 296 }
+  ],
+  "moments": [
+    { "id": "target-duration", "label": "Target duration", "start_sec": 0, "end_sec": 14 },
+    { "id": "rough-selects", "label": "Rough selects", "start_sec": 51, "end_sec": 63 },
+    { "id": "transcript-cleanup", "label": "Transcript cleanup", "start_sec": 115, "end_sec": 130 },
+    { "id": "open-with-result", "label": "Open with result", "start_sec": 175, "end_sec": 190 },
+    { "id": "story-structure", "label": "Story structure", "start_sec": 235, "end_sec": 250 },
+    { "id": "visual-support", "label": "Visual support", "start_sec": 360, "end_sec": 372 }
+  ],
+  "events": [
+    { "id": "visual-export-complete", "label": "Export complete", "modality": "visual", "start_sec": 50, "end_sec": 51 },
+    { "id": "audio-cleanup-tone", "label": "Single cleanup tone", "modality": "audio", "start_sec": 149, "end_sec": 149.35 },
+    { "id": "visual-cursor-misclick", "label": "Cursor misclick", "modality": "visual", "start_sec": 295, "end_sec": 296 },
+    { "id": "crossmodal-build-passed", "label": "Build passed", "modality": "cross-modal", "start_sec": 419, "end_sec": 421 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 14 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 50, "keep_end_sec": 51 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 51, "keep_end_sec": 63 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 115, "keep_end_sec": 130 },
+    { "segment_id": "segment-05", "decision": "compress", "keep_start_sec": 175, "keep_end_sec": 190 },
+    { "segment_id": "segment-06", "decision": "compress", "keep_start_sec": 235, "keep_end_sec": 250 },
+    { "segment_id": "segment-07", "decision": "visual-support", "keep_start_sec": 295, "keep_end_sec": 296 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 296, "keep_end_sec": 304 },
+    { "segment_id": "segment-09", "decision": "compress", "keep_start_sec": 360, "keep_end_sec": 372 },
+    { "segment_id": "segment-10", "decision": "visual-support", "keep_start_sec": 419, "keep_end_sec": 421 },
+    { "segment_id": "segment-11", "decision": "cut" },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 515, "keep_end_sec": 527 }
+  ],
+  "constraints": {
+    "required_order": ["brief-and-assets", "rough-selects", "transcript-cleanup", "open-with-result", "problem-decision-outcome", "restore-audio", "visual-support", "build-passed", "final-export"],
+    "must_keep_event_ids": ["visual-export-complete", "visual-cursor-misclick", "crossmodal-build-passed"]
+  }
+}

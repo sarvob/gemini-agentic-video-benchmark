@@ -1,0 +1,44 @@
+{
+  "status": "preliminary-unpublished",
+  "fixtureId": "synthetic-screen-01",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "agenticVerified": true,
+  "latencyMs": 39963,
+  "usage": {
+    "inputTokens": 1914,
+    "outputTokens": 2479,
+    "thoughtTokens": 4197,
+    "toolUseTokens": 26408,
+    "paidEquivalentUsd": 0.046277
+  },
+  "automatedMetrics": {
+    "momentRetrieval": {
+      "precision": 0.1111111111111111,
+      "recall": 0.16666666666666666,
+      "f1": 0.13333333333333333,
+      "matches": 1
+    },
+    "shortEventRecall": 0.75,
+    "timestampLocalizationErrorSecForMatchedMoments": {
+      "median": 0,
+      "p90": 0
+    },
+    "strictEvidenceExactMatch": 0,
+    "editDecisionMacroF1ObservedClasses": 0.9333333333333332,
+    "briefConstraintPass": true,
+    "selectedDurationSec": 120
+  },
+  "observations": [
+    "The response contained processing_call steps, so agentic navigation was verified.",
+    "Three of four short synthetic events were returned; the audio-only event was omitted.",
+    "The model returned broad chapter ranges for moments rather than highlight-sized intervals, producing one IoU match out of six gold moments.",
+    "The strict evidence metric is exact normalized string match, so its zero is not a semantic accuracy judgment. Semantic adjudication remains pending; at least one audio answer contradicted the frozen label.",
+    "The returned keep ranges total 120 seconds even though the response summary states 105 seconds. The applied ranges remain inside the brief's inclusive upper bound."
+  ],
+  "notScored": [
+    "story retention and coherence",
+    "cut-seam defect rate",
+    "semantic evidence accuracy"
+  ]
+}

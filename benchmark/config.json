@@ -1,0 +1,13 @@
+{
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "pricing": {
+    "inputPerMillionUsd": 0.75,
+    "outputPerMillionUsd": 3.75,
+    "effectiveThrough": "2026-12-31"
+  },
+  "absoluteBudgetUsd": 5,
+  "operationalStopUsd": 4.5,
+  "maxOutputTokens": 8192,
+  "conservativeInputTokensPerVideoSecond": 350
+}

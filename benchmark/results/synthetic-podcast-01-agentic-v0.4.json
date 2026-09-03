@@ -1,0 +1,58 @@
+{
+  "status": "valid",
+  "fixtureId": "synthetic-podcast-01",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "providerStatus": "completed",
+  "agenticVerified": true,
+  "latencyMs": 39201,
+  "candidateSha256": "abd3e8d962023d75d2a09bcf8c6f93a86ff05f6df2cf0c7a6f85f557f5f8d597",
+  "usage": {
+    "inputTokens": 2204,
+    "outputTokens": 2301,
+    "thoughtTokens": 4210,
+    "toolUseTokens": 32477,
+    "paidEquivalentUsd": 0.050427
+  },
+  "metrics": {
+    "momentRetrieval": { "precision": 0.5, "recall": 0.5, "f1": 0.5, "matches": 3 },
+    "shortEventRecall": 0.5,
+    "timestampLocalizationErrorSec": { "median": 3, "p90": 4 },
+    "multimodalEvidenceAccuracy": {
+      "scoringMethod": "frozen-concept-conjunction-plus-time-overlap",
+      "overall": 0.75,
+      "byModality": {
+        "transcript": 1,
+        "audio": 0.3333333333333333,
+        "visual": 1,
+        "cross-modal": 0.6666666666666666
+      }
+    },
+    "editDecision": {
+      "byClass": {
+        "keep": { "support": 0, "precision": 0, "recall": 0, "f1": 0 },
+        "cut": { "support": 1, "precision": 1, "recall": 1, "f1": 1 },
+        "compress": { "support": 8, "precision": 1, "recall": 1, "f1": 1 },
+        "visual-support": { "support": 3, "precision": 1, "recall": 0.3333333333333333, "f1": 0.5 }
+      },
+      "macroF1ObservedClasses": 0.8333333333333334
+    },
+    "briefConstraints": {
+      "durationPass": true,
+      "selectedDurationSec": 115,
+      "mustKeepPass": true,
+      "mustCutPass": true,
+      "allPass": true
+    }
+  },
+  "notAutomated": [
+    "story retention and coherence",
+    "cut-seam defect rate"
+  ],
+  "limitations": [
+    "This is the first synthetic podcast fixture and fourth valid agentic result; no podcast-format comparison exists yet.",
+    "Evidence accuracy uses frozen concept conjunctions plus temporal overlap, not human semantic judging.",
+    "No podcast-01 agentic-versus-static claim is valid until the matching static arm is completed and scored."
+  ]
+}

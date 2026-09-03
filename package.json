@@ -1,0 +1,17 @@
+{
+  "name": "gemini-agentic-video-benchmark",
+  "version": "0.4.0-exploratory",
+  "private": true,
+  "description": "Public reproducibility package for an exploratory Gemini agentic-versus-static video-understanding benchmark.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "score": "tsx tools/score-gemini-video-benchmark.ts",
+    "verify": "tsx tools/verify-public-gemini-benchmark.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "synthetic-podcast-01",
+    "path": "tmp/gemini-benchmark/synthetic-podcast-01.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  },
+  {
+    "id": "synthetic-podcast-02",
+    "path": "tmp/gemini-benchmark/synthetic-podcast-02.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  },
+  {
+    "id": "synthetic-solo-01",
+    "path": "tmp/gemini-benchmark/synthetic-solo-01.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  },
+  {
+    "id": "synthetic-solo-02",
+    "path": "tmp/gemini-benchmark/synthetic-solo-02.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  },
+  {
+    "id": "synthetic-screen-01",
+    "path": "tmp/gemini-benchmark/synthetic-screen-01.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  },
+  {
+    "id": "synthetic-screen-02",
+    "path": "tmp/gemini-benchmark/synthetic-screen-02.mp4",
+    "durationSec": 600,
+    "rights": "synthetic",
+    "licenseEvidence": "Generated locally by the PaperEdits benchmark fixture generator; no person or third-party media.",
+    "status": "ready"
+  }
+]

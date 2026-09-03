@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "0.4",
+  "fixtureId": "synthetic-podcast-01",
+  "frozenAt": "2026-09-02T11:50:00Z",
+  "rules": [
+    { "questionId": "t1", "allConcepts": ["90", "120"] },
+    { "questionId": "t2", "allConcepts": ["visual", "glitch"] },
+    { "questionId": "t3", "allConcepts": ["visual", "audio"] },
+    { "questionId": "a1", "allConcepts": ["one", "tone"] },
+    { "questionId": "a2", "allConcepts": ["one", "tone"] },
+    { "questionId": "a3", "allConcepts": ["no", "dialogue"] },
+    { "questionId": "v1", "allConcepts": ["reaction", "cut"] },
+    { "questionId": "v2", "allConcepts": ["camera", "glitch"] },
+    { "questionId": "v3", "allConcepts": ["takeaway"] },
+    { "questionId": "x1", "allConcepts": ["sync", "confirmed"] },
+    { "questionId": "x2", "allConcepts": ["host", "summary"] },
+    { "questionId": "x3", "allConcepts": ["no", "dialogue"] }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "0.4",
+  "fixtureId": "synthetic-solo-01",
+  "frozenAt": "2026-09-02T10:44:00Z",
+  "rules": [
+    { "questionId": "t1", "allConcepts": ["90", "120"] },
+    { "questionId": "t2", "allConcepts": ["local", "machine"] },
+    { "questionId": "t3", "allConcepts": ["problem", "decision", "outcome"] },
+    { "questionId": "a1", "allConcepts": ["one", "tone"] },
+    { "questionId": "a2", "allConcepts": ["two", "tone"] },
+    { "questionId": "a3", "allConcepts": ["no", "narration"] },
+    { "questionId": "v1", "allConcepts": ["title", "flash"] },
+    { "questionId": "v2", "allConcepts": ["frame", "drop"] },
+    { "questionId": "v3", "allConcepts": ["outro", "export"] },
+    { "questionId": "x1", "allConcepts": ["audio", "verified"] },
+    { "questionId": "x2", "allConcepts": ["transcript", "review"] },
+    { "questionId": "x3", "allConcepts": ["no", "narration"] }
+  ]
+}

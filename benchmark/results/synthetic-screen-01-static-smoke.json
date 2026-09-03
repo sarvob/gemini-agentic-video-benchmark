@@ -1,0 +1,42 @@
+{
+  "status": "preliminary-unpublished",
+  "fixtureId": "synthetic-screen-01",
+  "mode": "static",
+  "model": "gemini-3.7-flash",
+  "latencyMs": 21057,
+  "usage": {
+    "inputTokens": 53681,
+    "outputTokens": 2142,
+    "thoughtTokens": 738,
+    "toolUseTokens": 0,
+    "paidEquivalentUsd": 0.051061
+  },
+  "automatedMetrics": {
+    "momentRetrieval": {
+      "precision": 0.1111111111111111,
+      "recall": 0.16666666666666666,
+      "f1": 0.13333333333333333,
+      "matches": 1
+    },
+    "shortEventRecall": 0.75,
+    "timestampLocalizationErrorSecForMatchedMoments": {
+      "median": 0,
+      "p90": 0
+    },
+    "strictEvidenceExactMatch": 0.08333333333333333,
+    "editDecisionMacroF1ObservedClasses": 0.9333333333333332,
+    "briefConstraintPass": false,
+    "selectedDurationSec": 121
+  },
+  "observations": [
+    "Three of four short synthetic events were returned; the audio-only event was omitted.",
+    "The model again returned broad chapter ranges for moments rather than highlight-sized intervals, producing one IoU match out of six gold moments.",
+    "The selected ranges total 121 seconds, missing the brief's 120-second maximum by one second.",
+    "Strict evidence exact match is a diagnostic, not semantic adjudication; semantic accuracy remains pending."
+  ],
+  "notScored": [
+    "story retention and coherence",
+    "cut-seam defect rate",
+    "semantic evidence accuracy"
+  ]
+}

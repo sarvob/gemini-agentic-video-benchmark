@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "0.4",
+  "fixtureId": "synthetic-podcast-02",
+  "frozenAt": "2026-09-02T13:34:00Z",
+  "rules": [
+    { "questionId": "t1", "allConcepts": ["90", "120"] },
+    { "questionId": "t2", "allConcepts": ["speed", "control"] },
+    { "questionId": "t3", "allConcepts": ["sentence", "picture", "sound"] },
+    { "questionId": "a1", "allConcepts": ["one", "tone"] },
+    { "questionId": "a2", "allConcepts": ["two", "tone"] },
+    { "questionId": "a3", "allConcepts": ["no", "dialogue"] },
+    { "questionId": "v1", "allConcepts": ["reaction", "beat"] },
+    { "questionId": "v2", "allConcepts": ["camera", "switch"] },
+    { "questionId": "v3", "allConcepts": ["outro"] },
+    { "questionId": "x1", "allConcepts": ["mix", "locked"] },
+    { "questionId": "x2", "allConcepts": ["disagreement"] },
+    { "questionId": "x3", "allConcepts": ["no", "dialogue"] }
+  ]
+}

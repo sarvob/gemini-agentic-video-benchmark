@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-screen-01",
+  "frozenAt": "2026-09-02T06:40:00Z",
+  "source": {
+    "durationSec": 600,
+    "sha256": "1ed2ef8c8910f188ea6de2714704808dae1bf88d4d6e28237b0855901ff0a54f",
+    "generator": "tools/generate-gemini-video-fixture.py",
+    "narrationEndSec": 161.069
+  },
+  "brief": {
+    "objective": "Create a clear first-cut tutorial showing the local editing workflow.",
+    "targetDurationSec": {
+      "min": 90,
+      "max": 120
+    },
+    "requiredOrder": [
+      "project-setup",
+      "import-media",
+      "transcript-cleanup",
+      "select-hook",
+      "build-story",
+      "restore-and-continue",
+      "captions",
+      "build-passed",
+      "final-export"
+    ],
+    "mustKeepEventIds": [
+      "visual-export-complete",
+      "visual-cursor-misclick",
+      "crossmodal-build-passed"
+    ],
+    "mustCutRanges": [
+      {
+        "startSec": 423,
+        "endSec": 510,
+        "reason": "Long quality-check hold adds no new visual action after its opening label."
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "visual-export-complete",
+      "modality": "visual",
+      "startSec": 47,
+      "endSec": 48,
+      "label": "A green-style EXPORT COMPLETE confirmation slide appears for one second."
+    },
+    {
+      "id": "audio-transcript-beep",
+      "modality": "audio",
+      "startSec": 133,
+      "endSec": 133.35,
+      "label": "One 880 Hz confirmation tone plays while the transcript-cleanup slide remains visible."
+    },
+    {
+      "id": "visual-cursor-misclick",
+      "modality": "visual",
+      "startSec": 287,
+      "endSec": 288,
+      "label": "A CURSOR MISCLICK warning slide appears for one second."
+    },
+    {
+      "id": "crossmodal-build-passed",
+      "modality": "cross-modal",
+      "startSec": 421,
+      "endSec": 423,
+      "label": "The BUILD PASSED slide appears while an 880 Hz tone and then a 1320 Hz tone play."
+    }
+  ],
+  "goldMoments": [
+    {
+      "id": "goal-and-constraint",
+      "startSec": 0,
+      "endSec": 12,
+      "reason": "States the tutorial goal and target output constraint."
+    },
+    {
+      "id": "select-hook",
+      "startSec": 180,
+      "endSec": 195,
+      "reason": "Explains why the concrete result should precede setup."
+    },
+    {
+      "id": "story-structure",
+      "startSec": 240,
+      "endSec": 252,
+      "reason": "Introduces the problem-decision-outcome structure."
+    },
+    {
+      "id": "cursor-misclick",
+      "startSec": 287,
+      "endSec": 288,
+      "reason": "Brief but required visual editing failure."
+    },
+    {
+      "id": "caption-stage",
+      "startSec": 360,
+      "endSec": 372,
+      "reason": "Introduces caption timing and placement."
+    },
+    {
+      "id": "build-confirmation",
+      "startSec": 421,
+      "endSec": 423,
+      "reason": "Required cross-modal success checkpoint."
+    }
+  ],
+  "goldMomentsV02": [
+    { "id": "goal-and-constraint", "startSec": 0, "endSec": 12, "reason": "States the tutorial goal and target output constraint." },
+    { "id": "import-media", "startSec": 60, "endSec": 72, "reason": "Introduces the local import step." },
+    { "id": "transcript-cleanup", "startSec": 120, "endSec": 135, "reason": "Explains transcript compression and includes the audio checkpoint." },
+    { "id": "select-hook", "startSec": 180, "endSec": 195, "reason": "Explains why the concrete result should precede setup." },
+    { "id": "story-structure", "startSec": 240, "endSec": 252, "reason": "Introduces the problem-decision-outcome structure." },
+    { "id": "caption-stage", "startSec": 360, "endSec": 372, "reason": "Introduces caption timing and placement." }
+  ],
+  "candidateDecisions": [
+    { "segmentId": "segment-01", "sourceStartSec": 0, "sourceEndSec": 47, "decision": "compress", "keepStartSec": 0, "keepEndSec": 12 },
+    { "segmentId": "segment-02", "sourceStartSec": 47, "sourceEndSec": 48, "decision": "visual-support", "keepStartSec": 47, "keepEndSec": 48 },
+    { "segmentId": "segment-03", "sourceStartSec": 48, "sourceEndSec": 120, "decision": "compress", "keepStartSec": 60, "keepEndSec": 72 },
+    { "segmentId": "segment-04", "sourceStartSec": 120, "sourceEndSec": 180, "decision": "compress", "keepStartSec": 120, "keepEndSec": 135 },
+    { "segmentId": "segment-05", "sourceStartSec": 180, "sourceEndSec": 240, "decision": "compress", "keepStartSec": 180, "keepEndSec": 195 },
+    { "segmentId": "segment-06", "sourceStartSec": 240, "sourceEndSec": 287, "decision": "compress", "keepStartSec": 240, "keepEndSec": 252 },
+    { "segmentId": "segment-07", "sourceStartSec": 287, "sourceEndSec": 288, "decision": "visual-support", "keepStartSec": 287, "keepEndSec": 288 },
+    { "segmentId": "segment-08", "sourceStartSec": 288, "sourceEndSec": 360, "decision": "compress", "keepStartSec": 288, "keepEndSec": 295 },
+    { "segmentId": "segment-09", "sourceStartSec": 360, "sourceEndSec": 421, "decision": "compress", "keepStartSec": 360, "keepEndSec": 372 },
+    { "segmentId": "segment-10", "sourceStartSec": 421, "sourceEndSec": 423, "decision": "visual-support", "keepStartSec": 421, "keepEndSec": 423 },
+    { "segmentId": "segment-11", "sourceStartSec": 423, "sourceEndSec": 510, "decision": "cut" },
+    { "segmentId": "segment-12", "sourceStartSec": 510, "sourceEndSec": 600, "decision": "compress", "keepStartSec": 510, "keepEndSec": 522 }
+  ],
+  "goldFirstCutDurationSec": 101,
+  "evidenceQuestions": [
+    { "id": "t1", "modality": "transcript", "question": "What output duration does the narrator request?", "answer": "Between 90 and 120 seconds.", "startSec": 0, "endSec": 35 },
+    { "id": "t2", "modality": "transcript", "question": "Where does the source recording remain?", "answer": "On the local machine.", "startSec": 25, "endSec": 55 },
+    { "id": "t3", "modality": "transcript", "question": "What three-part story structure is recommended?", "answer": "Problem, decision, and outcome.", "startSec": 65, "endSec": 105 },
+    { "id": "a1", "modality": "audio", "question": "How many confirmation tones play near 02:13?", "answer": "One tone.", "startSec": 133, "endSec": 133.35 },
+    { "id": "a2", "modality": "audio", "question": "How many tones play between 07:01 and 07:03?", "answer": "Two tones.", "startSec": 421, "endSec": 423 },
+    { "id": "a3", "modality": "audio", "question": "Is spoken narration present after 02:42, excluding tones?", "answer": "No; narration ends at approximately 02:41.", "startSec": 161, "endSec": 180 },
+    { "id": "v1", "modality": "visual", "question": "What one-second confirmation appears near 00:47?", "answer": "EXPORT COMPLETE.", "startSec": 47, "endSec": 48 },
+    { "id": "v2", "modality": "visual", "question": "What one-second failure appears near 04:47?", "answer": "CURSOR MISCLICK.", "startSec": 287, "endSec": 288 },
+    { "id": "v3", "modality": "visual", "question": "Which workflow stage begins at 08:30?", "answer": "FINAL EXPORT.", "startSec": 510, "endSec": 600 },
+    { "id": "x1", "modality": "cross-modal", "question": "What visible confirmation accompanies two different tones?", "answer": "BUILD PASSED.", "startSec": 421, "endSec": 423 },
+    { "id": "x2", "modality": "cross-modal", "question": "Which visible stage is active when the single 880 Hz tone plays at 02:13?", "answer": "TRANSCRIPT CLEANUP.", "startSec": 120, "endSec": 180 },
+    { "id": "x3", "modality": "cross-modal", "question": "Is the CURSOR MISCLICK warning accompanied by spoken narration?", "answer": "No; the narration has already ended.", "startSec": 287, "endSec": 288 }
+  ]
+}

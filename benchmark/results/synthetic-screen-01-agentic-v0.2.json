@@ -1,0 +1,22 @@
+{
+  "status": "invalid-incomplete",
+  "fixtureId": "synthetic-screen-01",
+  "mode": "agentic",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.2",
+  "providerStatus": "incomplete",
+  "usage": {
+    "inputTokens": 1890,
+    "outputTokens": 73,
+    "thoughtTokens": 1929,
+    "toolUseTokens": 1915,
+    "paidEquivalentUsd": 0.010361
+  },
+  "qualityMetrics": null,
+  "decision": "Count this as the single invalid v0.2 agentic attempt. Do not repair or rerun it under v0.2 because usage was reported and the frozen retry rule permits retries only for provider or network failures before usage is reported.",
+  "limitations": [
+    "The runner did not preserve the provider's incomplete-details field for this call, so the precise incomplete reason is unavailable.",
+    "No normalized candidate was produced, so retrieval, event, evidence, decision, and constraint metrics cannot be scored.",
+    "The matching static v0.2 arm was not started because the smoke gate required a valid agentic result first."
+  ]
+}

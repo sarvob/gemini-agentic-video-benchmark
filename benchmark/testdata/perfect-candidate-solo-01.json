@@ -1,0 +1,49 @@
+{
+  "summary": "A concise solo tutorial retaining the claim, retake, recovery, captions, and export.",
+  "evidence_answers": [
+    { "question_id": "t1", "answer": "Between 90 and 120 seconds.", "start_sec": 0, "end_sec": 25 },
+    { "question_id": "t2", "answer": "On the local machine.", "start_sec": 0, "end_sec": 30 },
+    { "question_id": "t3", "answer": "Problem, decision, and outcome.", "start_sec": 35, "end_sec": 75 },
+    { "question_id": "a1", "answer": "One tone.", "start_sec": 151, "end_sec": 151.35 },
+    { "question_id": "a2", "answer": "Two tones.", "start_sec": 430, "end_sec": 432 },
+    { "question_id": "a3", "answer": "No narration remains after the endpoint.", "start_sec": 108, "end_sec": 125 },
+    { "question_id": "v1", "answer": "TITLE FLASH.", "start_sec": 55, "end_sec": 56 },
+    { "question_id": "v2", "answer": "FRAME DROP.", "start_sec": 300, "end_sec": 301 },
+    { "question_id": "v3", "answer": "OUTRO EXPORT.", "start_sec": 520, "end_sec": 600 },
+    { "question_id": "x1", "answer": "AUDIO VERIFIED.", "start_sec": 430, "end_sec": 432 },
+    { "question_id": "x2", "answer": "TRANSCRIPT REVIEW.", "start_sec": 120, "end_sec": 180 },
+    { "question_id": "x3", "answer": "No narration accompanies the frame drop.", "start_sec": 300, "end_sec": 301 }
+  ],
+  "moments": [
+    { "id": "target-duration", "label": "Target duration", "start_sec": 0, "end_sec": 14 },
+    { "id": "clear-claim", "label": "Clear claim", "start_sec": 56, "end_sec": 68 },
+    { "id": "transcript-review", "label": "Transcript review", "start_sec": 120, "end_sec": 135 },
+    { "id": "hook-retake", "label": "Hook retake", "start_sec": 180, "end_sec": 195 },
+    { "id": "worked-example", "label": "Worked example", "start_sec": 240, "end_sec": 255 },
+    { "id": "caption-safe-zone", "label": "Caption safe zone", "start_sec": 360, "end_sec": 374 }
+  ],
+  "events": [
+    { "id": "visual-title-flash", "label": "Title flash", "modality": "visual", "start_sec": 55, "end_sec": 56 },
+    { "id": "audio-review-tone", "label": "Single review tone", "modality": "audio", "start_sec": 151, "end_sec": 151.35 },
+    { "id": "visual-frame-drop", "label": "Frame drop", "modality": "visual", "start_sec": 300, "end_sec": 301 },
+    { "id": "crossmodal-audio-verified", "label": "Audio verified", "modality": "cross-modal", "start_sec": 430, "end_sec": 432 }
+  ],
+  "decisions": [
+    { "segment_id": "segment-01", "decision": "compress", "keep_start_sec": 0, "keep_end_sec": 14 },
+    { "segment_id": "segment-02", "decision": "visual-support", "keep_start_sec": 55, "keep_end_sec": 56 },
+    { "segment_id": "segment-03", "decision": "compress", "keep_start_sec": 56, "keep_end_sec": 68 },
+    { "segment_id": "segment-04", "decision": "compress", "keep_start_sec": 120, "keep_end_sec": 135 },
+    { "segment_id": "segment-05", "decision": "compress", "keep_start_sec": 180, "keep_end_sec": 195 },
+    { "segment_id": "segment-06", "decision": "compress", "keep_start_sec": 240, "keep_end_sec": 255 },
+    { "segment_id": "segment-07", "decision": "visual-support", "keep_start_sec": 300, "keep_end_sec": 301 },
+    { "segment_id": "segment-08", "decision": "compress", "keep_start_sec": 301, "keep_end_sec": 309 },
+    { "segment_id": "segment-09", "decision": "compress", "keep_start_sec": 360, "keep_end_sec": 374 },
+    { "segment_id": "segment-10", "decision": "visual-support", "keep_start_sec": 430, "keep_end_sec": 432 },
+    { "segment_id": "segment-11", "decision": "cut" },
+    { "segment_id": "segment-12", "decision": "compress", "keep_start_sec": 520, "keep_end_sec": 532 }
+  ],
+  "constraints": {
+    "required_order": ["intro-brief", "claim-take-one", "transcript-review", "hook-retake", "worked-example", "recover-take", "caption-safe-zone", "audio-verified", "outro-export"],
+    "must_keep_event_ids": ["visual-title-flash", "visual-frame-drop", "crossmodal-audio-verified"]
+  }
+}

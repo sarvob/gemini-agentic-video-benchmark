@@ -1,0 +1,57 @@
+{
+  "status": "valid",
+  "fixtureId": "synthetic-podcast-02",
+  "mode": "static",
+  "model": "gemini-3.7-flash",
+  "protocolVersion": "0.4",
+  "providerStatus": "completed",
+  "latencyMs": 24992,
+  "candidateSha256": "42c0428fa8c95de397264f8a7fb2fb3eb431b2195a88f89edcaa53a220e4ac5c",
+  "usage": {
+    "inputTokens": 56476,
+    "outputTokens": 1976,
+    "thoughtTokens": 628,
+    "toolUseTokens": 0,
+    "paidEquivalentUsd": 0.052122
+  },
+  "metrics": {
+    "momentRetrieval": { "precision": 0.16666666666666666, "recall": 0.16666666666666666, "f1": 0.16666666666666666, "matches": 1 },
+    "shortEventRecall": 0.75,
+    "timestampLocalizationErrorSec": { "median": 0, "p90": 2 },
+    "multimodalEvidenceAccuracy": {
+      "scoringMethod": "frozen-concept-conjunction-plus-time-overlap",
+      "overall": 0.9166666666666666,
+      "byModality": {
+        "transcript": 0.6666666666666666,
+        "audio": 1,
+        "visual": 1,
+        "cross-modal": 1
+      }
+    },
+    "editDecision": {
+      "byClass": {
+        "keep": { "support": 0, "precision": 0, "recall": 0, "f1": 0 },
+        "cut": { "support": 1, "precision": 1, "recall": 1, "f1": 1 },
+        "compress": { "support": 8, "precision": 1, "recall": 1, "f1": 1 },
+        "visual-support": { "support": 3, "precision": 0, "recall": 0, "f1": 0 }
+      },
+      "macroF1ObservedClasses": 0.6666666666666666
+    },
+    "briefConstraints": {
+      "durationPass": false,
+      "selectedDurationSec": 130,
+      "mustKeepPass": true,
+      "mustCutPass": true,
+      "allPass": false
+    }
+  },
+  "notAutomated": [
+    "story retention and coherence",
+    "cut-seam defect rate"
+  ],
+  "limitations": [
+    "This is the second synthetic podcast fixture and fifth valid static result; no aggregate conclusion is valid until paired aggregation.",
+    "Evidence accuracy uses frozen concept conjunctions plus temporal overlap, not human semantic judging.",
+    "The candidate is structurally valid but exceeds the 120-second brief maximum by ten seconds."
+  ]
+}
