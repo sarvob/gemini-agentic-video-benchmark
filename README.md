@@ -1,5 +1,7 @@
 # Gemini Agentic Video Understanding Benchmark
 
+[![Verify benchmark evidence](https://github.com/sarvob/gemini-agentic-video-benchmark/actions/workflows/verify.yml/badge.svg?branch=main)](https://github.com/sarvob/gemini-agentic-video-benchmark/actions/workflows/verify.yml)
+
 Public evidence package for PaperEdits' exploratory comparison of Gemini 3.7 Flash agentic and static video-understanding modes.
 
 PaperEdits maintains this repository and conducted the evaluation independently. It is not sponsored or endorsed by Google.
