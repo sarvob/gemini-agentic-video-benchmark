@@ -54,6 +54,7 @@ The manifest builder reads only committed JSON and writes deterministic JSONL. I
 ## Source and citation
 
 - Full evidence repository: https://github.com/sarvob/gemini-agentic-video-benchmark
+- Canonical aggregate JSON: https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/final-results.json
 - Public report: https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark
 - Citation metadata: https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/CITATION.cff
 

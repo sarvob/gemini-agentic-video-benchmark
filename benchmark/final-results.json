@@ -1,0 +1,70 @@
+{
+  "protocolVersion": "0.4",
+  "fixtureCount": 5,
+  "fixtures": [
+    "synthetic-screen-01",
+    "synthetic-screen-02",
+    "synthetic-solo-01",
+    "synthetic-podcast-01",
+    "synthetic-podcast-02"
+  ],
+  "macroMeans": {
+    "momentF1": {
+      "agentic": 0.26666666666666666,
+      "static": 0.3,
+      "agenticMinusStatic": -0.033333333333333326
+    },
+    "shortEventRecall": {
+      "agentic": 0.9,
+      "static": 0.75,
+      "agenticMinusStatic": 0.15000000000000002
+    },
+    "evidenceAccuracy": {
+      "agentic": 0.8333333333333334,
+      "static": 0.9,
+      "agenticMinusStatic": -0.06666666666666665
+    },
+    "editDecisionMacroF1": {
+      "agentic": 0.6807407407407406,
+      "static": 0.548148148148148,
+      "agenticMinusStatic": 0.1325925925925926
+    },
+    "boundaryMedianSec": {
+      "agentic": 1.2,
+      "static": 1,
+      "agenticMinusStatic": 0.19999999999999996
+    },
+    "boundaryP90Sec": {
+      "agentic": 4,
+      "static": 2.8,
+      "agenticMinusStatic": 1.2000000000000002
+    }
+  },
+  "totals": {
+    "inputPlusToolTokens": {
+      "agentic": 351337,
+      "static": 276494,
+      "agenticVsStaticPercent": 27.068580150021337
+    },
+    "totalAccountedTokens": {
+      "agentic": 392902,
+      "static": 289108,
+      "agenticVsStaticPercent": 35.90146242926519
+    },
+    "paidEquivalentUsd": {
+      "agentic": 0.330778,
+      "static": 0.254673,
+      "agenticVsStaticPercent": 29.88341912962899
+    },
+    "latencyMs": {
+      "agentic": 243608,
+      "static": 134352,
+      "agenticVsStaticPercent": 81.32070977730142
+    }
+  },
+  "briefPasses": {
+    "agentic": 4,
+    "static": 4,
+    "denominator": 5
+  }
+}

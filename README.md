@@ -15,6 +15,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Read the full report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark)
 - [Open the reproducibility hub](https://sarvob.github.io/gemini-agentic-video-benchmark/)
 - [Download the frozen v0.4 data bundle](https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz) (`sha256:133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039`)
+- [Read the canonical machine-readable aggregate](benchmark/final-results.json)
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
@@ -46,6 +47,7 @@ Public benchmark verification passed. No API calls were made.
 - `benchmark/evidence-rules-*.json` — fixture-specific evidence checks
 - `benchmark/prompt-v0.4.md` and `benchmark/protocol-v0.4.md` — active frozen protocol
 - `benchmark/results/` — committed result artifacts and comparisons
+- `benchmark/final-results.json` — canonical machine-readable five-pair aggregate, reproduced by the verifier
 - `benchmark/testdata/` — perfect deterministic scorer fixtures
 - `benchmark/spend-ledger.jsonl` — append-only historical cost accounting
 - `huggingface/` — dataset card and viewer-compatible JSONL manifests staged for future Hugging Face publication

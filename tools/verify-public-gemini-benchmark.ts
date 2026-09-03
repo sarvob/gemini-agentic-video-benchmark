@@ -53,6 +53,10 @@ const aggregateArgs = pairedFixtures.flatMap((fixtureId) => [
   resolve(root, 'results', `${fixtureId}-static-v0.4.json`),
 ]);
 const aggregate = JSON.parse(run('tools/aggregate-gemini-video-results.ts', aggregateArgs));
+const committedAggregate = JSON.parse(readFileSync(resolve(root, 'final-results.json'), 'utf8'));
+if (JSON.stringify(committedAggregate) !== JSON.stringify(aggregate)) {
+  throw new Error('benchmark/final-results.json does not match the deterministic five-pair aggregate.');
+}
 const expected = {
   fixtureCount: 5,
   agenticMomentF1: 0.26666666666666666,
@@ -85,7 +89,7 @@ for (const key of Object.keys(expected) as Array<keyof typeof expected>) {
   }
 }
 
-console.log('PASS final five-pair aggregate');
+console.log('PASS final five-pair aggregate and canonical JSON');
 
 const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
 const structuredDataMatch = hubHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
