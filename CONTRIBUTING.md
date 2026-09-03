@@ -10,11 +10,11 @@ PaperEdits welcomes independent checks that make this exploratory benchmark more
 - propose a rights-clear synthetic fixture without uploading personal or third-party media; or
 - publish an independent extension with its protocol, configuration, outputs, and limitations.
 
-Start with the **Benchmark reproduction** issue form for an audit or reproduction, or the **Synthetic fixture proposal** form for a new case. State whether you are independent or have a relationship with PaperEdits, and distinguish a proposal from a frozen case.
+Start with the **Benchmark reproduction** issue form for an audit or reproduction, the **Synthetic fixture proposal** form for a new case, or the **Fixture review** form for a human review of an annotated case. State whether you are independent or have a relationship with PaperEdits, and distinguish a proposal from a frozen case.
 
 New fixtures follow [Annotation and Review Guide v0.1](benchmark/annotation-review-guide-v0.1.md). A fixture counts as human-validated only after two human reviews, including at least one unaffiliated reviewer, and a versioned freeze. Automated checks do not replace either review.
 
-Browse the [public proposed-fixture queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22state%3Aproposed%22) before opening a duplicate. The first scoped case is [synthetic-presentation-01](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1); it remains a proposal and does not count toward validated breadth.
+Browse the [public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20is%3Aopen%20label%3Abenchmark%20label%3Aenhancement) before opening a duplicate. The first scoped case is [synthetic-presentation-01](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1); it is annotated but awaits two human reviews and does not count toward validated breadth. Use its [fixture-specific review checklist](benchmark/proposals/synthetic-presentation-01-review-checklist.md) if you can reproduce it on macOS.
 
 ## Safety and privacy
 

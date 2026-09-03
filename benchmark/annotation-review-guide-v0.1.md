@@ -28,7 +28,7 @@ Do not tune annotations to improve a model's observed score. Resolve ambiguous w
 
 ## Reviewer record
 
-Each reviewer posts a pull-request review containing:
+Each reviewer independently submits either the **Fixture review** issue form or a pull-request review containing:
 
 - public GitHub username only; no full name or email is required;
 - relationship to PaperEdits (`none` if unaffiliated);
@@ -38,6 +38,8 @@ Each reviewer posts a pull-request review containing:
 - confirmation that no personal information, third-party media, or private URLs were added.
 
 The fixture author cannot count as either reviewer. Automated checks support the review but do not replace either human decision.
+
+For a case already committed as an annotated proposal, use the fixture-specific checklist linked from its proposal issue. Reviewers should inspect the generated media themselves and should not copy another reviewer's conclusions. A public GitHub username is sufficient; a full name and email are not requested.
 
 ## Rights, privacy, and cost gate
 

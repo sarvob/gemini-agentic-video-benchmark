@@ -1,0 +1,93 @@
+name: Fixture review
+description: Submit an independent $0 human review of one annotated synthetic fixture.
+title: "[Fixture review]: "
+labels:
+  - benchmark
+  - review
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This public form records a human review, not a model run. Use a public GitHub username only. Do not include a full name, email address, credentials, private paths or URLs, generated media, or other personal information.
+        Review the generated fixture independently before reading another review. One review alone does not make a case frozen or validated.
+  - type: input
+    id: fixture_id
+    attributes:
+      label: Fixture ID
+      placeholder: synthetic-presentation-01
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Reviewed annotation commit
+      description: Paste the full 40-character commit SHA from the fixture checklist.
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relationship to PaperEdits
+      description: State "none" if unaffiliated. Do not provide a full name or email address.
+      placeholder: none
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Review environment
+      description: Operating system and relevant tool versions only; omit usernames and home-directory paths.
+      placeholder: macOS 15; Python 3.x; Pillow 12.x; ffmpeg 8.x; Node 22.x
+    validations:
+      required: true
+  - type: textarea
+    id: artifact_checks
+    attributes:
+      label: Artifact checks
+      description: Record the source hash, duration, scorer result, and clean-clone verifier result.
+    validations:
+      required: true
+  - type: textarea
+    id: timeline_audit
+    attributes:
+      label: Independent timeline audit
+      description: Report what you observed at every checkpoint in the fixture-specific checklist.
+    validations:
+      required: true
+  - type: textarea
+    id: annotation_audit
+    attributes:
+      label: Annotation audit
+      description: Check the evidence questions, gold moments, edit decisions, duration, order, must-keep events, and must-cut range.
+    validations:
+      required: true
+  - type: dropdown
+    id: conclusion
+    attributes:
+      label: Conclusion
+      options:
+        - pass
+        - pass-with-corrections
+        - needs-changes
+    validations:
+      required: true
+  - type: textarea
+    id: discrepancies
+    attributes:
+      label: Discrepancies and proposed resolutions
+      description: Include timestamps. Enter "none" only if no discrepancy was found.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Review safeguards
+      options:
+        - label: I inspected the generated fixture independently before reading another human review.
+          required: true
+        - label: I removed full names, email addresses, credentials, private paths or URLs, generated media, and other personal information.
+          required: true
+        - label: This review required no paid model run, service, credit, hosted accelerator, or reward.
+          required: true
+        - label: I understand that this review alone does not make the fixture frozen or validated.
+          required: true

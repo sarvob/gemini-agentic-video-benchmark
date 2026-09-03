@@ -30,6 +30,8 @@
     "groundTruth": "benchmark/proposals/synthetic-presentation-01-ground-truth.json",
     "evidenceRules": "benchmark/evidence-rules-synthetic-presentation-01.json",
     "perfectCandidate": "benchmark/proposals/synthetic-presentation-01-perfect-candidate.json",
+    "reviewChecklist": "benchmark/proposals/synthetic-presentation-01-review-checklist.md",
+    "reviewSubmissionUrl": "https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=fixture-review.yml",
     "deterministicScorerPass": true,
     "includedInFrozenFixtureManifest": false
   },
