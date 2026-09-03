@@ -40,9 +40,12 @@ Public benchmark verification passed. No API calls were made.
 - `benchmark/results/` — committed result artifacts and comparisons
 - `benchmark/testdata/` — perfect deterministic scorer fixtures
 - `benchmark/spend-ledger.jsonl` — append-only historical cost accounting
+- `huggingface/` — dataset card and viewer-compatible JSONL manifests staged for future Hugging Face publication
 - `tools/` — deterministic scorers, aggregate script, verifier, and synthetic media generators
 
 The generated videos are not committed. Their paths, durations, rights declarations, and hashes are documented in the benchmark artifacts; generator scripts require local media tooling and macOS system speech voices. The $0 artifact verifier does not require the videos.
+
+The Hugging Face package is publication-ready but not yet published. Rebuild its deterministic metadata and result tables with `npm run build:huggingface`; publishing requires an authorized Hugging Face session.
 
 ## Independent reproduction
 
