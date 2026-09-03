@@ -124,6 +124,31 @@ if (
   throw new Error('Dataset JSON-LD is missing the frozen v0.4 DataDownload distribution.');
 }
 console.log('PASS reproducibility hub Dataset structured data');
+
+const failureHtml = readFileSync(resolve('docs', 'output-contract-failure.html'), 'utf8');
+const failureStructuredDataMatch = failureHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+if (!failureStructuredDataMatch) throw new Error('Output-contract failure page is missing Article JSON-LD.');
+const failureArticle = JSON.parse(failureStructuredDataMatch[1]);
+if (
+  failureArticle['@type'] !== 'Article' ||
+  failureArticle.author?.['@type'] !== 'Organization' ||
+  failureArticle.author?.name !== 'PaperEdits'
+) {
+  throw new Error('Output-contract failure page has invalid article or organization authorship metadata.');
+}
+for (const requiredText of [
+  'quality metrics were not computed',
+  'does not prove why the model produced leading reasoning',
+  'not sponsored or endorsed by Google',
+  'synthetic-solo-02-agentic-v0.4.json',
+]) {
+  if (!failureHtml.includes(requiredText)) throw new Error(`Output-contract failure page is missing: ${requiredText}`);
+}
+const sitemap = readFileSync(resolve('docs', 'sitemap.xml'), 'utf8');
+if (!sitemap.includes('output-contract-failure.html')) {
+  throw new Error('Sitemap is missing the output-contract failure page.');
+}
+console.log('PASS public output-contract failure analysis');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {
