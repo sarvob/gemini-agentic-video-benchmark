@@ -1,5 +1,6 @@
 /** Verify the committed public Gemini benchmark artifacts without network or API calls. */
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve('benchmark');
@@ -85,6 +86,30 @@ for (const key of Object.keys(expected) as Array<keyof typeof expected>) {
 }
 
 console.log('PASS final five-pair aggregate');
+
+const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
+const structuredDataMatch = hubHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+if (!structuredDataMatch) {
+  throw new Error('Reproducibility hub is missing JSON-LD structured data.');
+}
+const structuredData = JSON.parse(structuredDataMatch[1]);
+const graph = Array.isArray(structuredData['@graph']) ? structuredData['@graph'] : [structuredData];
+const dataset = graph.find((node: Record<string, unknown>) => node['@type'] === 'Dataset');
+if (!dataset || typeof dataset.name !== 'string' || typeof dataset.description !== 'string') {
+  throw new Error('Reproducibility hub JSON-LD is missing the required Dataset name or description.');
+}
+if (dataset.description.length < 50 || dataset.description.length > 5000) {
+  throw new Error('Dataset description must remain between 50 and 5,000 characters.');
+}
+const distribution = dataset.distribution as Record<string, unknown> | undefined;
+if (
+  distribution?.['@type'] !== 'DataDownload' ||
+  distribution.contentUrl !== 'https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz' ||
+  distribution.encodingFormat !== 'application/gzip'
+) {
+  throw new Error('Dataset JSON-LD is missing the frozen v0.4 DataDownload distribution.');
+}
+console.log('PASS reproducibility hub Dataset structured data');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {

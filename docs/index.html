@@ -14,23 +14,76 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
-    "name": "Gemini Agentic Video Understanding Benchmark",
-    "description": "Public reproducibility package for an exploratory comparison of Gemini agentic and static video-understanding modes.",
-    "url": "https://sarvob.github.io/gemini-agentic-video-benchmark/",
-    "codeRepository": "https://github.com/sarvob/gemini-agentic-video-benchmark",
-    "version": "0.4.0-exploratory",
-    "license": "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/LICENSE",
-    "programmingLanguage": ["TypeScript", "Python"],
-    "creator": {
-      "@type": "Organization",
-      "name": "PaperEdits",
-      "url": "https://paperedits.com/"
-    },
-    "citation": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark",
-    "sameAs": [
-      "https://github.com/sarvob/gemini-agentic-video-benchmark/releases/tag/v0.4-exploratory",
-      "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark"
+    "@graph": [
+      {
+        "@type": "Dataset",
+        "@id": "https://sarvob.github.io/gemini-agentic-video-benchmark/#dataset",
+        "name": "PaperEdits Gemini Agentic Video Understanding Benchmark",
+        "alternateName": "Gemini Agentic vs Static Video Understanding Benchmark",
+        "description": "An exploratory machine-learning benchmark comparing Gemini 3.7 Flash agentic and static video-understanding modes across six synthetic ten-minute fixtures. Five fixtures produced valid paired results. The public release contains frozen prompts, annotations, evidence rules, deterministic scorers, eleven result records, an aggregate, and a zero-cost verification path.",
+        "url": "https://sarvob.github.io/gemini-agentic-video-benchmark/",
+        "version": "0.4-exploratory",
+        "datePublished": "2026-09-02",
+        "isAccessibleForFree": true,
+        "license": "https://opensource.org/license/mit",
+        "creator": {
+          "@type": "Organization",
+          "name": "PaperEdits",
+          "url": "https://paperedits.com/"
+        },
+        "keywords": [
+          "video understanding",
+          "agentic AI",
+          "multimodal evaluation",
+          "Gemini",
+          "reproducible benchmark",
+          "video editing"
+        ],
+        "measurementTechnique": [
+          "Deterministic event retrieval and evidence scoring",
+          "Paired agentic-versus-static model evaluation"
+        ],
+        "variableMeasured": [
+          "moment retrieval F1",
+          "short-event recall",
+          "multimodal evidence accuracy",
+          "edit-decision macro F1",
+          "brief constraint pass rate",
+          "processing time"
+        ],
+        "citation": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark",
+        "sameAs": [
+          "https://github.com/sarvob/gemini-agentic-video-benchmark/releases/tag/v0.4-exploratory",
+          "https://github.com/sarvob/gemini-agentic-video-benchmark"
+        ],
+        "distribution": {
+          "@type": "DataDownload",
+          "name": "Frozen v0.4 benchmark data bundle",
+          "contentUrl": "https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz",
+          "encodingFormat": "application/gzip",
+          "contentSize": "13493 bytes",
+          "sha256": "133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039"
+        }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://sarvob.github.io/gemini-agentic-video-benchmark/#software",
+        "name": "Gemini Agentic Video Understanding Benchmark verifier",
+        "description": "Public source code for verifying the committed benchmark evidence without model calls, uploaded media, or API credentials.",
+        "url": "https://sarvob.github.io/gemini-agentic-video-benchmark/",
+        "codeRepository": "https://github.com/sarvob/gemini-agentic-video-benchmark",
+        "version": "0.4.0-exploratory",
+        "license": "https://opensource.org/license/mit",
+        "programmingLanguage": ["TypeScript", "Python"],
+        "creator": {
+          "@type": "Organization",
+          "name": "PaperEdits",
+          "url": "https://paperedits.com/"
+        },
+        "isBasedOn": {
+          "@id": "https://sarvob.github.io/gemini-agentic-video-benchmark/#dataset"
+        }
+      }
     ]
   }
   </script>
