@@ -13,6 +13,7 @@ Six synthetic 10-minute fixtures were attempted and five produced valid pairs. A
 This small exploratory sample does not establish statistical significance, a general winner, or a comparison between Gemini and PaperEdits.
 
 - [Read the full report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark)
+- [Open the reproducibility hub](https://sarvob.github.io/gemini-agentic-video-benchmark/)
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)

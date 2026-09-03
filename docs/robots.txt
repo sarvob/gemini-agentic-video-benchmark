@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarvob.github.io/gemini-agentic-video-benchmark/sitemap.xml
