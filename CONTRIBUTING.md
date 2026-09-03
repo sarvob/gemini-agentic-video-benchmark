@@ -14,6 +14,8 @@ Start with the **Benchmark reproduction** issue form for an audit or reproductio
 
 New fixtures follow [Annotation and Review Guide v0.1](benchmark/annotation-review-guide-v0.1.md). A fixture counts as human-validated only after two human reviews, including at least one unaffiliated reviewer, and a versioned freeze. Automated checks do not replace either review.
 
+Browse the [public proposed-fixture queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22state%3Aproposed%22) before opening a duplicate. The first scoped case is [synthetic-presentation-01](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1); it remains a proposal and does not count toward validated breadth.
+
 ## Safety and privacy
 
 - Never commit API keys, credentials, email addresses, private URLs, customer footage, or personal information.

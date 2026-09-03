@@ -18,6 +18,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Copy citation metadata](CITATION.cff)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
 - [Propose and review a synthetic fixture](benchmark/annotation-review-guide-v0.1.md)
+- [Browse the public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22state%3Aproposed%22)
 - [Review the release history](CHANGELOG.md)
 
 ## Verify the committed evidence for $0
