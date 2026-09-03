@@ -4,13 +4,15 @@ PaperEdits welcomes independent checks that make this exploratory benchmark more
 
 ## Useful contributions
 
-- run `npm ci` and `npm run verify` from a clean clone, then report any divergence;
+- run `./scripts/verify-clean-clone.sh` from a clean clone, then report any divergence;
 - audit a frozen annotation or evidence rule and explain the proposed correction;
 - add deterministic scorer tests or improve documentation;
 - propose a rights-clear synthetic fixture without uploading personal or third-party media; or
 - publish an independent extension with its protocol, configuration, outputs, and limitations.
 
-Start with the **Benchmark reproduction** issue form. State whether you are independent or have a relationship with PaperEdits, and distinguish artifact reproduction from a new model run.
+Start with the **Benchmark reproduction** issue form for an audit or reproduction, or the **Synthetic fixture proposal** form for a new case. State whether you are independent or have a relationship with PaperEdits, and distinguish a proposal from a frozen case.
+
+New fixtures follow [Annotation and Review Guide v0.1](benchmark/annotation-review-guide-v0.1.md). A fixture counts as human-validated only after two human reviews, including at least one unaffiliated reviewer, and a versioned freeze. Automated checks do not replace either review.
 
 ## Safety and privacy
 
@@ -24,8 +26,7 @@ Start with the **Benchmark reproduction** issue form. State whether you are inde
 Keep changes narrowly scoped. Include the tested commit, environment, commands, results, and any changed assumptions. Run:
 
 ```bash
-npm ci
-npm run verify
+./scripts/verify-clean-clone.sh
 ```
 
 By submitting a contribution, you agree that it may be distributed under this repository's MIT License. Accepted contributors are credited through Git history and release notes where appropriate; no payment or reward is promised.

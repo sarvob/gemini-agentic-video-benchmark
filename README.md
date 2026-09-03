@@ -17,6 +17,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
+- [Propose and review a synthetic fixture](benchmark/annotation-review-guide-v0.1.md)
 - [Review the release history](CHANGELOG.md)
 
 ## Verify the committed evidence for $0
@@ -36,6 +37,7 @@ Public benchmark verification passed. No API calls were made.
 ## Repository map
 
 - `benchmark/ground-truth/` — frozen fixture annotations
+- `benchmark/annotation-review-guide-v0.1.md` — staged two-reviewer workflow for new synthetic fixtures
 - `benchmark/evidence-rules-*.json` — fixture-specific evidence checks
 - `benchmark/prompt-v0.4.md` and `benchmark/protocol-v0.4.md` — active frozen protocol
 - `benchmark/results/` — committed result artifacts and comparisons

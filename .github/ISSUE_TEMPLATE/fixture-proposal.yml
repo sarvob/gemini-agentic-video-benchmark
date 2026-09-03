@@ -1,0 +1,72 @@
+name: Synthetic fixture proposal
+description: Propose a rights-clear benchmark case without uploading media or making a paid model call.
+title: "[Fixture proposal]: "
+labels:
+  - benchmark
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public and the repository is maintained by PaperEdits. Propose only media that can be generated locally from code and contains no real person or third-party material. Do not upload media, private links, email addresses, credentials, or other personal information.
+        A proposal is not a validated benchmark case. New cases become release-ready only after the documented annotation and review gates pass.
+  - type: input
+    id: fixture_id
+    attributes:
+      label: Proposed fixture ID
+      description: Use a short lowercase identifier such as synthetic-interview-01.
+      placeholder: synthetic-format-01
+    validations:
+      required: true
+  - type: dropdown
+    id: fixture_family
+    attributes:
+      label: Fixture family
+      options:
+        - Screen recording
+        - Solo narration
+        - Podcast or interview
+        - Presentation
+        - Other synthetic format
+    validations:
+      required: true
+  - type: textarea
+    id: coverage_gap
+    attributes:
+      label: Coverage gap
+      description: Explain what behavior, modality, or failure mode this case adds beyond the existing fixtures.
+    validations:
+      required: true
+  - type: textarea
+    id: generator_plan
+    attributes:
+      label: Deterministic generator plan
+      description: List the proposed script, local dependencies, duration, seeded behavior, and expected output hash process. Do not include a private path.
+    validations:
+      required: true
+  - type: textarea
+    id: annotation_plan
+    attributes:
+      label: Annotation and review plan
+      description: Describe the events, evidence questions, edit decisions, and two-reviewer plan. At least one reviewer must be unaffiliated with PaperEdits before freezing.
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relationship to PaperEdits
+      description: State "none" if independent; otherwise briefly disclose the relationship. A public username is sufficient.
+      placeholder: none
+    validations:
+      required: true
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Rights, privacy, and cost checks
+      options:
+        - label: The proposed fixture can be generated entirely from code and contains no real person or third-party media.
+          required: true
+        - label: I have not uploaded media, credentials, private URLs, email addresses, or other personal information.
+          required: true
+        - label: This proposal requires no paid model run, service, credit, or reward.
+          required: true
