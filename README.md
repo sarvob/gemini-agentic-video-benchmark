@@ -25,6 +25,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
+- [Copy the ready-to-use BibTeX citation](CITATION.bib)
 - [Inspect machine-readable software metadata](codemeta.json)
 - [Open the agent-oriented project index](llms.txt)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)

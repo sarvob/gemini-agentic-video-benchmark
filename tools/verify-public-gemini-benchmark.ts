@@ -281,6 +281,22 @@ if (
 }
 console.log('PASS CodeMeta 3.1 software metadata and privacy boundary');
 
+const bibtex = readFileSync(resolve('CITATION.bib'), 'utf8');
+const pagesBibtex = readFileSync(resolve('docs', 'CITATION.bib'), 'utf8');
+for (const requiredText of [
+  '@misc{paperedits2026geminiagenticvideo,',
+  'author       = {{PaperEdits}}',
+  'version      = {0.4-exploratory}',
+  'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark',
+  'https://github.com/sarvob/gemini-agentic-video-benchmark',
+]) {
+  if (!bibtex.includes(requiredText)) throw new Error(`BibTeX citation is missing: ${requiredText}`);
+}
+if (pagesBibtex !== bibtex || /@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(bibtex)) {
+  throw new Error('BibTeX citation copies drifted or include a public email address.');
+}
+console.log('PASS copy-ready BibTeX citation and privacy boundary');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
@@ -295,6 +311,7 @@ const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
 if (
   !hubHtml.includes('<link rel="describedby" href="llms.txt">') ||
   !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
+  !hubHtml.includes('<a href="CITATION.bib">BibTeX</a>') ||
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
   !hubHtml.includes('<a href="llms.txt">Agent navigation</a>')
 ) {
@@ -331,6 +348,7 @@ for (const requiredText of [
   'External adoption remains zero',
   'not a Google Search ranking signal',
   'Independent reproduction form',
+  'BibTeX citation',
 ]) {
   if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);
 }
