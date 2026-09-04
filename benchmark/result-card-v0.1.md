@@ -23,12 +23,20 @@ The example is deliberately marked `maintainer-baseline` and `countsAsExternalAd
    npm run validate:result-card -- path/to/result-card.json
    ```
 
+   Before submitting, produce a copy-ready validation record with one command:
+
+   ```bash
+   npm run preflight:result-card -- path/to/result-card.json
+   ```
+
+   The preflight reruns the public benchmark checks and card validation, then prints the tested 40-character commit, card SHA-256, and PASS results without printing the card contents or absolute local path.
+
 The validator applies the JSON Schema 2020-12 contract plus cross-field checks: valid pairs cannot exceed attempts, brief-pass counts must reconcile to valid pairs, and GitHub evidence links cannot point to a mutable `main` or `master` branch.
 
 An external result counts as adoption only when its public card uses an independent relationship, sets `countsAsExternalAdoption` to `true`, links auditable evidence, and passes review. A GitHub star, page visit, maintainer test, unverifiable claim, or paid placement does not count.
 
 ## Submit a result
 
-Open the [Result card submission form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=result-card-submission.yml) and link your public result card and evidence. Do not post API keys, email addresses, customer footage, private URLs, or media you do not have the right to share.
+Open the [Result card submission form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=result-card-submission.yml), link your public result card and evidence, and paste the preflight record into the validation field. Do not post API keys, email addresses, customer footage, private URLs, or media you do not have the right to share.
 
 Acceptance means the card is structurally comparable and evidence-linked. It does not mean PaperEdits endorses the model, result, submitter, or conclusions.

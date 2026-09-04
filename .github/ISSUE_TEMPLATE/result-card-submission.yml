@@ -52,7 +52,7 @@ body:
     id: validation
     attributes:
       label: Validation record
-      description: State the JSON Schema validator used, the command and result, and the benchmark verification result. Remove local usernames and paths.
+      description: Paste the output of npm run preflight:result-card -- path/to/result-card.json. It records the tested commit, card hash, and PASS results without the card contents or absolute local path.
     validations:
       required: true
   - type: checkboxes

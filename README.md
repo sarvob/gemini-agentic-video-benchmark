@@ -66,6 +66,8 @@ The generated videos are not committed. Their paths, durations, rights declarati
 
 Validate a proposed public result card locally with `npm run validate:result-card -- path/to/result-card.json`. The command checks the JSON Schema 2020-12 contract, provenance/adoption relationship, coverage reconciliation, brief-pass counts, and immutable GitHub evidence links.
 
+Before opening a submission, run `npm run preflight:result-card -- path/to/result-card.json`. It reruns the benchmark and card checks and prints a privacy-safe, copy-ready validation record containing the tested commit and card hash.
+
 The Hugging Face package is publication-ready but not yet published. Rebuild its deterministic metadata and result tables with `npm run build:huggingface`; publishing requires an authorized Hugging Face session.
 
 The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts local checkpoint frames, scores the reference candidate, and runs the offline verifier without a model call or upload.
