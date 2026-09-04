@@ -320,6 +320,30 @@ for (const resource of dataPackage.resources) {
 }
 console.log('PASS Data Package 2.0 descriptor and resource integrity');
 
+const croissant = JSON.parse(readFileSync(resolve('croissant.json'), 'utf8'));
+const pagesCroissant = JSON.parse(readFileSync(resolve('docs', 'croissant.json'), 'utf8'));
+const croissantArchive = croissant.distribution?.find(
+  (item: Record<string, unknown>) => item['@id'] === 'v0.4-release-archive',
+);
+if (
+  croissant['@type'] !== 'sc:Dataset' ||
+  croissant.conformsTo !== 'http://mlcommons.org/croissant/1.1' ||
+  croissant.version !== '0.4.0-exploratory' ||
+  croissant.url !== 'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark' ||
+  croissant.license !== 'https://spdx.org/licenses/MIT' ||
+  croissant.creator?.['@type'] !== 'sc:Organization' ||
+  croissant.creator?.name !== 'PaperEdits' ||
+  croissantArchive?.['@type'] !== 'cr:FileObject' ||
+  croissantArchive?.contentUrl !== 'https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz' ||
+  croissantArchive?.contentSize !== '13493 B' ||
+  croissantArchive?.sha256 !== '133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039' ||
+  JSON.stringify(pagesCroissant) !== JSON.stringify(croissant) ||
+  JSON.stringify(croissant).toLowerCase().includes('email')
+) {
+  throw new Error('Croissant metadata is incomplete, inconsistent, or exposes an email field.');
+}
+console.log('PASS Croissant 1.1 dataset metadata and release integrity');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
@@ -334,9 +358,11 @@ const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
 if (
   !hubHtml.includes('<link rel="describedby" href="llms.txt">') ||
   !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
+  !hubHtml.includes('profile="http://mlcommons.org/croissant/1.1"') ||
   !hubHtml.includes('<a href="CITATION.bib">BibTeX</a>') ||
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
   !hubHtml.includes('<a href="datapackage.json">Data Package</a>') ||
+  !hubHtml.includes('<a href="croissant.json">Croissant 1.1</a>') ||
   !hubHtml.includes('<a href="llms.txt">Agent navigation</a>')
 ) {
   throw new Error('Reproducibility hub is missing its discoverable machine-readable metadata links.');
@@ -374,6 +400,7 @@ for (const requiredText of [
   'Independent reproduction form',
   'BibTeX citation',
   'Data Package descriptor',
+  'Croissant 1.1 metadata',
 ]) {
   if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);
 }
