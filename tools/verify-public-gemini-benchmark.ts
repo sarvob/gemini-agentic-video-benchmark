@@ -209,6 +209,17 @@ for (const requiredText of [
 }
 console.log('PASS public governance and external reviewer path');
 
+const readme = readFileSync(resolve('README.md'), 'utf8');
+for (const requiredText of [
+  'Benchmark reproduction form',
+  'A public GitHub username is sufficient; do not post a full name or email address.',
+  'An accepted report can count as an external artifact reproduction',
+  'while a clone or maintainer-run check cannot.',
+]) {
+  if (!readme.includes(requiredText)) throw new Error(`README reproduction call to action is missing: ${requiredText}`);
+}
+console.log('PASS independent reproduction call to action and privacy boundary');
+
 const reviewerRegistry = JSON.parse(readFileSync(resolve(root, 'community-reviewers-v0.1.json'), 'utf8'));
 const registryTotals = reviewerRegistry.entries.reduce(
   (totals: Record<string, number>, entry: any) => {
