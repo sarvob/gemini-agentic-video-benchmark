@@ -64,6 +64,8 @@ Public benchmark verification passed. No API calls were made.
 
 The generated videos are not committed. Their paths, durations, rights declarations, and hashes are documented in the benchmark artifacts; generator scripts require local media tooling and macOS system speech voices. The $0 artifact verifier does not require the videos.
 
+Validate a proposed public result card locally with `npm run validate:result-card -- path/to/result-card.json`. The command checks the JSON Schema 2020-12 contract, provenance/adoption relationship, coverage reconciliation, brief-pass counts, and immutable GitHub evidence links.
+
 The Hugging Face package is publication-ready but not yet published. Rebuild its deterministic metadata and result tables with `npm run build:huggingface`; publishing requires an authorized Hugging Face session.
 
 The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts local checkpoint frames, scores the reference candidate, and runs the offline verifier without a model call or upload.

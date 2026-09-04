@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
+import { validateResultCard } from './result-card-validator.ts';
 
 const root = resolve('benchmark');
 const fixtures = [
@@ -150,6 +151,36 @@ if (
   JSON.stringify(resultCard.efficiency) !== JSON.stringify(committedAggregate.totals)
 ) {
   throw new Error('Maintainer result card does not match benchmark/final-results.json.');
+}
+const validCardErrors = validateResultCard(resultCardSchema, resultCard);
+if (validCardErrors.length > 0) {
+  throw new Error(`Maintainer result card failed the public validator: ${validCardErrors.join('; ')}`);
+}
+
+const invalidCards = [
+  (() => {
+    const card = structuredClone(resultCard);
+    card.provenance.countsAsExternalAdoption = true;
+    return card;
+  })(),
+  (() => {
+    const card = structuredClone(resultCard);
+    card.coverage.validPairedFixtures = 7;
+    return card;
+  })(),
+  (() => {
+    const card = structuredClone(resultCard);
+    card.results.briefPasses.denominator = 4;
+    return card;
+  })(),
+  (() => {
+    const card = structuredClone(resultCard);
+    card.evidence.aggregate = 'https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/final-results.json';
+    return card;
+  })(),
+];
+if (invalidCards.some((card) => validateResultCard(resultCardSchema, card).length === 0)) {
+  throw new Error('Result-card validator accepted a known invalid card.');
 }
 console.log('PASS versioned result-card contract and maintainer example');
 

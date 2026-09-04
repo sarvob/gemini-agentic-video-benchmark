@@ -17,7 +17,13 @@ The example is deliberately marked `maintainer-baseline` and `countsAsExternalAd
 4. Report the paired quality and efficiency fields in the schema. Do not omit an unfavorable metric or invalid attempt.
 5. Link immutable aggregate, protocol, and result-artifact URLs.
 6. State your relationship to PaperEdits. Use `independent-reproduction` only when you independently repeated the same protocol; use `independent-extension` for a changed model, fixture set, or method.
-7. Run `npm run verify`, then validate your JSON with a JSON Schema 2020-12 validator before publishing it.
+7. Run `npm run verify`, then validate your JSON before publishing it:
+
+   ```bash
+   npm run validate:result-card -- path/to/result-card.json
+   ```
+
+The validator applies the JSON Schema 2020-12 contract plus cross-field checks: valid pairs cannot exceed attempts, brief-pass counts must reconcile to valid pairs, and GitHub evidence links cannot point to a mutable `main` or `master` branch.
 
 An external result counts as adoption only when its public card uses an independent relationship, sets `countsAsExternalAdoption` to `true`, links auditable evidence, and passes review. A GitHub star, page visit, maintainer test, unverifiable claim, or paid placement does not count.
 
