@@ -263,6 +263,7 @@ if (
 console.log('PASS community reviewer registry and zero boundary');
 
 const codeMeta = JSON.parse(readFileSync(resolve('codemeta.json'), 'utf8'));
+const pagesCodeMeta = JSON.parse(readFileSync(resolve('docs', 'codemeta.json'), 'utf8'));
 if (
   codeMeta['@context'] !== 'https://w3id.org/codemeta/3.1' ||
   codeMeta['@type'] !== 'SoftwareSourceCode' ||
@@ -273,7 +274,8 @@ if (
   codeMeta.referencePublication !== 'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark' ||
   codeMeta.author?.['@type'] !== 'Organization' ||
   codeMeta.author?.name !== 'PaperEdits' ||
-  JSON.stringify(codeMeta).toLowerCase().includes('email')
+  JSON.stringify(codeMeta).toLowerCase().includes('email') ||
+  JSON.stringify(pagesCodeMeta) !== JSON.stringify(codeMeta)
 ) {
   throw new Error('CodeMeta metadata is incomplete, inconsistent, or exposes an email field.');
 }
@@ -290,6 +292,12 @@ if (Object.values(uncertainty.analyses).some((analysis: any) => analysis.signFli
 console.log('PASS deterministic paired uncertainty analysis');
 
 const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
+if (
+  !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
+  !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>')
+) {
+  throw new Error('Reproducibility hub is missing its discoverable CodeMeta link.');
+}
 const structuredDataMatch = hubHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
 if (!structuredDataMatch) {
   throw new Error('Reproducibility hub is missing JSON-LD structured data.');
