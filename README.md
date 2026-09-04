@@ -66,6 +66,8 @@ The generated videos are not committed. Their paths, durations, rights declarati
 
 The Hugging Face package is publication-ready but not yet published. Rebuild its deterministic metadata and result tables with `npm run build:huggingface`; publishing requires an authorized Hugging Face session.
 
+The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts local checkpoint frames, scores the reference candidate, and runs the offline verifier without a model call or upload.
+
 ## Independent reproduction
 
 Use the **Benchmark reproduction** issue form to report a clean-clone verification, discrepancy, annotation audit, or independent extension. State your relationship to PaperEdits, if any, and whether your work is an artifact reproduction or a new model run.

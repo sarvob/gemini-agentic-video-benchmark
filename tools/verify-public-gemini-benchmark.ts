@@ -1,6 +1,7 @@
 /** Verify the committed public Gemini benchmark artifacts without network or API calls. */
 import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 
 const root = resolve('benchmark');
@@ -46,6 +47,25 @@ if (proposalChecks.some((value) => value !== 1) || !proposalMetrics.briefConstra
   throw new Error('synthetic-presentation-01 annotated proposal did not receive perfect deterministic scores.');
 }
 console.log('PASS annotated proposal scorer: synthetic-presentation-01 (not in frozen aggregate)');
+
+const presentationReviewLock = JSON.parse(
+  readFileSync(resolve(root, 'proposals', 'synthetic-presentation-01-review-lock.json'), 'utf8'),
+);
+for (const [path, expectedHash] of Object.entries(presentationReviewLock.lockedFiles)) {
+  const actualHash = createHash('sha256').update(readFileSync(resolve(path))).digest('hex');
+  if (actualHash !== expectedHash) {
+    throw new Error(`Presentation review lock mismatch for ${path}.`);
+  }
+}
+if (
+  presentationReviewLock.fixtureId !== 'synthetic-presentation-01' ||
+  presentationReviewLock.expectedVideo.sha256 !== '748649e5b7ca64f3c44f5256b283d613469f9c643ef5a5c97d82647c90603e54' ||
+  presentationReviewLock.expectedVideo.durationSec !== 600 ||
+  presentationReviewLock.checkpointFrames.length !== 6
+) {
+  throw new Error('Presentation review lock metadata is incomplete.');
+}
+console.log('PASS locked presentation review snapshot');
 
 const pairedFixtures = ['synthetic-screen-01', 'synthetic-screen-02', 'synthetic-solo-01', 'synthetic-podcast-01', 'synthetic-podcast-02'];
 const aggregateArgs = pairedFixtures.flatMap((fixtureId) => [

@@ -17,7 +17,17 @@ Use a public GitHub username only; do not post a full name, email address, priva
 
 ## Reproduce the candidate and scorer
 
-Run from a clean clone on macOS with Python, Pillow, ffmpeg, Node.js, and npm available:
+From the current repository, the one-command helper validates a locked copy of the annotation target, regenerates the exact video, checks hash and duration, scores the perfect candidate, runs the offline verifier, and extracts six local checkpoint frames:
+
+```bash
+./scripts/prepare-presentation-01-review.sh
+```
+
+The helper writes generated media and frames only under the ignored `tmp/gemini-benchmark/` directory. It does not upload media or call a model API.
+
+On a cold system-voice run, the first generated hash may differ before the expected output stabilizes. The helper reports that discrepancy, retries once, and requires the expected hash on two consecutive runs before proceeding. Report any mismatch that survives the retry or confirmation run.
+
+To reproduce manually at the original annotation commit, run from a clean clone on macOS with Python, Pillow, ffmpeg, Node.js, and npm available:
 
 ```bash
 git checkout 7edc4b592f8dfce427429349514b86003091db9c

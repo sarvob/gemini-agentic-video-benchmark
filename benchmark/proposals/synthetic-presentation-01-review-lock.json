@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-presentation-01",
+  "annotationCommit": "7edc4b592f8dfce427429349514b86003091db9c",
+  "expectedVideo": {
+    "path": "tmp/gemini-benchmark/synthetic-presentation-01.mp4",
+    "sha256": "748649e5b7ca64f3c44f5256b283d613469f9c643ef5a5c97d82647c90603e54",
+    "durationSec": 600,
+    "durationToleranceSec": 0.05
+  },
+  "lockedFiles": {
+    "tools/generate-gemini-video-presentation-01.py": "3862445b43f8fbafb42e27644cba4073798f67ccd07be71d2839c0d8f2c11037",
+    "benchmark/proposals/synthetic-presentation-01-ground-truth.json": "fccba4787b5f9ab7a280732b3f80b1952c9ec83b0ba8dc131b3d21d2601ba75c",
+    "benchmark/evidence-rules-synthetic-presentation-01.json": "5e4ee206411d48de3e9e27b46bc38b2150731113c1e93bcf152d3b4b1113282e",
+    "benchmark/proposals/synthetic-presentation-01-perfect-candidate.json": "57c206046bea9680ddadf4bb473e129f47382387f230b8ce14c15ceb6ed33d8b"
+  },
+  "checkpointFrames": [
+    { "timeSec": 53, "file": "0053-q2-result.png", "expected": "Visual-only Q2 RESULT • 42% card" },
+    { "timeSec": 99.5, "file": "0099-narration-end.png", "expected": "Narration ends at approximately 99.91 seconds" },
+    { "timeSec": 176.15, "file": "0176-method-tone.png", "expected": "METHOD remains visible during one 740 Hz tone" },
+    { "timeSec": 249, "file": "0249-label-corrected.png", "expected": "Visual-only LABEL CORRECTED card" },
+    { "timeSec": 401, "file": "0401-finding-verified.png", "expected": "FINDING VERIFIED during two different tones" },
+    { "timeSec": 450, "file": "0450-appendix-hold.png", "expected": "Static APPENDIX HOLD in the required-cut range" }
+  ]
+}
