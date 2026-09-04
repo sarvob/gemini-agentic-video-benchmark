@@ -174,6 +174,52 @@ if (!sitemap.includes('temporal-miss-analysis.html')) {
   throw new Error('Sitemap is missing the temporal miss analysis page.');
 }
 console.log('PASS public temporal miss analysis');
+
+const tradeoffHtml = readFileSync(resolve('docs', 'quality-cost-tradeoff.html'), 'utf8');
+const tradeoffStructuredDataMatch = tradeoffHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+if (!tradeoffStructuredDataMatch) throw new Error('Quality-cost page is missing Article JSON-LD.');
+const tradeoffArticle = JSON.parse(tradeoffStructuredDataMatch[1]);
+if (
+  tradeoffArticle['@type'] !== 'Article' ||
+  tradeoffArticle.author?.['@type'] !== 'Organization' ||
+  tradeoffArticle.author?.name !== 'PaperEdits'
+) {
+  throw new Error('Quality-cost page has invalid article or organization authorship metadata.');
+}
+const v04Ledger = readFileSync(resolve(root, 'spend-ledger.jsonl'), 'utf8')
+  .trim()
+  .split('\n')
+  .map((line) => JSON.parse(line))
+  .filter((entry) => entry.protocolVersion === '0.4');
+const totalV04Spend = v04Ledger.reduce((sum, entry) => sum + entry.accountedUsd, 0);
+const invalidSoloSpend = v04Ledger.find((entry) => entry.fixtureId === 'synthetic-solo-02')?.accountedUsd;
+const extraMatchedCost = aggregate.totals.paidEquivalentUsd.agentic - aggregate.totals.paidEquivalentUsd.static;
+const extraMatchedTokens = aggregate.totals.totalAccountedTokens.agentic - aggregate.totals.totalAccountedTokens.static;
+const extraMatchedLatency = aggregate.totals.latencyMs.agentic - aggregate.totals.latencyMs.static;
+if (
+  v04Ledger.length !== 11 ||
+  Math.abs(totalV04Spend - 0.66092) > 1e-12 ||
+  Math.abs(invalidSoloSpend - 0.075469) > 1e-12 ||
+  Math.abs(extraMatchedCost - 0.076105) > 1e-12 ||
+  extraMatchedTokens !== 103794 ||
+  extraMatchedLatency !== 109256
+) {
+  throw new Error('Quality-cost accounting no longer matches the frozen aggregate and spend ledger.');
+}
+for (const requiredText of [
+  '+103,794',
+  '+$0.076105',
+  '$0.075469',
+  '$0.660920',
+  'descriptive ratio, not a causal price or business return',
+  'not sponsored or endorsed by Google',
+]) {
+  if (!tradeoffHtml.includes(requiredText)) throw new Error(`Quality-cost page is missing: ${requiredText}`);
+}
+if (!sitemap.includes('quality-cost-tradeoff.html')) {
+  throw new Error('Sitemap is missing the quality-cost tradeoff page.');
+}
+console.log('PASS public quality and cost tradeoff report');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {
