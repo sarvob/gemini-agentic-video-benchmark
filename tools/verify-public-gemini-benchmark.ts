@@ -197,6 +197,18 @@ if (
 }
 console.log('PASS static community results index and adoption boundary');
 
+const governance = readFileSync(resolve('GOVERNANCE.md'), 'utf8');
+for (const requiredText of [
+  'A public GitHub username is sufficient; a full name or email address is not required.',
+  'cannot provide an independent review of their own fixture or result card',
+  'countsAsExternalAdoption: false',
+  'two accepted reviews or comparable merged contributions',
+  'PaperEdits remains the final repository maintainer',
+]) {
+  if (!governance.includes(requiredText)) throw new Error(`Governance is missing: ${requiredText}`);
+}
+console.log('PASS public governance and external reviewer path');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {

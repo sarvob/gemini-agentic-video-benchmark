@@ -26,6 +26,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
+- [Read the governance and decision rules](GOVERNANCE.md)
 - [Propose and review a synthetic fixture](benchmark/annotation-review-guide-v0.1.md)
 - [Browse the public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20is%3Aopen%20label%3Abenchmark%20label%3Aenhancement)
 - [Review the annotated presentation fixture](benchmark/proposals/synthetic-presentation-01-review-checklist.md)
@@ -61,6 +62,7 @@ Public benchmark verification passed. No API calls were made.
 - `benchmark/spend-ledger.jsonl` — append-only historical cost accounting
 - `huggingface/` — dataset card and viewer-compatible JSONL manifests staged for future Hugging Face publication
 - `tools/` — deterministic scorers, aggregate script, verifier, and synthetic media generators
+- `GOVERNANCE.md` — public roles, acceptance rules, conflicts, and external reviewer path
 
 The generated videos are not committed. Their paths, durations, rights declarations, and hashes are documented in the benchmark artifacts; generator scripts require local media tooling and macOS system speech voices. The $0 artifact verifier does not require the videos.
 

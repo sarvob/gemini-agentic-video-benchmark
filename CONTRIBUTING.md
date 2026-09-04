@@ -2,6 +2,8 @@
 
 PaperEdits welcomes independent checks that make this exploratory benchmark more reproducible, better scoped, or easier to audit.
 
+Read [GOVERNANCE.md](GOVERNANCE.md) for roles, public decision records, result-card acceptance, fixture-freeze rules, conflicts, and the path to recurring reviewer status.
+
 ## Useful contributions
 
 - run `./scripts/verify-clean-clone.sh` from a clean clone, then report any divergence;
