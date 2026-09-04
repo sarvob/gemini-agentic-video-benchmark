@@ -325,6 +325,12 @@ const pagesCroissant = JSON.parse(readFileSync(resolve('docs', 'croissant.json')
 const croissantArchive = croissant.distribution?.find(
   (item: Record<string, unknown>) => item['@id'] === 'v0.4-release-archive',
 );
+const croissantGroundTruth = croissant.distribution?.find(
+  (item: Record<string, unknown>) => item['@id'] === 'ground-truth-files',
+);
+const croissantResults = croissant.distribution?.find(
+  (item: Record<string, unknown>) => item['@id'] === 'result-files',
+);
 if (
   croissant['@type'] !== 'sc:Dataset' ||
   croissant.conformsTo !== 'http://mlcommons.org/croissant/1.1' ||
@@ -337,6 +343,12 @@ if (
   croissantArchive?.contentUrl !== 'https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz' ||
   croissantArchive?.contentSize !== '13493 B' ||
   croissantArchive?.sha256 !== '133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039' ||
+  croissantGroundTruth?.['@type'] !== 'cr:FileSet' ||
+  croissantGroundTruth?.containedIn?.['@id'] !== 'v0.4-release-archive' ||
+  croissantGroundTruth?.includes !== 'gemini-agentic-video-benchmark-v0.4-data/benchmark/ground-truth/*.json' ||
+  croissantResults?.['@type'] !== 'cr:FileSet' ||
+  croissantResults?.containedIn?.['@id'] !== 'v0.4-release-archive' ||
+  croissantResults?.includes !== 'gemini-agentic-video-benchmark-v0.4-data/benchmark/results/*.json' ||
   JSON.stringify(pagesCroissant) !== JSON.stringify(croissant) ||
   JSON.stringify(croissant).toLowerCase().includes('email')
 ) {

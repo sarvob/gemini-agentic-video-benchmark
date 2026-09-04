@@ -41,7 +41,7 @@
   "@type": "sc:Dataset",
   "@id": "https://sarvob.github.io/gemini-agentic-video-benchmark/croissant.json",
   "name": "PaperEdits Gemini Agentic Video Understanding Benchmark",
-  "description": "Machine-learning-ready metadata for the frozen exploratory comparison of Gemini 3.7 Flash agentic and static video inspection. The release contains six synthetic fixture records, eleven v0.4 result attempts, the canonical five-pair aggregate, and deterministic uncertainty analysis. The small synthetic sample does not establish statistical significance or general model superiority.",
+  "description": "Machine-learning-ready metadata for the frozen exploratory comparison of Gemini 3.7 Flash agentic and static video inspection. The release archive contains six synthetic ground-truth files, eleven v0.4 result attempts, protocol files, citation metadata, and a Markdown aggregate. The small synthetic sample does not establish statistical significance or general model superiority.",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
   "url": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark",
   "sameAs": "https://github.com/sarvob/gemini-agentic-video-benchmark",
@@ -72,11 +72,29 @@
       "@type": "cr:FileObject",
       "@id": "v0.4-release-archive",
       "name": "Frozen v0.4 benchmark data archive",
-      "description": "Tag-aligned archive containing fixtures, ground truth, evidence rules, result records, the aggregate, the uncertainty analysis, license, and citation metadata.",
+      "description": "Tag-aligned archive containing the fixture manifest, six ground-truth files, evidence rules, eleven result records, a Markdown aggregate, license, and citation metadata.",
       "contentUrl": "https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz",
       "encodingFormat": "application/gzip",
       "contentSize": "13493 B",
       "sha256": "133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "ground-truth-files",
+      "name": "Synthetic ground-truth files",
+      "description": "Six JSON ground-truth files for the frozen synthetic fixtures.",
+      "containedIn": {"@id": "v0.4-release-archive"},
+      "encodingFormat": "application/json",
+      "includes": "gemini-agentic-video-benchmark-v0.4-data/benchmark/ground-truth/*.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "result-files",
+      "name": "Benchmark result attempts",
+      "description": "Eleven JSON result attempts: five valid agentic/static pairs and one invalid agentic output.",
+      "containedIn": {"@id": "v0.4-release-archive"},
+      "encodingFormat": "application/json",
+      "includes": "gemini-agentic-video-benchmark-v0.4-data/benchmark/results/*.json"
     }
   ]
 }
