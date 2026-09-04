@@ -12,6 +12,8 @@ PaperEdits welcomes independent checks that make this exploratory benchmark more
 
 Start with the **Benchmark reproduction** issue form for an audit or reproduction, the **Synthetic fixture proposal** form for a new case, or the **Fixture review** form for a human review of an annotated case. State whether you are independent or have a relationship with PaperEdits, and distinguish a proposal from a frozen case.
 
+For a new run or extension, publish a [result card](benchmark/result-card-v0.1.md) with immutable evidence links. The example is a maintainer baseline and does not count as external adoption.
+
 New fixtures follow [Annotation and Review Guide v0.1](benchmark/annotation-review-guide-v0.1.md). A fixture counts as human-validated only after two human reviews, including at least one unaffiliated reviewer, and a versioned freeze. Automated checks do not replace either review.
 
 Browse the [public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20is%3Aopen%20label%3Abenchmark%20label%3Aenhancement) before opening a duplicate. The first scoped case is [synthetic-presentation-01](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/1); it is annotated but awaits two human reviews and does not count toward validated breadth. Use its [fixture-specific review checklist](benchmark/proposals/synthetic-presentation-01-review-checklist.md) if you can reproduce it on macOS.

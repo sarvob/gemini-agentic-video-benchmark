@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "0.1",
+  "resultCardId": "paperedits-gemini-3.7-flash-v0.4-maintainer-baseline",
+  "provenance": {
+    "relationship": "maintainer-baseline",
+    "countsAsExternalAdoption": false,
+    "organization": "PaperEdits",
+    "disclosure": "PaperEdits maintains this repository and conducted this evaluation independently. This example is not an external reproduction and is not sponsored or endorsed by Google."
+  },
+  "benchmark": {
+    "repository": "https://github.com/sarvob/gemini-agentic-video-benchmark",
+    "protocolVersion": "0.4",
+    "revision": "v0.4-exploratory",
+    "resultsRevision": "160de2a"
+  },
+  "systemUnderTest": { "provider": "Google", "model": "gemini-3.7-flash", "modes": ["agentic", "static"] },
+  "runPolicy": {
+    "thinkingLevel": "low",
+    "responseTokenCeiling": 8192,
+    "store": false,
+    "retryPolicy": "One request per arm per fixture; only a provider or network failure before reported usage may be retried once for both arms."
+  },
+  "coverage": {
+    "attemptedFixtures": 6,
+    "validPairedFixtures": 5,
+    "excludedAttempts": [{ "fixtureId": "synthetic-solo-02", "mode": "agentic", "reason": "The output violated the frozen JSON contract, so the pair was excluded from quality comparisons." }]
+  },
+  "results": {
+    "momentF1": { "agentic": 0.26666666666666666, "static": 0.3, "agenticMinusStatic": -0.033333333333333326 },
+    "shortEventRecall": { "agentic": 0.9, "static": 0.75, "agenticMinusStatic": 0.15000000000000002 },
+    "evidenceAccuracy": { "agentic": 0.8333333333333334, "static": 0.9, "agenticMinusStatic": -0.06666666666666665 },
+    "editDecisionMacroF1": { "agentic": 0.6807407407407406, "static": 0.548148148148148, "agenticMinusStatic": 0.1325925925925926 },
+    "boundaryMedianSec": { "agentic": 1.2, "static": 1, "agenticMinusStatic": 0.19999999999999996 },
+    "boundaryP90Sec": { "agentic": 4, "static": 2.8, "agenticMinusStatic": 1.2000000000000002 },
+    "briefPasses": { "agentic": 4, "static": 4, "denominator": 5 }
+  },
+  "efficiency": {
+    "inputPlusToolTokens": { "agentic": 351337, "static": 276494, "agenticVsStaticPercent": 27.068580150021337 },
+    "totalAccountedTokens": { "agentic": 392902, "static": 289108, "agenticVsStaticPercent": 35.90146242926519 },
+    "paidEquivalentUsd": { "agentic": 0.330778, "static": 0.254673, "agenticVsStaticPercent": 29.88341912962899 },
+    "latencyMs": { "agentic": 243608, "static": 134352, "agenticVsStaticPercent": 81.32070977730142 }
+  },
+  "evidence": {
+    "aggregate": "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/160de2a/benchmark/final-results.json",
+    "protocol": "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/160de2a/benchmark/protocol-v0.4.md",
+    "verificationCommand": "./scripts/verify-clean-clone.sh",
+    "resultArtifacts": "https://github.com/sarvob/gemini-agentic-video-benchmark/tree/160de2a/benchmark/results"
+  },
+  "limitations": [
+    "The sample contains five valid synthetic fixture pairs.",
+    "No evaluated metric has a two-sided exact sign-flip p-value below 0.05.",
+    "The benchmark does not establish a general winner or compare Gemini with PaperEdits."
+  ]
+}

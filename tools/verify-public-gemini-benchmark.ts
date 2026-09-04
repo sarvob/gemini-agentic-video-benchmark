@@ -91,6 +91,48 @@ for (const key of Object.keys(expected) as Array<keyof typeof expected>) {
 
 console.log('PASS final five-pair aggregate and canonical JSON');
 
+const resultCardSchema = JSON.parse(readFileSync(resolve(root, 'result-card-schema-v0.1.json'), 'utf8'));
+const resultCard = JSON.parse(readFileSync(resolve(root, 'result-card-example-v0.1.json'), 'utf8'));
+const requiredResultCardKeys = [
+  'schemaVersion',
+  'resultCardId',
+  'provenance',
+  'benchmark',
+  'systemUnderTest',
+  'runPolicy',
+  'coverage',
+  'results',
+  'efficiency',
+  'evidence',
+  'limitations',
+];
+if (resultCardSchema.$schema !== 'https://json-schema.org/draft/2020-12/schema') {
+  throw new Error('Result-card schema must declare JSON Schema 2020-12.');
+}
+for (const key of requiredResultCardKeys) {
+  if (!resultCardSchema.required?.includes(key) || !(key in resultCard)) {
+    throw new Error(`Result-card contract is missing required key: ${key}`);
+  }
+}
+if (
+  resultCard.schemaVersion !== '0.1' ||
+  resultCard.benchmark.protocolVersion !== committedAggregate.protocolVersion ||
+  resultCard.benchmark.resultsRevision !== '160de2a' ||
+  resultCard.provenance.relationship !== 'maintainer-baseline' ||
+  resultCard.provenance.countsAsExternalAdoption !== false
+) {
+  throw new Error('Maintainer result-card provenance or benchmark revision is invalid.');
+}
+if (
+  resultCard.coverage.validPairedFixtures !== committedAggregate.fixtureCount ||
+  JSON.stringify(resultCard.results) !==
+    JSON.stringify({ ...committedAggregate.macroMeans, briefPasses: committedAggregate.briefPasses }) ||
+  JSON.stringify(resultCard.efficiency) !== JSON.stringify(committedAggregate.totals)
+) {
+  throw new Error('Maintainer result card does not match benchmark/final-results.json.');
+}
+console.log('PASS versioned result-card contract and maintainer example');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {

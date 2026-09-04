@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sarvob.github.io/gemini-agentic-video-benchmark/result-card-schema-v0.1.json",
+  "title": "Gemini agentic video benchmark result card v0.1",
+  "description": "Portable metadata and aggregate results for a reproducible benchmark run.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "resultCardId", "provenance", "benchmark", "systemUnderTest", "runPolicy", "coverage", "results", "efficiency", "evidence", "limitations"],
+  "properties": {
+    "schemaVersion": { "const": "0.1" },
+    "resultCardId": { "type": "string", "minLength": 1 },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relationship", "countsAsExternalAdoption"],
+      "properties": {
+        "relationship": { "enum": ["maintainer-baseline", "independent-reproduction", "independent-extension"] },
+        "countsAsExternalAdoption": { "type": "boolean" },
+        "organization": { "type": "string" },
+        "disclosure": { "type": "string", "minLength": 1 }
+      }
+    },
+    "benchmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "protocolVersion", "revision", "resultsRevision"],
+      "properties": {
+        "repository": { "type": "string", "format": "uri" },
+        "protocolVersion": { "const": "0.4" },
+        "revision": { "type": "string", "minLength": 1 },
+        "resultsRevision": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" }
+      }
+    },
+    "systemUnderTest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "modes"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "modes": { "type": "array", "prefixItems": [{ "const": "agentic" }, { "const": "static" }], "items": false }
+      }
+    },
+    "runPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["thinkingLevel", "responseTokenCeiling", "store", "retryPolicy"],
+      "properties": {
+        "thinkingLevel": { "type": "string" },
+        "responseTokenCeiling": { "type": "integer", "minimum": 1 },
+        "store": { "type": "boolean" },
+        "retryPolicy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attemptedFixtures", "validPairedFixtures", "excludedAttempts"],
+      "properties": {
+        "attemptedFixtures": { "type": "integer", "minimum": 1 },
+        "validPairedFixtures": { "type": "integer", "minimum": 0 },
+        "excludedAttempts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["fixtureId", "mode", "reason"],
+            "properties": {
+              "fixtureId": { "type": "string" },
+              "mode": { "enum": ["agentic", "static"] },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["momentF1", "shortEventRecall", "evidenceAccuracy", "editDecisionMacroF1", "boundaryMedianSec", "boundaryP90Sec", "briefPasses"],
+      "properties": {
+        "momentF1": { "$ref": "#/$defs/pairedMetric" },
+        "shortEventRecall": { "$ref": "#/$defs/pairedMetric" },
+        "evidenceAccuracy": { "$ref": "#/$defs/pairedMetric" },
+        "editDecisionMacroF1": { "$ref": "#/$defs/pairedMetric" },
+        "boundaryMedianSec": { "$ref": "#/$defs/pairedMetric" },
+        "boundaryP90Sec": { "$ref": "#/$defs/pairedMetric" },
+        "briefPasses": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["agentic", "static", "denominator"],
+          "properties": {
+            "agentic": { "type": "integer", "minimum": 0 },
+            "static": { "type": "integer", "minimum": 0 },
+            "denominator": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "efficiency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inputPlusToolTokens", "totalAccountedTokens", "paidEquivalentUsd", "latencyMs"],
+      "properties": {
+        "inputPlusToolTokens": { "$ref": "#/$defs/pairedTotal" },
+        "totalAccountedTokens": { "$ref": "#/$defs/pairedTotal" },
+        "paidEquivalentUsd": { "$ref": "#/$defs/pairedTotal" },
+        "latencyMs": { "$ref": "#/$defs/pairedTotal" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aggregate", "protocol", "verificationCommand"],
+      "properties": {
+        "aggregate": { "type": "string", "format": "uri" },
+        "protocol": { "type": "string", "format": "uri" },
+        "verificationCommand": { "type": "string", "minLength": 1 },
+        "resultArtifacts": { "type": "string", "format": "uri" }
+      }
+    },
+    "limitations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "pairedMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agentic", "static", "agenticMinusStatic"],
+      "properties": { "agentic": { "type": "number" }, "static": { "type": "number" }, "agenticMinusStatic": { "type": "number" } }
+    },
+    "pairedTotal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agentic", "static", "agenticVsStaticPercent"],
+      "properties": { "agentic": { "type": "number", "minimum": 0 }, "static": { "type": "number", "minimum": 0 }, "agenticVsStaticPercent": { "type": "number" } }
+    }
+  }
+}
