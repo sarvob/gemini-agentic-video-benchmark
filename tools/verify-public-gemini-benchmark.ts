@@ -209,6 +209,48 @@ for (const requiredText of [
 }
 console.log('PASS public governance and external reviewer path');
 
+const reviewerRegistry = JSON.parse(readFileSync(resolve(root, 'community-reviewers-v0.1.json'), 'utf8'));
+const registryTotals = reviewerRegistry.entries.reduce(
+  (totals: Record<string, number>, entry: any) => {
+    if (
+      typeof entry.username !== 'string' ||
+      typeof entry.relationshipToPaperEdits !== 'string' ||
+      !Number.isInteger(entry.acceptedReviewCount) ||
+      !Number.isInteger(entry.unaffiliatedAcceptedReviewCount) ||
+      typeof entry.recognizedRecurringReviewer !== 'boolean' ||
+      !Number.isInteger(entry.mergedContributionCount) ||
+      !Array.isArray(entry.evidenceUrls) ||
+      entry.evidenceUrls.length === 0 ||
+      entry.evidenceUrls.some((url: unknown) => typeof url !== 'string' || !url.startsWith('https://github.com/')) ||
+      entry.unaffiliatedAcceptedReviewCount > entry.acceptedReviewCount ||
+      (entry.relationshipToPaperEdits === 'none'
+        ? entry.unaffiliatedAcceptedReviewCount !== entry.acceptedReviewCount
+        : entry.unaffiliatedAcceptedReviewCount !== 0) ||
+      (entry.acceptedReviewCount === 0 && entry.mergedContributionCount === 0 && !entry.recognizedRecurringReviewer)
+    ) {
+      throw new Error('Community reviewer registry entry is incomplete or lacks public evidence.');
+    }
+    totals.acceptedReviews += entry.acceptedReviewCount;
+    totals.unaffiliatedReviews += entry.unaffiliatedAcceptedReviewCount;
+    totals.recurringReviewers += Number(entry.recognizedRecurringReviewer);
+    totals.mergedContributors += Number(entry.mergedContributionCount > 0);
+    return totals;
+  },
+  { acceptedReviews: 0, unaffiliatedReviews: 0, recurringReviewers: 0, mergedContributors: 0 },
+);
+if (
+  reviewerRegistry.schemaVersion !== '0.1' ||
+  !/^\d{4}-\d{2}-\d{2}$/.test(reviewerRegistry.asOf) ||
+  reviewerRegistry.acceptedExternalReviewCount !== registryTotals.acceptedReviews ||
+  reviewerRegistry.unaffiliatedAcceptedReviewCount !== registryTotals.unaffiliatedReviews ||
+  reviewerRegistry.recognizedRecurringReviewerCount !== registryTotals.recurringReviewers ||
+  reviewerRegistry.contributorsWithMergedWorkCount !== registryTotals.mergedContributors ||
+  !reviewerRegistry.countingRules.includes('An empty registry and maintainer activity do not count as external adoption.')
+) {
+  throw new Error('Community reviewer registry must begin at an explicit evidence-backed zero.');
+}
+console.log('PASS community reviewer registry and zero boundary');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
@@ -346,6 +388,9 @@ for (const requiredText of [
   'does not count as independent reproduction, community adoption, or endorsement',
   'result-card-submission.yml',
   'No payment, credit, or private identity is required.',
+  'Accepted external reviews: 0. Recognized recurring external reviewers: 0.',
+  'community-reviewers-v0.1.json',
+  'Empty infrastructure and maintainer activity do not count as adoption.',
 ]) {
   if (!communityHtml.includes(requiredText)) throw new Error(`Community results page is missing: ${requiredText}`);
 }

@@ -27,6 +27,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Copy citation metadata](CITATION.cff)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
 - [Read the governance and decision rules](GOVERNANCE.md)
+- [Inspect the community reviewer registry](benchmark/community-reviewers-v0.1.json)
 - [Propose and review a synthetic fixture](benchmark/annotation-review-guide-v0.1.md)
 - [Browse the public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20is%3Aopen%20label%3Abenchmark%20label%3Aenhancement)
 - [Review the annotated presentation fixture](benchmark/proposals/synthetic-presentation-01-review-checklist.md)
@@ -57,6 +58,7 @@ Public benchmark verification passed. No API calls were made.
 - `benchmark/final-results.json` — canonical machine-readable five-pair aggregate, reproduced by the verifier
 - `benchmark/result-card-schema-v0.1.json` and example — portable, provenance-aware aggregate reporting contract
 - `benchmark/community-results-v0.1.json` — machine-readable index behind the static community results table
+- `benchmark/community-reviewers-v0.1.json` — machine-readable external review and contribution counts
 - `benchmark/uncertainty-v0.4.json` and `.md` — exhaustive paired bootstrap intervals and sign-flip diagnostics
 - `benchmark/testdata/` — perfect deterministic scorer fixtures
 - `benchmark/spend-ledger.jsonl` — append-only historical cost accounting

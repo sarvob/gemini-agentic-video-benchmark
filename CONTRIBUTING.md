@@ -3,6 +3,7 @@
 PaperEdits welcomes independent checks that make this exploratory benchmark more reproducible, better scoped, or easier to audit.
 
 Read [GOVERNANCE.md](GOVERNANCE.md) for roles, public decision records, result-card acceptance, fixture-freeze rules, conflicts, and the path to recurring reviewer status.
+Accepted external review and contribution evidence is recorded in the versioned [community reviewer registry](benchmark/community-reviewers-v0.1.json). It starts at zero; maintainer work and an empty registry do not count as adoption.
 
 ## Useful contributions
 

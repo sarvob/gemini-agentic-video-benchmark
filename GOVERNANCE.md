@@ -38,6 +38,8 @@ Protocol changes apply prospectively under a new version. Existing result files 
 
 Anyone may submit a scoped evidence-backed review. After two accepted reviews or comparable merged contributions, a maintainer may publicly recognize that contributor as a recurring reviewer for a stated scope. Recognition does not grant merge access, payment, or authority to review the contributor's own work.
 
+The versioned [community reviewer registry](benchmark/community-reviewers-v0.1.json) records accepted external reviews, unaffiliated reviews, recurring reviewer recognition, and contributors with merged work. It starts at an explicit zero and includes only public evidence-backed activity; an empty registry is readiness infrastructure, not adoption.
+
 Shared maintenance or merge access requires a separate public proposal that defines scope, responsibilities, conflicts, and revocation conditions. Until such a proposal is accepted, PaperEdits remains the final repository maintainer.
 
 ## Privacy, rights, and cost

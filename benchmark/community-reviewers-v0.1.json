@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "0.1",
+  "asOf": "2026-09-04",
+  "acceptedExternalReviewCount": 0,
+  "unaffiliatedAcceptedReviewCount": 0,
+  "recognizedRecurringReviewerCount": 0,
+  "contributorsWithMergedWorkCount": 0,
+  "entries": [],
+  "countingRules": [
+    "Each entry records a public username, relationship, accepted review count, unaffiliated accepted review count, recurring reviewer status, merged contribution count, and immutable evidence URLs.",
+    "Count only a public issue, pull-request review, or merged contribution with an immutable evidence URL.",
+    "Do not count the fixture or result-card author as an independent reviewer of their own work.",
+    "Record relationship to PaperEdits and any material conflict; unaffiliated means the disclosed relationship is none.",
+    "A username may appear in the registry only after an accepted review, merged contribution, or public recurring-reviewer decision.",
+    "An empty registry and maintainer activity do not count as external adoption."
+  ]
+}
