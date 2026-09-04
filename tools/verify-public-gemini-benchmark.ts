@@ -251,6 +251,23 @@ if (
 }
 console.log('PASS community reviewer registry and zero boundary');
 
+const codeMeta = JSON.parse(readFileSync(resolve('codemeta.json'), 'utf8'));
+if (
+  codeMeta['@context'] !== 'https://w3id.org/codemeta/3.1' ||
+  codeMeta['@type'] !== 'SoftwareSourceCode' ||
+  codeMeta.version !== '0.4-exploratory' ||
+  codeMeta.datePublished !== '2026-09-02' ||
+  codeMeta.codeRepository !== 'https://github.com/sarvob/gemini-agentic-video-benchmark' ||
+  codeMeta.license !== 'https://spdx.org/licenses/MIT' ||
+  codeMeta.referencePublication !== 'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark' ||
+  codeMeta.author?.['@type'] !== 'Organization' ||
+  codeMeta.author?.name !== 'PaperEdits' ||
+  JSON.stringify(codeMeta).toLowerCase().includes('email')
+) {
+  throw new Error('CodeMeta metadata is incomplete, inconsistent, or exposes an email field.');
+}
+console.log('PASS CodeMeta 3.1 software metadata and privacy boundary');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
