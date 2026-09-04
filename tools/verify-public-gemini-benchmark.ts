@@ -297,6 +297,29 @@ if (pagesBibtex !== bibtex || /@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(bibtex)) {
 }
 console.log('PASS copy-ready BibTeX citation and privacy boundary');
 
+const dataPackage = JSON.parse(readFileSync(resolve('datapackage.json'), 'utf8'));
+const pagesDataPackage = JSON.parse(readFileSync(resolve('docs', 'datapackage.json'), 'utf8'));
+if (
+  dataPackage.$schema !== 'https://datapackage.org/profiles/2.0/datapackage.json' ||
+  dataPackage.name !== 'gemini-agentic-video-understanding-benchmark' ||
+  dataPackage.version !== '0.4-exploratory' ||
+  dataPackage.homepage !== 'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark' ||
+  dataPackage.licenses?.[0]?.name !== 'MIT' ||
+  dataPackage.resources?.length !== 4 ||
+  JSON.stringify(pagesDataPackage) !== JSON.stringify(dataPackage) ||
+  JSON.stringify(dataPackage).toLowerCase().includes('email')
+) {
+  throw new Error('Data Package metadata is incomplete, inconsistent, or exposes an email field.');
+}
+for (const resource of dataPackage.resources) {
+  const bytes = readFileSync(resolve(resource.path));
+  const hash = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+  if (resource.bytes !== bytes.byteLength || resource.hash !== hash) {
+    throw new Error(`Data Package resource integrity mismatch: ${resource.name}`);
+  }
+}
+console.log('PASS Data Package 2.0 descriptor and resource integrity');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
@@ -313,6 +336,7 @@ if (
   !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
   !hubHtml.includes('<a href="CITATION.bib">BibTeX</a>') ||
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
+  !hubHtml.includes('<a href="datapackage.json">Data Package</a>') ||
   !hubHtml.includes('<a href="llms.txt">Agent navigation</a>')
 ) {
   throw new Error('Reproducibility hub is missing its discoverable machine-readable metadata links.');
@@ -349,6 +373,7 @@ for (const requiredText of [
   'not a Google Search ranking signal',
   'Independent reproduction form',
   'BibTeX citation',
+  'Data Package descriptor',
 ]) {
   if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);
 }

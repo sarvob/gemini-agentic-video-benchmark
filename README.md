@@ -27,6 +27,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Copy citation metadata](CITATION.cff)
 - [Copy the ready-to-use BibTeX citation](CITATION.bib)
 - [Inspect machine-readable software metadata](codemeta.json)
+- [Inspect the portable Data Package descriptor](datapackage.json)
 - [Open the agent-oriented project index](llms.txt)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
 - [Read the governance and decision rules](GOVERNANCE.md)

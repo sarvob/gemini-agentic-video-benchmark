@@ -35,6 +35,7 @@ This file follows the llms.txt v2 proposal to help agents navigate public projec
 ## Optional
 
 - [CodeMeta 3.1](https://sarvob.github.io/gemini-agentic-video-benchmark/codemeta.json): Machine-readable software metadata.
+- [Data Package descriptor](https://sarvob.github.io/gemini-agentic-video-benchmark/datapackage.json): Portable dataset metadata with local resource paths, byte sizes, and SHA-256 hashes.
 - [Citation metadata](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/CITATION.cff): Version, release date, organization author, license, and citation message.
 - [BibTeX citation](https://sarvob.github.io/gemini-agentic-video-benchmark/CITATION.bib): Copy-ready citation with organization author, release version, report URL, and repository URL.
 - [Frozen data bundle](https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz): Tag-aligned direct download with SHA-256 documented in the README.

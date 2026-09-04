@@ -1,0 +1,62 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "name": "gemini-agentic-video-understanding-benchmark",
+  "title": "PaperEdits Gemini Agentic Video Understanding Benchmark",
+  "id": "https://sarvob.github.io/gemini-agentic-video-benchmark/datapackage.json",
+  "version": "0.4-exploratory",
+  "created": "2026-09-04T20:02:00Z",
+  "description": "Portable metadata for the frozen fixture manifest, eleven v0.4 result attempts, canonical five-pair aggregate, and deterministic paired uncertainty analysis. The exploratory sample does not establish statistical significance or general model superiority.",
+  "homepage": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark",
+  "licenses": [{"name": "MIT", "path": "https://spdx.org/licenses/MIT"}],
+  "keywords": ["agentic-ai", "benchmark", "gemini", "multimodal-evaluation", "reproducible-research", "video-understanding"],
+  "sources": [
+    {"title": "Public benchmark evidence repository", "path": "https://github.com/sarvob/gemini-agentic-video-benchmark"},
+    {"title": "PaperEdits benchmark report", "path": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark"}
+  ],
+  "resources": [
+    {
+      "name": "fixtures",
+      "path": "huggingface/data/fixtures.jsonl",
+      "title": "Synthetic fixture manifest",
+      "description": "Six synthetic ten-minute fixture records with rights declarations, source hashes, and frozen annotation paths.",
+      "format": "jsonl",
+      "mediatype": "application/x-ndjson",
+      "encoding": "utf-8",
+      "bytes": 3247,
+      "hash": "sha256:df6e818d8083bd77d0399d5f0de8532a7dd1bcbbca81295d3c07f30d959e5783"
+    },
+    {
+      "name": "results",
+      "path": "huggingface/data/results.jsonl",
+      "title": "Benchmark result attempts",
+      "description": "Eleven committed v0.4 attempts: five valid agentic/static pairs and one invalid agentic output.",
+      "format": "jsonl",
+      "mediatype": "application/x-ndjson",
+      "encoding": "utf-8",
+      "bytes": 10337,
+      "hash": "sha256:1b794c0d2432af07b3668cf73e8dca68c1969b8a6f540f0d3df2e3d9afb76e4c"
+    },
+    {
+      "name": "final-results",
+      "path": "benchmark/final-results.json",
+      "title": "Canonical five-pair aggregate",
+      "description": "Machine-readable aggregate for the five fixtures that produced valid agentic and static outputs.",
+      "format": "json",
+      "mediatype": "application/json",
+      "encoding": "utf-8",
+      "bytes": 1657,
+      "hash": "sha256:915985177089f6e6718179869db9c53ddc72d6080c607199c2b9ede9f8365f89"
+    },
+    {
+      "name": "uncertainty",
+      "path": "benchmark/uncertainty-v0.4.json",
+      "title": "Deterministic paired uncertainty analysis",
+      "description": "Exhaustive paired bootstrap intervals and exact sign-flip diagnostics for eight metrics.",
+      "format": "json",
+      "mediatype": "application/json",
+      "encoding": "utf-8",
+      "bytes": 5099,
+      "hash": "sha256:2e93af85beed8c9b59e3753c0871b369abba6e152c3673fdfc77d54a7eea60cc"
+    }
+  ]
+}
