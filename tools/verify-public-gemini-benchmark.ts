@@ -133,6 +133,19 @@ if (
 }
 console.log('PASS versioned result-card contract and maintainer example');
 
+const communityResults = JSON.parse(readFileSync(resolve(root, 'community-results-v0.1.json'), 'utf8'));
+if (
+  communityResults.schemaVersion !== '0.1' ||
+  communityResults.externalAcceptedCount !== 0 ||
+  communityResults.entries.length !== 1 ||
+  communityResults.entries[0].resultCardId !== resultCard.resultCardId ||
+  communityResults.entries[0].relationship !== 'maintainer-baseline' ||
+  communityResults.entries[0].countsAsExternalAdoption !== false
+) {
+  throw new Error('Static community results index must begin with one non-external maintainer reference.');
+}
+console.log('PASS static community results index and adoption boundary');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {
@@ -262,6 +275,21 @@ if (!sitemap.includes('quality-cost-tradeoff.html')) {
   throw new Error('Sitemap is missing the quality-cost tradeoff page.');
 }
 console.log('PASS public quality and cost tradeoff report');
+
+const communityHtml = readFileSync(resolve('docs', 'community-results.html'), 'utf8');
+for (const requiredText of [
+  'External accepted results: 0.',
+  'Maintainer baseline',
+  'does not count as independent reproduction, community adoption, or endorsement',
+  'result-card-submission.yml',
+  'No payment, credit, or private identity is required.',
+]) {
+  if (!communityHtml.includes(requiredText)) throw new Error(`Community results page is missing: ${requiredText}`);
+}
+if (!sitemap.includes('community-results.html')) {
+  throw new Error('Sitemap is missing the community results page.');
+}
+console.log('PASS public static community results page');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {

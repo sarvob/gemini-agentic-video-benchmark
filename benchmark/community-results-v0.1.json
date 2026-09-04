@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "0.1",
+  "lastUpdated": "2026-09-04",
+  "externalAcceptedCount": 0,
+  "entries": [
+    {
+      "resultCardId": "paperedits-gemini-3.7-flash-v0.4-maintainer-baseline",
+      "relationship": "maintainer-baseline",
+      "countsAsExternalAdoption": false,
+      "status": "maintainer reference",
+      "resultCard": "https://github.com/sarvob/gemini-agentic-video-benchmark/blob/main/benchmark/result-card-example-v0.1.json"
+    }
+  ]
+}

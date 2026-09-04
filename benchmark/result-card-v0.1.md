@@ -23,6 +23,6 @@ An external result counts as adoption only when its public card uses an independ
 
 ## Submit a result
 
-Open the [Benchmark reproduction issue form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=benchmark-reproduction.yml) and link your public result card and evidence. Do not post API keys, email addresses, customer footage, private URLs, or media you do not have the right to share.
+Open the [Result card submission form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=result-card-submission.yml) and link your public result card and evidence. Do not post API keys, email addresses, customer footage, private URLs, or media you do not have the right to share.
 
 Acceptance means the card is structurally comparable and evidence-linked. It does not mean PaperEdits endorses the model, result, submitter, or conclusions.

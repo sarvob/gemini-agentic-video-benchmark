@@ -1,0 +1,70 @@
+name: Result card submission
+description: Propose a public, evidence-linked result card for the static community results table.
+title: "[Result card]: "
+labels:
+  - benchmark
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Submit only a result card and evidence that are already public. Do not include a full name, email address, API key, private URL, customer footage, or other personal information.
+        PaperEdits reviews cards for comparability and evidence, not for a preferred outcome. Submission does not guarantee acceptance or endorsement.
+  - type: input
+    id: result_card
+    attributes:
+      label: Public result-card URL
+      description: Link to JSON that follows benchmark/result-card-schema-v0.1.json. Use an immutable commit URL.
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Public evidence URL
+      description: Link to immutable aggregate, logs, or result artifacts sufficient to audit the card.
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Relationship
+      options:
+        - Independent reproduction
+        - Independent extension
+        - Maintainer baseline
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Relationship to PaperEdits
+      description: State "none" if independent. A public username or organization is sufficient; do not provide a full name or email address.
+      placeholder: none
+    validations:
+      required: true
+  - type: input
+    id: benchmark_commit
+    attributes:
+      label: Tested benchmark commit
+      description: Paste the full 40-character commit SHA used for the run.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation record
+      description: State the JSON Schema validator used, the command and result, and the benchmark verification result. Remove local usernames and paths.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Publication checks
+      options:
+        - label: The result card includes every attempted fixture, excluded attempt, paired metric, efficiency field, and limitation required by the schema.
+          required: true
+        - label: The evidence URLs are public, immutable, and do not expose private or personal information.
+          required: true
+        - label: I disclosed my relationship to PaperEdits and did not describe a maintainer run as independent adoption.
+          required: true
+        - label: I understand that acceptance confirms evidence-linked comparability, not endorsement of the model or conclusions.
+          required: true

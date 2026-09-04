@@ -21,6 +21,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Read the temporal miss analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html)
 - [Read the quality and cost tradeoff report](https://sarvob.github.io/gemini-agentic-video-benchmark/quality-cost-tradeoff.html)
 - [Publish a comparable result card](benchmark/result-card-v0.1.md)
+- [Browse community results](https://sarvob.github.io/gemini-agentic-video-benchmark/community-results.html)
 - [Review the publication package](benchmark/publication-package-v0.4.md)
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
@@ -54,6 +55,7 @@ Public benchmark verification passed. No API calls were made.
 - `benchmark/results/` — committed result artifacts and comparisons
 - `benchmark/final-results.json` — canonical machine-readable five-pair aggregate, reproduced by the verifier
 - `benchmark/result-card-schema-v0.1.json` and example — portable, provenance-aware aggregate reporting contract
+- `benchmark/community-results-v0.1.json` — machine-readable index behind the static community results table
 - `benchmark/uncertainty-v0.4.json` and `.md` — exhaustive paired bootstrap intervals and sign-flip diagnostics
 - `benchmark/testdata/` — perfect deterministic scorer fixtures
 - `benchmark/spend-ledger.jsonl` — append-only historical cost accounting
