@@ -1,0 +1,39 @@
+# PaperEdits Gemini Agentic Video Understanding Benchmark
+
+> Public evidence package for an exploratory comparison of Gemini 3.7 Flash agentic and static video-understanding modes across six synthetic ten-minute fixtures.
+
+PaperEdits maintains this benchmark and conducted the evaluation independently. It is not sponsored or endorsed by Google. Five fixtures produced valid pairs; the sample is too small to establish statistical significance or general model superiority. Use the frozen evidence and limitation-first analyses rather than treating headline metrics as a winner claim.
+
+The clean-clone verifier costs $0, makes no model API calls, and uploads no media. External adoption remains zero until an independently authored reproduction, review, result card, or contribution is publicly accepted under the governance rules.
+
+This file follows the llms.txt v2 proposal to help agents navigate public project evidence. It is not a Google Search ranking signal; Google states that its Search and generative-search systems ignore llms.txt.
+
+## Start here
+
+- [Repository README](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/README.md): Scope, result summary, $0 verification command, repository map, and contribution path.
+- [Full benchmark report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark): Narrative methodology, findings, limitations, and product affiliation.
+- [Frozen protocol v0.4](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/protocol-v0.4.md): Active evaluation protocol and exclusion rules.
+- [Canonical aggregate](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/final-results.json): Machine-readable results for the five valid paired fixtures.
+- [Paired uncertainty analysis](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/uncertainty-v0.4.md): Deterministic bootstrap intervals and exact sign-flip diagnostics.
+- [Publication package](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/publication-package-v0.4.md): Release contents, claims that are supported, and claims that are not supported.
+
+## Reproduce or contribute
+
+- [Contributing guide](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/CONTRIBUTING.md): $0 reproductions, annotation audits, rights-clear fixture proposals, and independent extensions.
+- [Governance](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/GOVERNANCE.md): Acceptance rules, conflicts, public decision records, and external-reviewer path.
+- [Result-card instructions](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/result-card-v0.1.md): Versioned contract for comparable public results with immutable evidence.
+- [Community results index](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/community-results-v0.1.json): One maintainer reference and the explicit external accepted-result count.
+- [Community reviewer registry](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/community-reviewers-v0.1.json): Evidence-backed external review and contribution counts.
+- [Independent reproduction form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=benchmark-reproduction.yml): Public reporting path; a GitHub username is sufficient and no full name or email should be posted.
+
+## Focused analyses
+
+- [Output-contract failure](https://sarvob.github.io/gemini-agentic-video-benchmark/output-contract-failure.html): Why one provider-completed agentic response was excluded.
+- [Temporal miss analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html): Short-event recovery, broad retrieval, and boundary limitations.
+- [Quality and cost tradeoff](https://sarvob.github.io/gemini-agentic-video-benchmark/quality-cost-tradeoff.html): Reconciled quality, tokens, latency, paid-equivalent cost, and attrition.
+
+## Optional
+
+- [CodeMeta 3.1](https://sarvob.github.io/gemini-agentic-video-benchmark/codemeta.json): Machine-readable software metadata.
+- [Citation metadata](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/CITATION.cff): Version, release date, organization author, license, and citation message.
+- [Frozen data bundle](https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz): Tag-aligned direct download with SHA-256 documented in the README.

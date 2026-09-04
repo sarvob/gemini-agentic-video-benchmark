@@ -26,6 +26,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Inspect the original protocol](benchmark/original-protocol-v0.1.md)
 - [Copy citation metadata](CITATION.cff)
 - [Inspect machine-readable software metadata](codemeta.json)
+- [Open the agent-oriented project index](llms.txt)
 - [Contribute a reproduction or audit](CONTRIBUTING.md)
 - [Read the governance and decision rules](GOVERNANCE.md)
 - [Inspect the community reviewer registry](benchmark/community-reviewers-v0.1.json)

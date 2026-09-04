@@ -293,10 +293,12 @@ console.log('PASS deterministic paired uncertainty analysis');
 
 const hubHtml = readFileSync(resolve('docs', 'index.html'), 'utf8');
 if (
+  !hubHtml.includes('<link rel="describedby" href="llms.txt">') ||
   !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
-  !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>')
+  !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
+  !hubHtml.includes('<a href="llms.txt">Agent navigation</a>')
 ) {
-  throw new Error('Reproducibility hub is missing its discoverable CodeMeta link.');
+  throw new Error('Reproducibility hub is missing its discoverable machine-readable metadata links.');
 }
 const structuredDataMatch = hubHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
 if (!structuredDataMatch) {
@@ -320,6 +322,22 @@ if (
   throw new Error('Dataset JSON-LD is missing the frozen v0.4 DataDownload distribution.');
 }
 console.log('PASS reproducibility hub Dataset structured data');
+
+const agentIndex = readFileSync(resolve('llms.txt'), 'utf8');
+const pagesAgentIndex = readFileSync(resolve('docs', 'llms.txt'), 'utf8');
+for (const requiredText of [
+  '# PaperEdits Gemini Agentic Video Understanding Benchmark',
+  'not sponsored or endorsed by Google',
+  'External adoption remains zero',
+  'not a Google Search ranking signal',
+  'Independent reproduction form',
+]) {
+  if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);
+}
+if (pagesAgentIndex !== agentIndex || /@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(agentIndex)) {
+  throw new Error('Agent index copies drifted or include a public email address.');
+}
+console.log('PASS llms.txt v2 navigation, scope, and privacy boundaries');
 
 const failureHtml = readFileSync(resolve('docs', 'output-contract-failure.html'), 'utf8');
 const failureStructuredDataMatch = failureHtml.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
