@@ -11,7 +11,8 @@
     "preflight:result-card": "tsx tools/preflight-result-card-submission.ts",
     "score": "tsx tools/score-gemini-video-benchmark.ts",
     "validate:result-card": "tsx tools/validate-result-card.ts",
-    "verify": "tsx tools/verify-public-gemini-benchmark.ts"
+    "verify": "tsx tools/verify-public-gemini-benchmark.ts",
+    "verify:release": "./scripts/verify-v0.4-release.sh"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",

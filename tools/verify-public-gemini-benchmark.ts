@@ -356,6 +356,18 @@ if (
 }
 console.log('PASS Croissant 1.1 dataset metadata and release integrity');
 
+const releaseVerifier = readFileSync(resolve('scripts', 'verify-v0.4-release.sh'), 'utf8');
+for (const requiredText of [
+  'expected_sha256="133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039"',
+  'expected_ground_truth=6',
+  'expected_results=11',
+  'Release download totals include maintainer verification and do not establish external adoption.',
+]) {
+  const target = requiredText.startsWith('Release download') ? readFileSync(resolve('README.md'), 'utf8') : releaseVerifier;
+  if (!target.includes(requiredText)) throw new Error(`Release verification path is missing: ${requiredText}`);
+}
+console.log('PASS networked release-verification path and adoption boundary');
+
 const uncertainty = JSON.parse(run('tools/analyze-gemini-video-uncertainty.ts', []));
 const committedUncertainty = JSON.parse(readFileSync(resolve(root, 'uncertainty-v0.4.json'), 'utf8'));
 if (JSON.stringify(committedUncertainty) !== JSON.stringify(uncertainty)) {

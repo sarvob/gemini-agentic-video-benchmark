@@ -52,6 +52,8 @@ A successful run installs the pinned dependencies, checks that the dataset manif
 Public benchmark verification passed. No API calls were made.
 ```
 
+To audit the separate frozen release download, run `npm run verify:release`. This networked check downloads the public asset, verifies its SHA-256, confirms six ground-truth JSON files and eleven result JSON files, and then removes its temporary copy. You can avoid another download by passing an existing archive to `./scripts/verify-v0.4-release.sh path/to/archive.tar.gz`. Release download totals include maintainer verification and do not establish external adoption.
+
 If you are independent of PaperEdits, report the tested commit, environment, command output, and any discrepancy through the [Benchmark reproduction form](https://github.com/sarvob/gemini-agentic-video-benchmark/issues/new?template=benchmark-reproduction.yml). A public GitHub username is sufficient; do not post a full name or email address. An accepted report can count as an external artifact reproduction under the [governance rules](GOVERNANCE.md), while a clone or maintainer-run check cannot.
 
 ## Repository map
