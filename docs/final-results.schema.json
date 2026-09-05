@@ -1,0 +1,17 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/tableschema.json",
+  "title": "PaperEdits Gemini agentic video benchmark flat result summary",
+  "description": "Field definitions for the deterministic five-pair CSV summary. Empty agentic_vs_static_percent values mean a relative percentage is not reported for bounded quality metrics.",
+  "missingValues": [""],
+  "fields": [
+    {"name": "section", "type": "string", "description": "Metric group: quality, efficiency, or constraints."},
+    {"name": "metric", "type": "string", "description": "Stable metric identifier."},
+    {"name": "unit", "type": "string", "description": "Measurement unit for the row."},
+    {"name": "agentic", "type": "number", "description": "Agentic-mode value across the five valid pairs."},
+    {"name": "static", "type": "number", "description": "Static-mode value across the five valid pairs."},
+    {"name": "agentic_minus_static", "type": "number", "description": "Absolute agentic value minus static value in the row unit."},
+    {"name": "agentic_vs_static_percent", "type": "number", "description": "Relative agentic difference from static for efficiency and count metrics; blank for bounded quality metrics."},
+    {"name": "denominator", "type": "integer", "description": "Number of valid paired fixtures represented by the row."}
+  ],
+  "primaryKey": ["section", "metric"]
+}

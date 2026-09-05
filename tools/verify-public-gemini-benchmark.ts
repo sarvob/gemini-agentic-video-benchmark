@@ -144,6 +144,37 @@ if (
 }
 console.log('PASS deterministic flat CSV metric summary');
 
+const resultTableSchema = JSON.parse(readFileSync(resolve('final-results.schema.json'), 'utf8'));
+const pagesResultTableSchema = JSON.parse(readFileSync(resolve('docs', 'final-results.schema.json'), 'utf8'));
+const csvLines = finalResultsCsv.trim().split('\n').map((line) => line.split(','));
+const csvHeaders = csvLines[0];
+const schemaFieldNames = resultTableSchema.fields?.map((field: Record<string, unknown>) => field.name);
+const schemaFieldTypes = new Map(
+  resultTableSchema.fields?.map((field: Record<string, unknown>) => [field.name, field.type]),
+);
+const seenKeys = new Set<string>();
+for (const values of csvLines.slice(1)) {
+  const row = Object.fromEntries(csvHeaders.map((header, index) => [header, values[index]]));
+  const key = `${row.section}:${row.metric}`;
+  if (seenKeys.has(key)) throw new Error(`CSV Table Schema primary key is not unique: ${key}`);
+  seenKeys.add(key);
+  for (const [name, value] of Object.entries(row)) {
+    const type = schemaFieldTypes.get(name);
+    if (value === '' && resultTableSchema.missingValues.includes('')) continue;
+    if (type === 'number' && !Number.isFinite(Number(value))) throw new Error(`CSV field ${name} is not numeric.`);
+    if (type === 'integer' && !Number.isInteger(Number(value))) throw new Error(`CSV field ${name} is not an integer.`);
+  }
+}
+if (
+  resultTableSchema.$schema !== 'https://datapackage.org/profiles/2.0/tableschema.json' ||
+  JSON.stringify(schemaFieldNames) !== JSON.stringify(csvHeaders) ||
+  JSON.stringify(resultTableSchema.primaryKey) !== JSON.stringify(['section', 'metric']) ||
+  JSON.stringify(pagesResultTableSchema) !== JSON.stringify(resultTableSchema)
+) {
+  throw new Error('CSV Table Schema does not match the published flat result summary.');
+}
+console.log('PASS Data Package Table Schema and CSV field contract');
+
 const expectedExampleSummary = {
   source: 'benchmark/final-results.csv',
   shortEventRecall: {
@@ -441,6 +472,7 @@ if (
   !hubHtml.includes('profile="http://mlcommons.org/croissant/1.1"') ||
   !hubHtml.includes('<a href="CITATION.bib">BibTeX</a>') ||
   !hubHtml.includes('<a href="final-results.csv">CSV results</a>') ||
+  !hubHtml.includes('<a href="final-results.schema.json">Table Schema</a>') ||
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
   !hubHtml.includes('<a href="datapackage.json">Data Package</a>') ||
   !hubHtml.includes('<a href="croissant.json">Croissant 1.1</a>') ||
@@ -483,6 +515,7 @@ for (const requiredText of [
   'BibTeX citation',
   'Data Package descriptor',
   'Croissant 1.1 metadata',
+  'CSV Table Schema',
   'Run examples',
   'Flat CSV metric summary',
 ]) {

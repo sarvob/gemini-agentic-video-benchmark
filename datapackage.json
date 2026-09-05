@@ -67,7 +67,8 @@
       "mediatype": "text/csv",
       "encoding": "utf-8",
       "bytes": 874,
-      "hash": "sha256:f21b8216a21742539f2156a3ae2217f3e60c07b9f90887d90035bbeae02086f6"
+      "hash": "sha256:f21b8216a21742539f2156a3ae2217f3e60c07b9f90887d90035bbeae02086f6",
+      "schema": "final-results.schema.json"
     }
   ]
 }
