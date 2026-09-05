@@ -11,6 +11,7 @@ This file follows the llms.txt v2 proposal to help agents navigate public projec
 ## Start here
 
 - [Repository README](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/README.md): Scope, result summary, $0 verification command, repository map, and contribution path.
+- [No-API-key reuse guide](https://sarvob.github.io/gemini-agentic-video-benchmark/reuse.html): Goal-based paths for artifact verification, release auditing, machine-readable reuse, result publication, and independent evidence reporting.
 - [Full benchmark report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark): Narrative methodology, findings, limitations, and product affiliation.
 - [Frozen protocol v0.4](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/protocol-v0.4.md): Active evaluation protocol and exclusion rules.
 - [Canonical aggregate](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/final-results.json): Machine-readable results for the five valid paired fixtures.

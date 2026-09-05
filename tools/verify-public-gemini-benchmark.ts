@@ -387,7 +387,8 @@ if (
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
   !hubHtml.includes('<a href="datapackage.json">Data Package</a>') ||
   !hubHtml.includes('<a href="croissant.json">Croissant 1.1</a>') ||
-  !hubHtml.includes('<a href="llms.txt">Agent navigation</a>')
+  !hubHtml.includes('<a href="llms.txt">Agent navigation</a>') ||
+  !hubHtml.includes('<a href="reuse.html">Open the no-API-key reuse guide</a>')
 ) {
   throw new Error('Reproducibility hub is missing its discoverable machine-readable metadata links.');
 }
@@ -546,6 +547,25 @@ if (!sitemap.includes('community-results.html')) {
   throw new Error('Sitemap is missing the community results page.');
 }
 console.log('PASS public static community results page');
+
+const reuseHtml = readFileSync(resolve('docs', 'reuse.html'), 'utf8');
+for (const requiredText of [
+  'Reuse the benchmark without API keys',
+  './scripts/verify-clean-clone.sh',
+  'npm run verify:release',
+  'benchmark/final-results.json',
+  'Data Package descriptor',
+  'Croissant 1.1 metadata',
+  'npm run preflight:result-card -- path/to/result-card.json',
+  'A public GitHub username is sufficient; do not post a full name, email address, API key, private URL, or private media.',
+  'Owner checks, maintainer downloads, empty listings, and unattributed traffic do not count as external adoption.',
+]) {
+  if (!reuseHtml.includes(requiredText)) throw new Error(`Reuse guide is missing: ${requiredText}`);
+}
+if (!sitemap.includes('reuse.html') || !agentIndex.includes('No-API-key reuse guide')) {
+  throw new Error('Reuse guide is missing from the sitemap or agent index.');
+}
+console.log('PASS no-API-key reuse guide and adoption boundary');
 console.log('Public benchmark verification passed. No API calls were made.');
 
 function run(script: string, args: string[]) {

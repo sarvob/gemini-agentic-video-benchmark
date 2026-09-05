@@ -14,6 +14,7 @@ This small exploratory sample does not establish statistical significance, a gen
 
 - [Read the full report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark)
 - [Open the reproducibility hub](https://sarvob.github.io/gemini-agentic-video-benchmark/)
+- [Choose a no-API-key reuse path](https://sarvob.github.io/gemini-agentic-video-benchmark/reuse.html)
 - [Download the frozen v0.4 data bundle](https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz) (`sha256:133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039`)
 - [Read the canonical machine-readable aggregate](benchmark/final-results.json)
 - [Inspect the deterministic paired uncertainty analysis](benchmark/uncertainty-v0.4.md)
