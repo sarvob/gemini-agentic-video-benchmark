@@ -23,7 +23,7 @@ From the current repository, the one-command helper validates a locked copy of t
 ./scripts/prepare-presentation-01-review.sh
 ```
 
-The helper writes generated media and frames only under the ignored `tmp/gemini-benchmark/` directory. It does not upload media or call a model API.
+The helper writes generated media and frames only under the ignored `tmp/gemini-benchmark/` directory. It verifies each checkpoint's 960×540 dimensions and SHA-256 of decoded RGB pixels, so different PNG encoders do not create false mismatches. It does not upload media or call a model API.
 
 On a cold system-voice run, the first generated hash may differ before the expected output stabilizes. The helper reports that discrepancy, retries once, and requires the expected hash on two consecutive runs before proceeding. Report any mismatch that survives the retry or confirmation run.
 

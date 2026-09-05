@@ -84,7 +84,7 @@ Before opening a submission, run `npm run preflight:result-card -- path/to/resul
 
 The Hugging Face package is publication-ready but not yet published. Rebuild its deterministic metadata and result tables with `npm run build:huggingface`; publishing requires an authorized Hugging Face session.
 
-The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts local checkpoint frames, scores the reference candidate, and runs the offline verifier without a model call or upload.
+The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts six local checkpoint frames, verifies their dimensions and decoded RGB hashes, scores the reference candidate, and runs the offline verifier without a model call or upload.
 
 ## Independent reproduction
 

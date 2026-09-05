@@ -62,11 +62,30 @@ if (
   presentationReviewLock.fixtureId !== 'synthetic-presentation-01' ||
   presentationReviewLock.expectedVideo.sha256 !== '748649e5b7ca64f3c44f5256b283d613469f9c643ef5a5c97d82647c90603e54' ||
   presentationReviewLock.expectedVideo.durationSec !== 600 ||
-  presentationReviewLock.checkpointFrames.length !== 6
+  presentationReviewLock.lockedFiles['tools/verify-presentation-review-frames.py'] !==
+    '489d498ca726dbdb9876af186413669f71043563e492c451cc3f88b6af367ec1' ||
+  presentationReviewLock.checkpointFrames.length !== 6 ||
+  presentationReviewLock.checkpointFrames.some(
+    (checkpoint: Record<string, unknown>) =>
+      !Array.isArray(checkpoint.pixelSize) ||
+      checkpoint.pixelSize[0] !== 960 ||
+      checkpoint.pixelSize[1] !== 540 ||
+      typeof checkpoint.rgbSha256 !== 'string' ||
+      !/^[a-f0-9]{64}$/.test(checkpoint.rgbSha256),
+  )
 ) {
-  throw new Error('Presentation review lock metadata is incomplete.');
+  throw new Error('Presentation review lock metadata or checkpoint RGB hashes are incomplete.');
 }
-console.log('PASS locked presentation review snapshot');
+const presentationReviewHelper = readFileSync(resolve('scripts', 'prepare-presentation-01-review.sh'), 'utf8');
+for (const requiredText of [
+  'verify-presentation-review-frames.py',
+  'decoded RGB hashes',
+]) {
+  if (!presentationReviewHelper.includes(requiredText)) {
+    throw new Error(`Presentation review helper is missing: ${requiredText}`);
+  }
+}
+console.log('PASS locked presentation review snapshot and checkpoint RGB contract');
 
 const pairedFixtures = ['synthetic-screen-01', 'synthetic-screen-02', 'synthetic-solo-01', 'synthetic-podcast-01', 'synthetic-podcast-02'];
 const aggregateArgs = pairedFixtures.flatMap((fixtureId) => [
