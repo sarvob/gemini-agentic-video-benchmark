@@ -1,6 +1,6 @@
 /** Verify the committed public Gemini benchmark artifacts without network or API calls. */
 import { spawnSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { validateResultCard } from './result-card-validator.ts';
@@ -383,6 +383,20 @@ if (pagesBibtex !== bibtex || /@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(bibtex)) {
   throw new Error('BibTeX citation copies drifted or include a public email address.');
 }
 console.log('PASS copy-ready BibTeX citation and privacy boundary');
+
+const publicationPackage = readFileSync(resolve(root, 'publication-package-v0.4.md'), 'utf8');
+for (const requiredText of [
+  '`CITATION.cff` is the canonical release metadata for this repository.',
+  '`.zenodo.json` completely overrides `CITATION.cff`',
+  'No deposit, DOI reservation, or account change has been made.',
+  'https://help.zenodo.org/docs/github/describe-software/',
+]) {
+  if (!publicationPackage.includes(requiredText)) throw new Error(`Zenodo readiness note is missing: ${requiredText}`);
+}
+if (existsSync(resolve('.zenodo.json'))) {
+  throw new Error('.zenodo.json would override the canonical CITATION.cff and requires an explicit metadata decision.');
+}
+console.log('PASS Zenodo metadata precedence and no-deposit boundary');
 
 const dataPackage = JSON.parse(readFileSync(resolve('datapackage.json'), 'utf8'));
 const pagesDataPackage = JSON.parse(readFileSync(resolve('docs', 'datapackage.json'), 'utf8'));

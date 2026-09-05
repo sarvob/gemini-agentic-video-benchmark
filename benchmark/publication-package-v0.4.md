@@ -91,6 +91,12 @@ No score is imputed for these missing measurements. This package must not be pre
 - Append-only cost accounting: `spend-ledger.jsonl`
 - Invalid solo-02 record: `results/synthetic-solo-02-agentic-v0.4.json`
 
+## Zenodo metadata readiness
+
+`CITATION.cff` is the canonical release metadata for this repository. Zenodo supports it for GitHub software archiving and GitHub uses it to display citation guidance. The repository intentionally does not include `.zenodo.json`: Zenodo states that when both files exist, `.zenodo.json` completely overrides `CITATION.cff`. No Zenodo-specific funding, community, or access fields are currently required, so a second metadata authority would add drift risk without improving this release.
+
+Creating a DOI still requires an authorized Zenodo account connected to GitHub and an explicit repository enablement step. No deposit, DOI reservation, or account change has been made. Official guidance: https://help.zenodo.org/docs/github/describe-software/
+
 ## Publication guard
 
 This package is useful as an exploratory lab note, not as the canonical benchmark described in the parent protocol. The exhaustive paired diagnostics do not produce a two-sided sign-flip p-value below 0.05 for any metric and do not relax the publication guard. Do not publish a winner headline, statistical claim, Gemini-versus-PaperEdits claim, or “professional editor” replacement claim. A canonical report still requires at least twelve completed videos, the PaperEdits arm, rendered outputs, blinded human review, and cut-seam QA.
