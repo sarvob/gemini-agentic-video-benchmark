@@ -144,6 +144,30 @@ if (
 }
 console.log('PASS deterministic flat CSV metric summary');
 
+const expectedExampleSummary = {
+  source: 'benchmark/final-results.csv',
+  shortEventRecall: {
+    agentic: 0.9,
+    static: 0.75,
+    agenticMinusStatic: 0.15000000000000002,
+  },
+  latency: {
+    agenticMs: 243608,
+    staticMs: 134352,
+    agenticVsStaticPercent: 81.32070977730142,
+  },
+};
+for (const [command, args] of [
+  [process.execPath, ['examples/read-results.mjs']],
+  ['python3', ['examples/read-results.py']],
+] as const) {
+  const example = spawnSync(command, args, { encoding: 'utf8' });
+  if (example.status !== 0 || JSON.stringify(JSON.parse(example.stdout)) !== JSON.stringify(expectedExampleSummary)) {
+    throw new Error(`${command} result-reading example did not reproduce the expected summary.\n${example.stderr}`);
+  }
+}
+console.log('PASS dependency-free Python and Node result-reading examples');
+
 const resultCardSchema = JSON.parse(readFileSync(resolve(root, 'result-card-schema-v0.1.json'), 'utf8'));
 const resultCard = JSON.parse(readFileSync(resolve(root, 'result-card-example-v0.1.json'), 'utf8'));
 const requiredResultCardKeys = [
@@ -459,6 +483,7 @@ for (const requiredText of [
   'BibTeX citation',
   'Data Package descriptor',
   'Croissant 1.1 metadata',
+  'Run examples',
   'Flat CSV metric summary',
 ]) {
   if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);

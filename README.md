@@ -18,6 +18,7 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Download the frozen v0.4 data bundle](https://github.com/sarvob/gemini-agentic-video-benchmark/releases/download/v0.4-exploratory/gemini-agentic-video-benchmark-v0.4-data.tar.gz) (`sha256:133a149964ed123296bfe157e5a1cfa47299fca1a9003caac81cdafd99fcb039`)
 - [Read the canonical machine-readable aggregate](benchmark/final-results.json)
 - [Download the flat CSV metric summary](https://sarvob.github.io/gemini-agentic-video-benchmark/final-results.csv)
+- [Run dependency-free Python or Node result examples](examples/README.md)
 - [Inspect the deterministic paired uncertainty analysis](benchmark/uncertainty-v0.4.md)
 - [Read the output-contract failure analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/output-contract-failure.html)
 - [Read the temporal miss analysis](https://sarvob.github.io/gemini-agentic-video-benchmark/temporal-miss-analysis.html)
@@ -68,6 +69,7 @@ If you are independent of PaperEdits, report the tested commit, environment, com
 - `benchmark/results/` — committed result artifacts and comparisons
 - `benchmark/final-results.json` — canonical machine-readable five-pair aggregate, reproduced by the verifier
 - `benchmark/final-results.csv` — deterministic flat metric summary for spreadsheets and lightweight analysis
+- `examples/` — dependency-free Python and Node examples for reading the flat result summary
 - `benchmark/result-card-schema-v0.1.json` and example — portable, provenance-aware aggregate reporting contract
 - `benchmark/community-results-v0.1.json` — machine-readable index behind the static community results table
 - `benchmark/community-reviewers-v0.1.json` — machine-readable external review and contribution counts
