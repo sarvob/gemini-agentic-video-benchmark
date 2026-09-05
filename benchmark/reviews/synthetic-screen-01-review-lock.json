@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "synthetic-screen-01",
+  "annotationCommit": "6b53bd4f8757aa262b8240341fedbe18d2a35de0",
+  "annotatedSource": {
+    "path": "tmp/gemini-benchmark/synthetic-screen-01.mp4",
+    "sha256": "1ed2ef8c8910f188ea6de2714704808dae1bf88d4d6e28237b0855901ff0a54f",
+    "durationSec": 600,
+    "durationToleranceSec": 0.05,
+    "localGenerationNote": "macOS system-speech audio and the encoded container can vary across runs; the helper reports but does not require this whole-file hash"
+  },
+  "lockedFiles": {
+    "tools/generate-gemini-video-fixture.py": "b1d7a2eb8fbc2d2c2a63535878fca9e20d6bc6c318798286ddb5f05bbbb26bdd",
+    "benchmark/ground-truth/synthetic-screen-01.json": "bef76bf7d1fe84e121fe90d97fd2e81e81710d8f8f2d559b25133aa0c462c733",
+    "benchmark/evidence-rules-synthetic-screen-01.json": "604941dd4ea9ebbd10807f087d3baee9e8888f08ef0961ce9bd80f82f202f61a",
+    "benchmark/testdata/perfect-candidate.json": "7af34265df6e2f067f6328c0c8ef98b904a0a77f44f0ce62cd6ed88490b7c6a4",
+    "tools/verify-screen-review-frames.py": "92d63c406c602f5093a0c57e2183562ac8e7f8097b610f8938acc1d8dc7b4661"
+  },
+  "checkpointFrames": [
+    {
+      "timeSec": 47.5,
+      "file": "0047-export-complete.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "7e3631cbcc72997c4266ea7dee15b3bb75367d89b695aeb20f3385438cad782e",
+      "expected": "Visual-only EXPORT COMPLETE confirmation"
+    },
+    {
+      "timeSec": 133.1,
+      "file": "0133-transcript-tone.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "2da5118bcc72982e9c7a3d54cb81f676a674ac09b910e9c79ca6d58df05b4a34",
+      "expected": "TRANSCRIPT CLEANUP remains visible during one 880 Hz tone"
+    },
+    {
+      "timeSec": 161.5,
+      "file": "0161-narration-ended.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "ba1f88055c2530cbd0287c1a9221fbdb3d6784b51e808363a6860bc6e833a814",
+      "expected": "SELECT THE HOOK is visible just after the annotated narration end"
+    },
+    {
+      "timeSec": 287.5,
+      "file": "0287-cursor-misclick.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "280569dc33fd7d19e7c4767f68ba39b899bdfaebaac8bc97bea5d3cf04163c3f",
+      "expected": "Visual-only CURSOR MISCLICK warning"
+    },
+    {
+      "timeSec": 421.5,
+      "file": "0421-build-passed.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "da5e787a345141107598e36905a9580f77b858a6225875a2a2f16e287379786c",
+      "expected": "BUILD PASSED is visible while the two-tone sequence plays"
+    },
+    {
+      "timeSec": 510.5,
+      "file": "0510-final-export.png",
+      "pixelSize": [960, 540],
+      "rgbSha256": "6de9ce033b13c625adae9b47f53772a7bb64e426fd05eb03762f8ddbd7a82163",
+      "expected": "FINAL EXPORT appears immediately after the required-cut range"
+    }
+  ]
+}
