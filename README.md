@@ -39,7 +39,8 @@ This small exploratory sample does not establish statistical significance, a gen
 - [Inspect the community reviewer registry](benchmark/community-reviewers-v0.1.json)
 - [Propose and review a synthetic fixture](benchmark/annotation-review-guide-v0.1.md)
 - [Browse the public fixture-expansion queue](https://github.com/sarvob/gemini-agentic-video-benchmark/issues?q=is%3Aissue%20is%3Aopen%20label%3Abenchmark%20label%3Aenhancement)
-- [Re-audit the frozen screen-editing fixture](benchmark/reviews/synthetic-screen-01-review-checklist.md)
+- [Re-audit frozen screen fixture 01](benchmark/reviews/synthetic-screen-01-review-checklist.md)
+- [Re-audit frozen screen fixture 02](benchmark/reviews/synthetic-screen-02-review-checklist.md)
 - [Review the annotated presentation fixture](benchmark/proposals/synthetic-presentation-01-review-checklist.md)
 - [Review the release history](CHANGELOG.md)
 
@@ -96,7 +97,7 @@ The Hugging Face package is publication-ready but not yet published. Rebuild its
 
 The annotated presentation proposal has a one-command local review package. On macOS with the documented dependencies, run `./scripts/prepare-presentation-01-review.sh`; it verifies locked files, regenerates the exact ignored video, checks its hash and duration, extracts six local checkpoint frames, verifies their dimensions and decoded RGB hashes, scores the reference candidate, and runs the offline verifier without a model call or upload.
 
-The frozen `synthetic-screen-01` fixture also has a $0 re-audit package. Run `./scripts/prepare-screen-01-review.sh` to validate locked annotation inputs, regenerate the ignored video, verify six deterministic visual checkpoints, score the reference candidate, and run the offline verifier. The helper reports the frozen source hash and local hash separately because macOS system-speech audio and container bytes can vary; it does not mislabel a locally regenerated video as byte-identical to the annotated source. Preparing the packet is review readiness, not an accepted external review or adoption event.
+The frozen `synthetic-screen-01` and `synthetic-screen-02` fixtures also have $0 re-audit packages. Run `./scripts/prepare-screen-01-review.sh` or `./scripts/prepare-screen-02-review.sh` to validate locked annotation inputs, regenerate the ignored video, verify six deterministic visual checkpoints, score the reference candidate, and run the offline verifier. Each helper reports the frozen source hash and local hash separately because macOS system-speech audio and container bytes can vary; it does not mislabel a locally regenerated video as byte-identical to the annotated source. Preparing a packet is review readiness, not an accepted external review or adoption event.
 
 ## Independent reproduction
 

@@ -88,41 +88,50 @@ for (const requiredText of [
 }
 console.log('PASS locked presentation review snapshot and checkpoint RGB contract');
 
-const screenReviewLock = JSON.parse(
-  readFileSync(resolve(root, 'reviews', 'synthetic-screen-01-review-lock.json'), 'utf8'),
-);
-for (const [path, expectedHash] of Object.entries(screenReviewLock.lockedFiles)) {
-  const actualHash = createHash('sha256').update(readFileSync(resolve(path))).digest('hex');
-  if (actualHash !== expectedHash) {
-    throw new Error(`Screen fixture review lock mismatch for ${path}.`);
+const screenReviewCases = [
+  ['synthetic-screen-01', '1ed2ef8c8910f188ea6de2714704808dae1bf88d4d6e28237b0855901ff0a54f', 'prepare-screen-01-review.sh'],
+  ['synthetic-screen-02', '4e932f158ea54303d80c2719d7d7a8f2ebdb2a0456239803fe785b2a89989904', 'prepare-screen-02-review.sh'],
+] as const;
+for (const [fixtureId, sourceHash, helperFile] of screenReviewCases) {
+  const screenReviewLock = JSON.parse(
+    readFileSync(resolve(root, 'reviews', `${fixtureId}-review-lock.json`), 'utf8'),
+  );
+  for (const [path, expectedHash] of Object.entries(screenReviewLock.lockedFiles)) {
+    const actualHash = createHash('sha256').update(readFileSync(resolve(path))).digest('hex');
+    if (actualHash !== expectedHash) {
+      throw new Error(`Screen fixture review lock mismatch for ${path}.`);
+    }
   }
-}
-if (
-  screenReviewLock.fixtureId !== 'synthetic-screen-01' ||
-  screenReviewLock.annotatedSource.sha256 !== '1ed2ef8c8910f188ea6de2714704808dae1bf88d4d6e28237b0855901ff0a54f' ||
-  screenReviewLock.annotatedSource.durationSec !== 600 ||
-  screenReviewLock.lockedFiles['tools/verify-screen-review-frames.py'] !==
-    '92d63c406c602f5093a0c57e2183562ac8e7f8097b610f8938acc1d8dc7b4661' ||
-  screenReviewLock.checkpointFrames.length !== 6 ||
-  screenReviewLock.checkpointFrames.some(
-    (checkpoint: Record<string, unknown>) =>
-      !Array.isArray(checkpoint.pixelSize) ||
-      checkpoint.pixelSize[0] !== 960 ||
-      checkpoint.pixelSize[1] !== 540 ||
-      typeof checkpoint.rgbSha256 !== 'string' ||
-      !/^[a-f0-9]{64}$/.test(checkpoint.rgbSha256),
-  )
-) {
-  throw new Error('Screen fixture review lock metadata or checkpoint RGB hashes are incomplete.');
-}
-const screenReviewHelper = readFileSync(resolve('scripts', 'prepare-screen-01-review.sh'), 'utf8');
-for (const requiredText of [
-  'verify-screen-review-frames.py',
-  'macOS system speech and container bytes are not treated as deterministic',
-  'No media was uploaded and no model or paid service was called.',
-]) {
-  if (!screenReviewHelper.includes(requiredText)) {
-    throw new Error(`Screen fixture review helper is missing: ${requiredText}`);
+  if (
+    screenReviewLock.fixtureId !== fixtureId ||
+    screenReviewLock.annotatedSource.sha256 !== sourceHash ||
+    screenReviewLock.annotatedSource.durationSec !== 600 ||
+    screenReviewLock.lockedFiles['tools/verify-screen-review-frames.py'] !==
+      '92d63c406c602f5093a0c57e2183562ac8e7f8097b610f8938acc1d8dc7b4661' ||
+    screenReviewLock.checkpointFrames.length !== 6 ||
+    screenReviewLock.checkpointFrames.some(
+      (checkpoint: Record<string, unknown>) =>
+        !Array.isArray(checkpoint.pixelSize) ||
+        checkpoint.pixelSize[0] !== 960 ||
+        checkpoint.pixelSize[1] !== 540 ||
+        typeof checkpoint.rgbSha256 !== 'string' ||
+        !/^[a-f0-9]{64}$/.test(checkpoint.rgbSha256),
+    )
+  ) {
+    throw new Error(`Screen fixture review lock is incomplete for ${fixtureId}.`);
+  }
+  const screenReviewHelper = readFileSync(
+    resolve('scripts', helperFile),
+    'utf8',
+  );
+  for (const requiredText of [
+    'verify-screen-review-frames.py',
+    'macOS system speech and container bytes are not treated as deterministic',
+    'No media was uploaded and no model or paid service was called.',
+  ]) {
+    if (!screenReviewHelper.includes(requiredText)) {
+      throw new Error(`Screen fixture review helper is missing for ${fixtureId}: ${requiredText}`);
+    }
   }
 }
 console.log('PASS locked frozen-fixture review snapshot and checkpoint RGB contract');
