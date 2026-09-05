@@ -5,7 +5,7 @@
   "id": "https://sarvob.github.io/gemini-agentic-video-benchmark/datapackage.json",
   "version": "0.4-exploratory",
   "created": "2026-09-04T20:02:00Z",
-  "description": "Portable metadata for the frozen fixture manifest, eleven v0.4 result attempts, canonical five-pair aggregate, and deterministic paired uncertainty analysis. The exploratory sample does not establish statistical significance or general model superiority.",
+  "description": "Portable metadata for the frozen fixture manifest, eleven v0.4 result attempts, canonical five-pair aggregate, flat CSV summary, and deterministic paired uncertainty analysis. The exploratory sample does not establish statistical significance or general model superiority.",
   "homepage": "https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark",
   "licenses": [{"name": "MIT", "path": "https://spdx.org/licenses/MIT"}],
   "keywords": ["agentic-ai", "benchmark", "gemini", "multimodal-evaluation", "reproducible-research", "video-understanding"],
@@ -57,6 +57,17 @@
       "encoding": "utf-8",
       "bytes": 5099,
       "hash": "sha256:2e93af85beed8c9b59e3753c0871b369abba6e152c3673fdfc77d54a7eea60cc"
+    },
+    {
+      "name": "final-results-csv",
+      "path": "benchmark/final-results.csv",
+      "title": "Flat five-pair metric summary",
+      "description": "Eleven quality, efficiency, and constraint rows generated deterministically from the canonical aggregate.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "bytes": 874,
+      "hash": "sha256:f21b8216a21742539f2156a3ae2217f3e60c07b9f90887d90035bbeae02086f6"
     }
   ]
 }

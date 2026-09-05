@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "analyze:uncertainty": "tsx tools/analyze-gemini-video-uncertainty.ts",
+    "build:csv": "tsx tools/build-final-results-csv.ts",
     "build:huggingface": "tsx tools/build-huggingface-manifests.ts",
     "preflight:result-card": "tsx tools/preflight-result-card-submission.ts",
     "score": "tsx tools/score-gemini-video-benchmark.ts",

@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { validateResultCard } from './result-card-validator.ts';
+import { buildFinalResultsCsv } from './build-final-results-csv.ts';
 
 const root = resolve('benchmark');
 const fixtures = [
@@ -130,6 +131,18 @@ for (const key of Object.keys(expected) as Array<keyof typeof expected>) {
 }
 
 console.log('PASS final five-pair aggregate and canonical JSON');
+
+const finalResultsCsv = readFileSync(resolve(root, 'final-results.csv'), 'utf8');
+const pagesFinalResultsCsv = readFileSync(resolve('docs', 'final-results.csv'), 'utf8');
+if (
+  finalResultsCsv !== buildFinalResultsCsv(committedAggregate) ||
+  pagesFinalResultsCsv !== finalResultsCsv ||
+  finalResultsCsv.trim().split('\n').length !== 12 ||
+  !finalResultsCsv.startsWith('section,metric,unit,agentic,static,agentic_minus_static,agentic_vs_static_percent,denominator\n')
+) {
+  throw new Error('Flat CSV summary does not match the canonical aggregate.');
+}
+console.log('PASS deterministic flat CSV metric summary');
 
 const resultCardSchema = JSON.parse(readFileSync(resolve(root, 'result-card-schema-v0.1.json'), 'utf8'));
 const resultCard = JSON.parse(readFileSync(resolve(root, 'result-card-example-v0.1.json'), 'utf8'));
@@ -324,7 +337,7 @@ if (
   dataPackage.version !== '0.4-exploratory' ||
   dataPackage.homepage !== 'https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark' ||
   dataPackage.licenses?.[0]?.name !== 'MIT' ||
-  dataPackage.resources?.length !== 4 ||
+  dataPackage.resources?.length !== 5 ||
   JSON.stringify(pagesDataPackage) !== JSON.stringify(dataPackage) ||
   JSON.stringify(dataPackage).toLowerCase().includes('email')
 ) {
@@ -403,6 +416,7 @@ if (
   !hubHtml.includes('<link rel="alternate" type="application/ld+json" href="codemeta.json"') ||
   !hubHtml.includes('profile="http://mlcommons.org/croissant/1.1"') ||
   !hubHtml.includes('<a href="CITATION.bib">BibTeX</a>') ||
+  !hubHtml.includes('<a href="final-results.csv">CSV results</a>') ||
   !hubHtml.includes('<a href="codemeta.json">CodeMeta 3.1</a>') ||
   !hubHtml.includes('<a href="datapackage.json">Data Package</a>') ||
   !hubHtml.includes('<a href="croissant.json">Croissant 1.1</a>') ||
@@ -445,6 +459,7 @@ for (const requiredText of [
   'BibTeX citation',
   'Data Package descriptor',
   'Croissant 1.1 metadata',
+  'Flat CSV metric summary',
 ]) {
   if (!agentIndex.includes(requiredText)) throw new Error(`Agent index is missing: ${requiredText}`);
 }

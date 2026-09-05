@@ -15,6 +15,7 @@ This file follows the llms.txt v2 proposal to help agents navigate public projec
 - [Full benchmark report](https://paperedits.com/benchmarking/gemini-agentic-video-understanding-benchmark): Narrative methodology, findings, limitations, and product affiliation.
 - [Frozen protocol v0.4](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/protocol-v0.4.md): Active evaluation protocol and exclusion rules.
 - [Canonical aggregate](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/final-results.json): Machine-readable results for the five valid paired fixtures.
+- [Flat CSV metric summary](https://sarvob.github.io/gemini-agentic-video-benchmark/final-results.csv): Eleven deterministic quality, efficiency, and constraint rows for spreadsheets and lightweight analysis.
 - [Paired uncertainty analysis](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/uncertainty-v0.4.md): Deterministic bootstrap intervals and exact sign-flip diagnostics.
 - [Publication package](https://raw.githubusercontent.com/sarvob/gemini-agentic-video-benchmark/main/benchmark/publication-package-v0.4.md): Release contents, claims that are supported, and claims that are not supported.
 
